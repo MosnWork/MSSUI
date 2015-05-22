@@ -1,0 +1,95 @@
+/**
+ * modules.css
+ * Mosn 2015.5.22
+ * From mosnwork
+ */
+
+/**********************
+ * 标题  排版  h1-h6
+ **********************/
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.9em;
+    margin: 0;
+    padding: 0;
+}
+h1,
+.h1 {
+    font-size: 36px;
+}
+h2,
+.h2 {
+    font-size: 30px;
+}
+h3,
+.h3 {
+    font-size: 24px;
+}
+h4,
+.h4 {
+    font-size: 18px;
+}
+h5,
+.h5 {
+    font-size: 14px;
+}
+h6,
+.h6 {
+    font-size: 12px;
+}
+h1 .small,
+.h1 .small,
+h2 .small,
+.h2 .small,
+h3 .small,
+.h3 .small,
+h4 .small,
+.h4 .small,
+h5 .small,
+.h5 .small,
+h6 .small,
+.h6 .small,
+h1 small,
+.h1 small,
+h2 small,
+.h2 small,
+h3 small,
+.h3 small,
+h4 small,
+.h4 small,
+h5 small,
+.h5 small,
+h6 small,
+.h6 small {
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 1;
+    font-size: 65%;
+    color: #777;
+    margin-left: 10px;
+}
+/**********************
+ * 代码块  排版  pre code
+ **********************/
+.code {
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+    border: 0;
+    border: none;
+    width: 99%;
+}

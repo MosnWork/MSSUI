@@ -1,0 +1,80 @@
+.demo-container{
+    width: 100%;
+    height: auto;
+    float: left;
+}
+.demo-mgt10{
+    margin-top: 10px;
+}
+/*
+@ 全局背景色样式
+*/
+
+.bg-white {
+    background: #FF0000;
+    color: #ffffff;
+}
+.bg-Red {
+    background: #FF0000;
+    color: #ffffff;
+}
+.bg-Orange {
+    background: #FF7E00;
+    color: #ffffff;
+}
+.bg-Gold {
+    background: #FFC000;
+    color: #ffffff;
+}
+.bg-Yellow {
+    background: #E6D200;
+    color: #ffffff;
+}
+.bg-YellowGreen {
+    background: #74C600;
+    color: #ffffff;
+}
+.bg-Green {
+    background: #2D8F26;
+    color: #ffffff;
+}
+.bg-Teal {
+    background: #268F81;
+    color: #ffffff;
+}
+.bg-DarkCyan {
+    background: #347C85;
+    color: #ffffff;
+}
+.bg-SkyBlue {
+    background: #00A0F3;
+    color: #ffffff;
+}
+.bg-Blue {
+    background: #2D7CFF;
+    color: #ffffff;
+}
+.bg-MediumBlue {
+    background: #6F6FD6;
+    color: #ffffff;
+}
+.bg-BlueViolet {
+    background: #804CD9;
+    color: #ffffff;
+}
+.bg-Purple {
+    background: #834CAC;
+    color: #ffffff;
+}
+.bg-Fuchsia {
+    background: #FF00F6;
+    color: #ffffff;
+}
+.bg-DeepPink {
+    background: #FF0090;
+    color: #ffffff;
+}
+.bg-Black {
+    background: #000000;
+    color: #ffffff;
+}

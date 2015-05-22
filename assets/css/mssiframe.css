@@ -1,0 +1,444 @@
+/**
+ * mssiframe.css
+ * Mosn 2015.5.20
+ * From mosnwork
+ */
+
+/* 清理浮动 */
+.fn-clear:after {
+    visibility:hidden;
+    display:block;
+    font-size:0;
+    content:" ";
+    clear:both;
+    height:0;
+}
+.fn-clear {
+    zoom:1; /* for IE6 IE7 */
+}
+/*全局格式化*/
+
+html,
+body {
+    overflow: hidden
+}
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+/* 头部 */
+
+.header {
+    width: 100%;
+    height: auto;
+    float: left;
+    background: #074f7d;
+    FILTER: progid: DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr=#074f7d, endColorStr=#0f6296);
+    /*IE 6 7 8*/
+    background: -ms-linear-gradient(top, #074f7d, #0f6296);
+    /* IE 10 */
+    background: -moz-linear-gradient(top, #074f7d, #0f6296);
+    /*火狐*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#074f7d), to(#0f6296));
+    /*谷歌*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#074f7d), to(#0f6296));
+    /* Safari 4-5, Chrome 1-9*/
+    background: -webkit-linear-gradient(top, #074f7d, #0f6296);
+    /*Safari5.1 Chrome 10+*/
+    background: -o-linear-gradient(top, #074f7d, #0f6296);
+    /*Opera 11.10+*/
+    position: relative;
+    z-index: 999;
+}
+.h-info {
+    float: left;
+    height: auto;
+    width: 100%;
+}
+.h-info span {
+    color: #fff;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 5px;
+    width: auto;
+    font-size: 1.2em;
+}
+/*media 响应*/
+
+.h-info span.media {
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+}
+.h-nav-user {
+    color: #fff;
+    float: right;
+    height: 30px;
+    line-height: 30px;
+    padding-right: 5px;
+    width: auto;
+}
+/*media 响应*/
+
+.h-nav-user-media {
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+}
+.h-nav-user a {
+    color: #c1d5ec;
+    margin-left: 5px;
+}
+.h-nav {
+    border-bottom: 1px solid #000000;
+    float: left;
+    height: 24px;
+    margin-top: 5px;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+.h-nav-home {
+    width: 14px;
+    height: 14px;
+    padding: 5px 11px;
+    overflow: hidden;
+    float: left;
+    margin-left: 5px;
+    margin-right: 5px;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    font-size: 1.2em;
+    cursor: pointer;
+    background: #e1eef8;
+    FILTER: progid: DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr=#f6fafd, endColorStr=#e1eef8);
+    /*IE 6 7 8*/
+    background: -ms-linear-gradient(top, #f6fafd, #e1eef8);
+    /* IE 10 */
+    background: -moz-linear-gradient(top, #f6fafd, #e1eef8);
+    /*火狐*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f6fafd), to(#e1eef8));
+    /*谷歌*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f6fafd), to(#e1eef8));
+    /* Safari 4-5, Chrome 1-9*/
+    background: -webkit-linear-gradient(top, #f6fafd, #e1eef8);
+    /*Safari5.1 Chrome 10+*/
+    background: -o-linear-gradient(top, #f6fafd, #e1eef8);
+    /*Opera 11.10+*/
+}
+.h-nav-home i {
+    float: left
+}
+.h-nav-box {
+    width: auto;
+    height: 25px;
+    bottom: 0px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+/*media 响应*/
+
+.h-nav-box-media {
+    overflow-x: auto;
+}
+.h-nav ul {
+    width: auto;
+    height: 25px;
+    bottom: 0px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+.h-nav ul li {
+    float: left;
+    width: auto;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 10px;
+    margin-right: 5px;
+    background: #e0e0e0;
+    border-bottom: 1px solid #000000;
+    border-bottom: none;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    cursor: pointer;
+    FILTER: progid: DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr=#e5f0f7, endColorStr=#a5cae3);
+    /*IE 6 7 8*/
+    background: -ms-linear-gradient(top, #e5f0f7, #a5cae3);
+    /* IE 10 */
+    background: -moz-linear-gradient(top, #e5f0f7, #a5cae3);
+    /*火狐*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5f0f7), to(#a5cae3));
+    /*谷歌*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5f0f7), to(#a5cae3));
+    /* Safari 4-5, Chrome 1-9*/
+    background: -webkit-linear-gradient(top, #e5f0f7, #a5cae3);
+    /*Safari5.1 Chrome 10+*/
+    background: -o-linear-gradient(top, #e5f0f7, #a5cae3);
+    /*Opera 11.10+*/
+}
+.h-nav ul li.current {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+}
+/* 工作区 */
+
+.main {
+    width: 100%;
+    height: 100%;
+    float: left;
+    padding: 10px 0;
+    padding-bottom: 5px;
+}
+/* 左侧列表 */
+
+.mynav {
+    position: relative;
+    float: left;
+    width: 200px;
+    margin-right: -200px;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    -webkit-border-radius: 0 3px 3px 0;
+    -moz-border-radius: 0 3px 3px 0;
+    border-radius: 0 3px 3px 0;
+    background: #f2f5f8;
+    box-shadow: 0 1px 3px #cccccc;
+    -moz-box-shadow: 0 1px 3px #cccccc;
+    -webkit-box-shadow: 0 1px 3px #cccccc;
+}
+.mynav ul {
+    width: 100%;
+    padding: 0 10px;
+    float: left;
+    cursor: pointer;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.mynav ul.list {
+    padding: 0 16px;
+    padding-right: 0;
+}
+.mynav ul li {
+    width: 100%;
+    float: left;
+    overflow: hidden
+}
+.mynav ul li p {
+    width: 100%;
+    float: left;
+    line-height: 30px;
+    border-bottom: 1px solid #dadada;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+}
+.mynav ul.list li p {
+    border-bottom: none;
+}
+.mynav ul li p i {
+    margin-right: 5px;
+    color: #0f6296;
+}
+.mynav ul li p.current{
+    color: #FF7E00;
+}
+.mynav ul li p.current i {
+    color: #FF7E00;
+}
+/* 右侧工作区 */
+
+.mywork {
+    float: right;
+    width: 100%;
+    height: 100%;
+}
+.myiframe {
+    margin-left: 210px;
+    margin-right: 5px;
+    height: 100%;
+}
+/*media 响应*/
+
+.mynav-media {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-right: 0;
+    max-height: 125px;
+}
+.mywork-media {
+    float: right;
+    width: 100%;
+    margin-top: 10px;
+}
+.myiframe-media {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+/*右侧顶部导航*/
+
+.iframe-nav {
+    width: 100%;
+    height: 25px;
+    border-bottom: 1px solid #dadada;
+    float: left;
+}
+.iframe-nav-left,
+.iframe-nav-right {
+    position: relative;
+    height: 25px;
+    width: 15px;
+    line-height: 25px;
+    cursor: pointer;
+}
+.iframe-nav-left {
+    text-align: left;
+    margin-right: -15px;
+    float: left;
+}
+.iframe-nav-right {
+    text-align: right;
+    margin-left: -15px;
+    float: right;
+}
+.iframe-nav-box {
+    float: left;
+    width: 100%;
+}
+.iframe-nav-bf {
+    margin: 0 15px;
+    height: 26px;
+    position: relative;
+    overflow: hidden
+}
+.iframe-nav dl {
+    width: 99999px;
+    height: 26px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.iframe-nav dt {
+    float: left;
+    width: auto;
+    padding: 0 10px;
+    height: 24px;
+    line-height: 24px;
+    margin-right: 5px;
+    border: 1px solid #dadada;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+    cursor: pointer;
+    background: #e5f0f7;
+    FILTER: progid: DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr=#e5f0f7, endColorStr=#a5cae3);
+    /*IE 6 7 8*/
+    background: -ms-linear-gradient(top, #e5f0f7, #a5cae3);
+    /* IE 10 */
+    background: -moz-linear-gradient(top, #e5f0f7, #a5cae3);
+    /*火狐*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5f0f7), to(#a5cae3));
+    /*谷歌*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e5f0f7), to(#a5cae3));
+    /* Safari 4-5, Chrome 1-9*/
+    background: -webkit-linear-gradient(top, #e5f0f7, #a5cae3);
+    /*Safari5.1 Chrome 10+*/
+    background: -o-linear-gradient(top, #e5f0f7, #a5cae3);
+    /*Opera 11.10+*/
+}
+.iframe-nav dt.current {
+    border-bottom: 1px solid #fff;
+    background: #fff;
+}
+.iframe-nav dt i {
+    margin-left: 5px;
+}
+/*世纪工作区*/
+
+.iframe-box {
+    float: left;
+    width: 100%;
+    height: 100%;
+    margin-top: 5px;
+}
+.iframe-box li {
+    float: left;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: none;
+}
+.iframe-box li iframe {
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+.iframe-box li.current {
+    display: block
+}
+
+
+/*右击菜单*/
+.right-click-menu {
+    width: 120px;
+    height: auto;
+    position: absolute;
+    z-index: 999;
+    background: #fafafa;
+    box-shadow: 0 1px 3px #cccccc;
+    border: 1px solid #d1d1d1;
+    border-bottom: none;
+    border-radius: 2px;
+}
+.right-click-menu li {
+    width: 120px;
+    height: 29px;
+    float: left;
+    line-height: 29px;
+    border-bottom: 1px solid #d1d1d1;
+    cursor: pointer;
+}
+.right-click-menu li i{
+    margin:0 10px;
+}
+.right-click-menu li:hover {
+    background: #d1d1d1
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

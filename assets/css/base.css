@@ -1,0 +1,112 @@
+/* 清理浮动 */
+
+.fn-clear:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.fn-clear {
+    zoom: 1;
+    /* for IE6 IE7 */
+}
+/* 单行文字溢出时出现省略号，需设定宽度 */
+
+.fn-text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.fn-text-align {
+     text-align: center
+}
+/*内边距*/
+
+.fn-pl10 {
+    padding-left: 10px;
+}
+.fn-pr10 {
+    padding-right: 10px;
+}
+.fn-pt10 {
+    padding-top: 10px;
+}
+.fn-pb10 {
+    padding-bottom: 10px;
+}
+.fn-ptb10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.fn-plr10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.fn-p10 {
+    padding: 10px;
+}
+/*外边距*/
+
+.fn-ml10 {
+    margin-left: 10px;
+}
+.fn-mr10 {
+    margin-right: 10px;
+}
+.fn-mt10 {
+    margin-top: 10px;
+}
+.fn-mb10 {
+    margin-bottom: 10px;
+}
+.fn-mtb10 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.fn-mlr10 {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.fn-m10 {
+    margin: 10px;
+}
+.fn-m5 {
+    margin: 5px;
+}
+/*1像素边框 -灰色*/
+
+.fn-bor1-gay {
+    border: 1px solid #cdcdcd;
+}
+
+/*2-5像素圆角*/
+.fn-bra2 {
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+}
+.fn-bra3 {
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+}
+.fn-bra4 {
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+}
+.fn-bra5 {
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+}

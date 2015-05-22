@@ -1,0 +1,258 @@
+/**
+ * gird.css
+ * Mosn 2015.5.22
+ * From mosnwork
+ */
+
+/**********************
+ * 响应式布局 栅格系统 16栅格
+ **********************/
+
+/*行元素*/
+
+.fluid-row {
+    width: 100%;
+    height: auto;
+    float: left;
+}
+/*列元素*/
+
+.column1,
+.column2,
+.column3,
+.column4,
+.column5,
+.column6,
+.column7,
+.column8,
+.column9,
+.column10,
+.column11,
+.column12,
+.column13,
+.column14,
+.column15,
+.column16 {
+    height: auto;
+    float: left;
+}
+.column1 {
+    width: 6.25%;
+}
+.column2 {
+    width: 12.5%;
+}
+.column3 {
+    width: 18.75%;
+}
+.column4 {
+    width: 25%;
+}
+.column5 {
+    width: 31.25%;
+}
+.column6 {
+    width: 37.5%;
+}
+.column7 {
+    width: 43.75%;
+}
+.column8 {
+    width: 50%;
+}
+.column9 {
+    width: 56.25%;
+}
+.column10 {
+    width: 62.5%;
+}
+.column11 {
+    width: 68.75%;
+}
+.column12 {
+    width: 75%;
+}
+.column13 {
+    width: 81.25%;
+}
+.column14 {
+    width: 87.5%;
+}
+.column15 {
+    width: 93.75%;
+}
+.column16 {
+    width: 100%;
+}
+/*响应计算*/
+
+@media (max-width: 960px) {
+    /*这样是为了让列在响应式不要和上面的列合并到一起会造成有10个像素的空隙，同样也会造成外层的row有10像素的下方空隙*/
+    .column1,
+    .column2,
+    .column3,
+    .column4,
+    .column5,
+    .column6,
+    .column7,
+    .column8,
+    .column9,
+    .column10,
+    .column11,
+    .column12,
+    .column13,
+    .column14,
+    .column15,
+    .column16 {
+        margin-bottom: 10px;
+    }
+}
+/*640-960*/
+
+@media (min-width: 640px) and (max-width: 960px) {
+    .column1,
+    .column2 {
+        width: 12.5%;
+    }
+    .column3,
+    .column4 {
+        width: 25%;
+    }
+    .column5,
+    .column6 {
+        width: 37.5%;
+    }
+    .column7,
+    .column8,
+    .column9 {
+        width: 50%;
+    }
+    .column10,
+    .column11 {
+        width: 62.5%;
+    }
+    .column12,
+    .column13 {
+        width: 75%;
+    }
+    .column14,
+    .column15 {
+        width: 87.5%;
+    }
+}
+/*480-640*/
+
+@media (min-width: 480px) and (max-width: 640px) {
+    .column1,
+    .column2,
+    .column3,
+    .column4,
+    .column5 {
+        width: 25%;
+    }
+    .column6,
+    .column7,
+    .column8,
+    .column9,
+    .column10 {
+        width: 50%;
+    }
+    .column11,
+    .column12,
+    .column13,
+    .column14,
+    .column15 {
+        width: 75%;
+    }
+}
+/*480-640*/
+
+@media (max-width: 480px) {
+    .column1,
+    .column2,
+    .column3,
+    .column4,
+    .column5,
+    .column6,
+    .column7,
+    .column8,
+    .column9,
+    .column10,
+    .column11,
+    .column12,
+    .column13,
+    .column14,
+    .column15 {
+        width: 50%;
+    }
+}
+/*实际内容框*/
+
+/*可以增加padding margin border*/
+
+.column-actual {
+    height: auto;
+    width: auto;
+    overflow: hidden;
+    zoom: 1;
+}
+.column-actual:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+/**********************
+ * 强制栅格系统不适应，就是在定宽情况下乱动
+ **********************/
+
+.limit-column .column1 {
+    width: 6.25%;
+}
+.limit-column .column2 {
+    width: 12.5%;
+}
+.limit-column .column3 {
+    width: 18.75%;
+}
+.limit-column .column4 {
+    width: 25%;
+}
+.limit-column .column5 {
+    width: 31.25%;
+}
+.limit-column .column6 {
+    width: 37.5%;
+}
+.limit-column .column7 {
+    width: 43.75%;
+}
+.limit-column .column8 {
+    width: 50%;
+}
+.limit-column .column9 {
+    width: 56.25%;
+}
+.limit-column .column10 {
+    width: 62.5%;
+}
+.limit-column .column11 {
+    width: 68.75%;
+}
+.limit-column .column12 {
+    width: 75%;
+}
+.limit-column .column13 {
+    width: 81.25%;
+}
+.limit-column .column14 {
+    width: 87.5%;
+}
+.limit-column .column15 {
+    width: 93.75%;
+}
+.limit-column .column16 {
+    width: 100%;
+}

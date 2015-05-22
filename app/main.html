@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+        <!-- no cache headers -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <!-- end no cache headers -->
+    <title>MSSUI前端基础构成</title>
+    <link href="../assets/css/reset.css" rel="stylesheet">
+    <script src="../assets/js/jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+    系统集成框架
+    <p style="height:50px;"><a id='open'>打开一个key为z12的新窗口</a></p>
+    <p style="height:50px;"><a id='close'>关闭key为z12窗口</a></p>
+    <p style="height:50px;"><a id='send'>发送一个信息</a></p>
+</body>
+<script type="text/javascript">
+    $("#open").click(function(){
+        //这里就是调用顶级父窗口打开页面的方法
+        top.MSS_Iframe.openIframe({
+            title:"打开一个新窗口",
+            url:"app/Layout/D.html",
+            key:"z12"
+        });
+    })
+    $("#close").click(function(){
+        //这里是关闭对应key的
+        top.MSS_Iframe.closeIframe("z12");
+    })
+        $("#send").click(function(){
+        //这里是关闭对应key的
+        top.MSS_Iframe.sendMsg({
+            text: "我是发送的信息，我延迟关闭",
+            location: "bottom,right",
+            secs: 3
+        });
+    })
+    </script>
+</html>

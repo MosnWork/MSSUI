@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- no cache headers -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <!-- end no cache headers -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>mssiframe 框架集成外壳</title>
+    <!------------------------>
+    <!-- CSS请在发布前合并压缩 -->
+    <!------------------------>
+    <!-- 重置默认 -->
+    <link href="../../assets/css/reset.css" rel="stylesheet">
+    <!-- 基础功能 -->
+    <link href="../../assets/css/base.css" rel="stylesheet">
+    <!-- 栅格布局 -->
+    <link href="../../assets/css/gird.css" rel="stylesheet">
+    <!-- 模块开发 -->
+    <link href="../../assets/css/modules.css" rel="stylesheet">
+    <!-- 字体文件 -->
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
+    <!-- 支持IE78 IE6就死去吧-->
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="../../assets/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!-- Demo  这个请在实际项目中删除 -->
+    <link href="../../assets/css/demo.css" rel="stylesheet">
+    <!------------------------>
+    <!-- CSS请在发布前合并压缩 -->
+    <!------------------------>
+    <!-- JQ 183稳定版本 -->
+    <script src="../../assets/js/jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+    <!--主视图-->
+    <div class="demo-container">
+        <div class="fluid-row ">
+            <div class="column16">
+                <div class="column-actual ">
+                    <h4>下拉菜单<small>css 前缀：mss-dropdown</small></h4>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row ">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>常见盒子模型<small>css 前缀：mss-box</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <div class="mss-dropdown">
+                                    <div class="mss-dropdown-text">
+                                        <input class="mss-dropdown-input" type="text" value="设置代扣" onfocus="this.blur()" readonly/>
+                                        <input class="mss-dropdown-val" type="hidden" value="1" />
+                                        <i class="icon-angle-down" title="点击选择"></i>
+                                    </div>
+                                    <ul class="mss-dropdown-list fn-show">
+                                        <li class="mss-dropdown-list-item fn-text-overflow" data-value="2">
+                                            <span>标为已缴</span>
+                                        </li>
+                                        <li class="mss-dropdown-list-item fn-text-overflow" data-value="2">
+                                            <span>标为已缴</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual">
+                    <div class="mss-dropdown">
+                        <div class="mss-dropdown-text">
+                            <input class="mss-dropdown-input" type="text" value="设置代扣" onfocus="this.blur()" readonly/>
+                            <input class="mss-dropdown-val" type="hidden" value="1" />
+                            <i class="icon-angle-down" title="点击选择"></i>
+                        </div>
+                        <ul class="mss-dropdown-list fn-show">
+                            <li class="mss-dropdown-list-item fn-text-overflow" data-value="2">
+                                <span>标为已缴</span>
+                            </li>
+                            <li class="mss-dropdown-list-item fn-text-overflow" data-value="2">
+                                <span>标为已缴</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row fn-mt10">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>复选框<small>选择后自动拼接成数组</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <div class="mss-dropdown">
+                                    <div class="mss-dropdown-text">
+                                        <input class="mss-dropdown-input" type="text" value="设置代扣" onfocus="this.blur()" readonly/>
+                                        <input class="mss-dropdown-val" type="hidden" value="1" />
+                                        <i class="icon-angle-down" title="点击选择"></i>
+                                    </div>
+                                    <ul class="mss-dropdown-list fn-show">
+                                        <li class="mss-dropdown-list-item fn-text-overflow" data-value="1">
+                                            <label class="m-dropdown-label">
+                                                <input class="m-dropdown-checkbox" type="checkbox" value="1" data-text="设置代扣" />
+                                                <span>设置代扣设置代扣设置代扣设置代扣设置代扣</span>
+                                            </label>
+                                        </li>
+                                        <li class="mss-dropdown-list-item fn-text-overflow" data-value="1">
+                                            <label class="m-dropdown-label">
+                                                <input class="m-dropdown-checkbox" type="checkbox" value="1" data-text="设置代扣" />
+                                                <span>设置代扣设置代扣设置代扣设置代扣设置代扣</span>
+                                            </label>
+                                        </li>
+                                        <li class="mss-dropdown-list-item fn-text-overflow" data-value="1">
+                                            <label class="m-dropdown-label">
+                                                <input class="m-dropdown-checkbox" type="checkbox" value="1" data-text="设置代扣" />
+                                                <span>设置代扣设置代扣设置代扣设置代扣设置代扣</span>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual">
+                    <div class="mss-dropdown">
+                        <div class="mss-dropdown-text">
+                            <input class="mss-dropdown-input" type="text" value="设置代扣" onfocus="this.blur()" readonly/>
+                            <input class="mss-dropdown-val" type="hidden" value="1" />
+                            <i class="icon-angle-down" title="点击选择"></i>
+                        </div>
+                        <ul class="mss-dropdown-list fn-show">
+                            <li class="mss-dropdown-list-item fn-text-overflow" data-value="1">
+                                <label class="m-dropdown-label">
+                                    <input class="m-dropdown-checkbox" type="checkbox" value="1" data-text="设置代扣" />
+                                    <span>设置代扣设置代扣设置代扣设置代扣设置代扣</span>
+                                </label>
+                            </li>
+                            <li class="mss-dropdown-list-item fn-text-overflow" data-value="1">
+                                <label class="m-dropdown-label">
+                                    <input class="m-dropdown-checkbox" type="checkbox" value="1" data-text="设置代扣" />
+                                    <span>设置代扣设置代扣设置代扣设置代扣设置代扣</span>
+                                </label>
+                            </li>
+                            <li class="mss-dropdown-list-item fn-text-overflow" data-value="1">
+                                <label class="m-dropdown-label">
+                                    <input class="m-dropdown-checkbox" type="checkbox" value="1" data-text="设置代扣" />
+                                    <span>设置代扣设置代扣设置代扣设置代扣设置代扣</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- script start -->
+
+        <!-- script end -->
+</body>
+
+</html>

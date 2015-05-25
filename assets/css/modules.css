@@ -26,6 +26,23 @@ h6,
     margin: 0;
     padding: 0;
 }
+h1 a,
+.h1 a,
+h2 a,
+.h2 a,
+h3 a,
+.h3 a,
+h4 a,
+.h4 a,
+h5 a,
+.h5 a,
+h6 a,
+.h6 a {
+    font-size: 12px;
+    float: right;
+    color: #08c;
+    text-decoration: none;
+}
 h1,
 .h1 {
     font-size: 36px;
@@ -84,6 +101,7 @@ h6 small,
 /**********************
  * 代码块  排版  pre code
  **********************/
+
 .code {
     font-size: 12px;
     line-height: 1.42857143;
@@ -93,3 +111,227 @@ h6 small,
     border: none;
     width: 99%;
 }
+/**********************
+ * 标准区块  mss-box
+ **********************/
+
+.mss-box {
+    border: 1px solid #ccc;
+    zoom: 1;
+    border-bottom: none;
+}
+.mss-box:after {
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    content: ".";
+}
+.mss-box-head {
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    padding: 0 10px;
+}
+.mss-box-container {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+.mss-box-content {
+    padding: 10px;
+}
+.mss-box-follow {
+    border-top: none;
+}
+/**********************
+ * 下拉盒子  mss-dropdown
+ **********************/
+
+.mss-dropdown {
+    zoom: 1;
+    position: relative;
+    display: inline-block;
+}
+.mss-dropdown:after {
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    content: ".";
+}
+.mss-dropdown-text {
+    position: relative;
+    z-index: 1;
+}
+.mss-dropdown-input {
+    padding: 5px 5px;
+    text-align: left;
+    padding-right: 20px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer
+}
+.mss-dropdown-text i {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    margin-top: -7px;
+    right: 8px;
+    cursor: pointer;
+}
+.mss-dropdown-list {
+    width: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 2;
+    top: 29px;
+    background: #fcfcfc;
+    left: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    display: none;
+    width: 98%\9;
+    /* IE6, IE7, IE8, IE9, IE10 */
+}
+.mss-dropdown-list-item {
+    width: 100%;
+    text-indent: 5px;
+    padding: 5px 0;
+    border-bottom: 1px solid #e7e7e7;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mss-dropdown-list-item .m-dropdown-label {
+    width: 100%;
+    cursor: pointer
+}
+.mss-dropdown-list-item .m-dropdown-label .m-dropdown-checkbox {
+    float: left;
+    margin-top: 2px;
+    margin-left: 5px;
+}
+.mss-dropdown-list-item:last-child {
+    border-bottom: none;
+}
+.mss-dropdown-list-item:hover {
+    background: #e9e9e9;
+}
+.mss-dropdown-box {
+    width: auto;
+    min-width: 99%;
+    position: absolute;
+    z-index: 2;
+    top: 29px;
+    background: #fcfcfc;
+    left: 0;
+    border: 1px solid #cecece;
+    max-height: 500px;
+    overflow-y: scroll;
+    display: none;
+}
+/**********************
+ * 按钮组件  mss-button
+ **********************/
+
+.mss-button {
+    padding: 4px 12px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    color: #777;
+    position: relative;
+    vertical-align: middle;
+    white-space: nowrap;
+    margin-left: -1px;
+}
+.mss-button:hover {
+    filter: alpha(opacity=70);
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+}
+.mss-button-big {
+    padding: 6px 16px;
+    font-size: 14px;
+}
+.mss-button-small {
+    padding: 3px 9px;
+    font-size: 12px;
+}
+.mss-button-group {
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.mss-button-group .mss-button {
+    float: left
+}
+.mss-button-group .mss-button:first-child {
+    border-bottom-left-radius: 2px;
+    border-top-left-radius: 2px;
+    margin-left: 0;
+}
+.mss-button-group .mss-button:last-child {
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+}
+/**********************
+ * 列表文章  mss-list
+ **********************/
+
+.mss-list {
+    list-style: inside none square;
+    margin: 0;
+}
+.mss-list-padding {
+    padding:10px;
+}
+.mss-list-nostyle {
+    list-style:  none ;
+}
+.mss-list li {
+    font-size: 12px;
+    line-height: 240%;
+        overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-indent: 10px;
+}
+.mss-list-indent li {
+    text-indent: 0px;
+}
+.mss-list li a{
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+.mss-list li span{
+    color: #999;
+    margin-left:10px;
+}
+.mss-list li:hover {
+     background: #f6f6f6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

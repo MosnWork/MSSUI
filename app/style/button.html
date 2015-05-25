@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- no cache headers -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <!-- end no cache headers -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>mssiframe 框架集成外壳</title>
+    <!------------------------>
+    <!-- CSS请在发布前合并压缩 -->
+    <!------------------------>
+    <!-- 重置默认 -->
+    <link href="../../assets/css/reset.css" rel="stylesheet">
+    <!-- 基础功能 -->
+    <link href="../../assets/css/base.css" rel="stylesheet">
+    <!-- 栅格布局 -->
+    <link href="../../assets/css/gird.css" rel="stylesheet">
+    <!-- 模块开发 -->
+    <link href="../../assets/css/modules.css" rel="stylesheet">
+    <!-- 字体文件 -->
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
+    <!-- 支持IE78 IE6就死去吧-->
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="../../assets/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!-- Demo  这个请在实际项目中删除 -->
+    <link href="../../assets/css/demo.css" rel="stylesheet">
+    <!------------------------>
+    <!-- CSS请在发布前合并压缩 -->
+    <!------------------------>
+    <!-- JQ 183稳定版本 -->
+    <script src="../../assets/js/jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+    <!--主视图-->
+    <div class="demo-container">
+        <div class="fluid-row ">
+            <div class="column16">
+                <div class="column-actual ">
+                    <h4>按钮组件<small>css 前缀：mss-button</small></h4>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row ">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>基础按钮样式<small>大小对应，big,small</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <button class="mss-button mss-button-big fn-mr10">基础按钮</button>
+                                <button class="mss-button fn-mr10 fn-bra5">圆角 fn-bra5</button>
+                                <button class="mss-button mss-button-small fn-mr10">基础按钮</button>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual">
+                    <button class="mss-button mss-button-big fn-mr10">基础按钮</button>
+                    <button class="mss-button fn-mr10 fn-bra5">圆角 fn-bra5</button>
+                    <button class="mss-button mss-button-small fn-mr10">基础按钮</button>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row fn-mt10">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>自选颜色<small>背景默认全是灰色边框的，需要颜色到MSS预制里面选</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <button class="mss-button mss-button-big fn-mr10 fn-bra5 fn-bg-Red">大红，错误，危险</button>
+                                <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange">金黄，重要，警告</button>
+                                <button class="mss-button mss-button-small fn-bra5 fn-mr10 fn-bg-Green">绿色，成功</button>
+                                <button class="mss-button mss-button-small fn-bra5 fn-mr10 fn-bg-gay">灰色，失效</button>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual">
+                    <button class="mss-button mss-button-big fn-mr10 fn-bra5 fn-bg-Red">大红，错误，危险</button>
+                    <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange">金黄，重要，警告</button>
+                    <button class="mss-button mss-button-small fn-bra5 fn-mr10 fn-bg-Green">绿色，成功</button>
+                    <button class="mss-button mss-button-small fn-bra5 fn-mr10 fn-bg-gay">灰色，失效</button>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row fn-mt10">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>按钮组<small>一些特殊的联排按钮</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <div class="mss-button-group">
+                                    <button class="mss-button fn-bg-Red">大红，错误，危险</button>
+                                    <button class="mss-button fn-bg-Orange">金黄，重要，警告</button>
+                                    <button class="mss-button fn-bg-Green">绿色，成功</button>
+                                    <button class="mss-button fn-bg-Blue">蓝色，信息</button>
+                                </div>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual">
+                    <div class="mss-button-group">
+                        <button class="mss-button fn-bg-Red">大红，错误，危险</button>
+                        <button class="mss-button fn-bg-Orange">金黄，重要，警告</button>
+                        <button class="mss-button fn-bg-Green">绿色，成功</button>
+                        <button class="mss-button fn-bg-Blue">蓝色，信息</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row fn-mt10">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>分组<small>一些特殊的联排按钮</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <div class="mss-button-group fn-mr10">
+                                    <button class="mss-button ">操作一</button>
+                                    <button class="mss-button ">操作二</button>
+                                    <button class="mss-button ">操作三</button>
+                                </div>
+                                <div class="mss-button-group">
+                                    <button class="mss-button fn-bg-Red">编辑</button>
+                                    <button class="mss-button fn-bg-Orange">删除</button>
+                                </div>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual">
+                    <div class="mss-button-group fn-mr10">
+                        <button class="mss-button ">操作一</button>
+                        <button class="mss-button ">操作二</button>
+                        <button class="mss-button ">操作三</button>
+                    </div>
+                    <div class="mss-button-group">
+                        <button class="mss-button fn-bg-Red">编辑</button>
+                        <button class="mss-button fn-bg-Orange">删除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- script start -->
+
+    <!-- script end -->
+</body>
+
+</html>

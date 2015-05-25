@@ -17,7 +17,7 @@ var menuData = [
                     },
                     {
                         "id": 112,
-                        "text": "开发目的",
+                        "text": "当前状态",
                         "href": "app/origin/Aim.html",
                         "nodes": []
                     }
@@ -31,19 +31,25 @@ var menuData = [
                     {
                         "id": 121,
                         "text": "重置样式",
-                        "href": "app/base/Reset.html",
+                        "href": "app/base/Normalize.html",
                         "nodes": []
                     },
                     {
                         "id": 122,
                         "text": "字体图标",
-                        "href": "app/base/Font.html",
+                        "href": "app/base/Awesome.html",
                         "nodes": []
                     },
                     {
                         "id": 123,
                         "text": "动画库",
-                        "href": "app/base/Animate.html",
+                        "href": "app/base/Animation.html",
+                        "nodes": []
+                    },
+                    {
+                        "id": 124,
+                        "text": "MSS预制",
+                        "href": "app/base/Function.html",
                         "nodes": []
                     }
                 ]
@@ -66,6 +72,145 @@ var menuData = [
                         "nodes": []
                     }
                 ]
+            }
+        ]
+    },
+    {
+        "id":2,
+        "text":"MSSUI基础样式库",
+        "href":"",
+        "nodes":[
+            {
+                "id":21,
+                "text":"标准区块",
+                "href":"app/style/box.html",
+                "nodes":[]
+            },
+            {
+                "id":22,
+                "text":"下拉菜单",
+                "href":"app/style/dropdown.html",
+                "nodes":[]
+            },
+            {
+                "id":23,
+                "text":"表单样式",
+                "href":"app/style/form.html",
+                "nodes":[]
+            },
+            {
+                "id":24,
+                "text":"按钮组件",
+                "href":"app/style/button.html",
+                "nodes":[]
+            },
+            {
+                "id":25,
+                "text":"链接列表",
+                "href":"app/style/list.html",
+                "nodes":[]
+            },
+            {
+                "id":26,
+                "text":"导航样式",
+                "href":"app/style/nav.html",
+                "nodes":[]
+            },
+            {
+                "id":27,
+                "text":"分页组件",
+                "href":"app/style/paging.html",
+                "nodes":[]
+            },
+            {
+                "id":21,
+                "text":"气泡提示",
+                "href":"app/style/poptip.html",
+                "nodes":[]
+            },
+            {
+                "id":28,
+                "text":"表格组件",
+                "href":"app/style/table.html",
+                "nodes":[]
+            },
+            {
+                "id":29,
+                "text":"标签切换",
+                "href":"app/style/tab.html",
+                "nodes":[]
+            },
+            {
+                "id":210,
+                "text":"通用信息",
+                "href":"app/style/tip.html",
+                "nodes":[]
+            },
+            {
+                "id":211,
+                "text":"提示文案",
+                "href":"app/style/text.html",
+                "nodes":[]
+            },
+            {
+                "id":212,
+                "text":"下拉盒子",
+                "href":"app/style/popbox.html",
+                "nodes":[]
+            },
+            {
+                "id":213,
+                "text":"树形结构",
+                "href":"app/style/tree.html",
+                "nodes":[]
+            },
+            {
+                "id":215,
+                "text":"Label",
+                "href":"app/style/label.html",
+                "nodes":[]
+            },
+            {
+                "id":216,
+                "text":"Tag",
+                "href":"app/style/tag.html",
+                "nodes":[]
+            },
+            {
+                "id":217,
+                "text":"幻灯片",
+                "href":"app/style/carousel.html",
+                "nodes":[]
+            },
+            {
+                "id":218,
+                "text":"面包屑",
+                "href":"app/style/crumbs.html",
+                "nodes":[]
+            },
+            {
+                "id":219,
+                "text":"步骤条",
+                "href":"app/style/steps.html",
+                "nodes":[]
+            },
+            {
+                "id":220,
+                "text":"导航条",
+                "href":"app/style/navbar.html",
+                "nodes":[]
+            },
+            {
+                "id":221,
+                "text":"弹出层",
+                "href":"app/style/dialog.html",
+                "nodes":[]
+            },
+            {
+                "id":222,
+                "text":"等待开发",
+                "href":"",
+                "nodes":[]
             }
         ]
     }

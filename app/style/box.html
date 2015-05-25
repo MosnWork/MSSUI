@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!-- no cache headers -->
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="no-cache">
+    <meta http-equiv="Expires" content="-1">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <!-- end no cache headers -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>mssiframe 框架集成外壳</title>
+    <!------------------------>
+    <!-- CSS请在发布前合并压缩 -->
+    <!------------------------>
+    <!-- 重置默认 -->
+    <link href="../../assets/css/reset.css" rel="stylesheet">
+    <!-- 基础功能 -->
+    <link href="../../assets/css/base.css" rel="stylesheet">
+    <!-- 栅格布局 -->
+    <link href="../../assets/css/gird.css" rel="stylesheet">
+    <!-- 模块开发 -->
+    <link href="../../assets/css/modules.css" rel="stylesheet">
+    <!-- 字体文件 -->
+    <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
+    <!-- 支持IE78 IE6就死去吧-->
+    <!--[if IE 7]>
+        <link rel="stylesheet" href="../../assets/css/font-awesome-ie7.min.css">
+    <![endif]-->
+    <!-- Demo  这个请在实际项目中删除 -->
+    <link href="../../assets/css/demo.css" rel="stylesheet">
+    <!------------------------>
+    <!-- CSS请在发布前合并压缩 -->
+    <!------------------------>
+    <!-- JQ 183稳定版本 -->
+    <script src="../../assets/js/jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+    <!--主视图-->
+    <div class="demo-container">
+        <div class="fluid-row ">
+            <div class="column16">
+                <div class="column-actual ">
+                    <h4>标准区块<small>css 前缀：mss-box</small></h4>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row ">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>常见盒子模型<small>css 前缀：mss-box</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <div class="mss-box">
+                                    <div class="mss-box-head fn-linear-light">
+                                        <h4>标准区块<small>css 前缀：mss-box</small><a href="#">更多</a></h4>
+                                    </div>
+                                    <div class="mss-box-container">
+                                        mss-box-content 有默认内边距
+                                        <br>fn-linear-light是标题的渐变色
+                                        <br>有个bug，自适应的时候如果宽度达到一定程度，会让A标签（更多）显示位置错误。
+                                    </div>
+                                </div>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>标准区块<small>css 前缀：mss-box</small><a href="#">更多</a></h4>
+                        </div>
+                        <div class="mss-box-container">
+                            mss-box-content 有默认内边距
+                            <br>fn-linear-light是标题的渐变色
+                            <br>有个bug，自适应的时候如果宽度达到一定程度，会让A标签（更多）显示位置错误。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row fn-mt10">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>内容区域隐藏<small>使用MSS预制 .fn-hide</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <div class="mss-box">
+                                    <div class="mss-box-head fn-linear-light">
+                                        <h4>标准区块<small>css 前缀：mss-box</small><a href="#" class="ui-box-head-more">更多</a></h4>
+                                    </div>
+                                    <div class="mss-box-container fn-hide">
+                                        
+                                    </div>
+                                </div>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>标准区块<small>css 前缀：mss-box</small><a href="#">更多</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-hide">
+                            mss-box-content 有默认内边距
+                            <br>fn-linear-light是标题的渐变色
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row fn-mt10">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>连体盒子模型<small>使用盒子模型 .mss-box-follow</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <div class="mss-box">
+                                    <div class="mss-box-head fn-linear-light">
+                                        <h4>标准区块<small>css 前缀：mss-box</small><a href="#">更多</a></h4>
+                                    </div>
+                                    <div class="mss-box-container">
+                                        mss-box-content 有默认内边距
+                                        <br>fn-linear-light是标题的渐变色
+                                    </div>
+                                </div>
+                                <div class="mss-box mss-box-follow">
+                                    <div class="mss-box-head fn-linear-light">
+                                        <h4>标准区块<small>css 前缀：mss-box</small><a href="#">更多</a></h4>
+                                    </div>
+                                    <div class="mss-box-container fn-hide">
+                                        mss-box-content 有默认内边距
+                                        <br>fn-linear-light是标题的渐变色
+                                    </div>
+                                </div>
+                                <div class="mss-box mss-box-follow">
+                                    <div class="mss-box-head fn-linear-light">
+                                        <h4>标准区块<small>css 前缀：mss-box</small><a href="#">更多</a></h4>
+                                    </div>
+                                    <div class="mss-box-container">
+                                        mss-box-content 有默认内边距
+                                        <br>fn-linear-light是标题的渐变色
+                                    </div>
+                                </div>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>标准区块<small>css 前缀：mss-box</small><a href="#">更多</a></h4>
+                        </div>
+                        <div class="mss-box-container">
+                            第一行不需要mss-box-follow去除
+                        </div>
+                    </div>
+                    <div class="mss-box mss-box-follow">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>标准区块<small>css 前缀：mss-box</small><a href="#">更多</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-hide">
+                            mss-box-content 有默认内边距
+                            <br>fn-linear-light是标题的渐变色
+                        </div>
+                    </div>
+                    <div class="mss-box mss-box-follow">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>标准区块<small>css 前缀：mss-box</small><a href="#">更多</a></h4>
+                        </div>
+                        <div class="mss-box-container">
+                            使用mss-box-follow去除上边框
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <!-- script start -->
+
+        <!-- script end -->
+</body>
+
+</html>

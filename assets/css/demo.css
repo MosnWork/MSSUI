@@ -6,13 +6,19 @@
 .demo-mgt10{
     margin-top: 10px;
 }
+xmp{
+    max-height:150px;
+    overflow: auto;
+    padding:0;
+    margin:0;
+}
 /*
 @ 全局背景色样式
 */
 
 .bg-white {
-    background: #FF0000;
-    color: #ffffff;
+    background: #ffffff;
+    color: #333333;
 }
 .bg-Red {
     background: #FF0000;
@@ -77,4 +83,12 @@
 .bg-Black {
     background: #000000;
     color: #ffffff;
+}
+.bg-title{
+     background: #bbcde8;
+    line-height: 30px;
+}
+.bg-cnt{
+     background: #edf2f9;
+    line-height: 25px;
 }

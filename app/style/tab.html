@@ -10,7 +10,7 @@
     <meta http-equiv="Cache-Control" content="no-cache">
     <!-- end no cache headers -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>mssiframe 框架集成外壳</title>
+    <title>MSSUI</title>
     <!------------------------>
     <!-- CSS请在发布前合并压缩 -->
     <!------------------------>
@@ -43,7 +43,7 @@
         <div class="fluid-row ">
             <div class="column16">
                 <div class="column-actual ">
-                    <h4>链接列表<small>css 前缀：mss-list</small></h4>
+                    <h4>标签切换<small>css 前缀：mss-tab</small></h4>
                 </div>
             </div>
         </div>
@@ -52,11 +52,32 @@
                 <div class="column-actual fn-mr10">
                     <div class="mss-box">
                         <div class="mss-box-head fn-linear-light">
-                            <h4>默认文章列表<small>含有前缀小圆点</small><a href="#">→</a></h4>
+                            <h4>默认标签切换<small>无颜色</small><a href="#">→</a></h4>
                         </div>
                         <div class="mss-box-container fn-nop">
                             <xmp>
-                                
+                                <div class="mss-tab">
+                                    <ul class="mss-tab-items">
+                                        <li class="mss-tab-item ">
+                                            全部交易
+                                        </li>
+                                        <li class="mss-tab-item mss-tab-item-current">
+                                            进行中的
+                                        </li>
+                                        <li class="mss-tab-item">
+                                            等待发货
+                                        </li>
+                                        <li class="mss-tab-item">
+                                            未确认
+                                        </li>
+                                    </ul>
+                                    <div class="mss-tab-container">
+                                        <div class="mss-tab-container-item mss-tab-container-item-current">1</div>
+                                        <div class="mss-tab-container-item">2</div>
+                                        <div class="mss-tab-container-item">3</div>
+                                        <div class="mss-tab-container-item">4</div>
+                                    </div>
+                                </div>
                             </xmp>
                         </div>
                     </div>
@@ -64,14 +85,98 @@
             </div>
             <div class="column10">
                 <div class="column-actual">
-
+                    <div class="mss-tab">
+                        <ul class="mss-tab-items">
+                            <li class="mss-tab-item ">
+                                全部交易
+                            </li>
+                            <li class="mss-tab-item mss-tab-item-current">
+                                进行中的
+                            </li>
+                            <li class="mss-tab-item">
+                                等待发货
+                            </li>
+                            <li class="mss-tab-item">
+                                未确认
+                            </li>
+                        </ul>
+                        <div class="mss-tab-container">
+                            <div class="mss-tab-container-item mss-tab-container-item-current">1</div>
+                            <div class="mss-tab-container-item">2</div>
+                            <div class="mss-tab-container-item">3</div>
+                            <div class="mss-tab-container-item">4</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row fn-mt10">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>垂直标签切换<small>无颜色</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <div class="mss-tab mss-tab-vertical">
+                                    <ul class="mss-tab-items">
+                                        <li class="mss-tab-item ">
+                                            全部交易
+                                        </li>
+                                        <li class="mss-tab-item mss-tab-item-current">
+                                            进行中的
+                                        </li>
+                                        <li class="mss-tab-item">
+                                            等待发货
+                                        </li>
+                                        <li class="mss-tab-item">
+                                            未确认
+                                        </li>
+                                    </ul>
+                                    <div class="mss-tab-container">
+                                        <div class="mss-tab-container-item mss-tab-container-item-current">1</div>
+                                        <div class="mss-tab-container-item">2</div>
+                                        <div class="mss-tab-container-item">3</div>
+                                        <div class="mss-tab-container-item">4</div>
+                                    </div>
+                                </div>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual">
+                    <div class="mss-tab mss-tab-vertical">
+                        <ul class="mss-tab-items">
+                            <li class="mss-tab-item ">
+                                全部交易
+                            </li>
+                            <li class="mss-tab-item mss-tab-item-current">
+                                进行中的
+                            </li>
+                            <li class="mss-tab-item">
+                                等待发货
+                            </li>
+                            <li class="mss-tab-item">
+                                未确认
+                            </li>
+                        </ul>
+                        <div class="mss-tab-container">
+                            <div class="mss-tab-container-item mss-tab-container-item-current">1</div>
+                            <div class="mss-tab-container-item">2</div>
+                            <div class="mss-tab-container-item">3</div>
+                            <div class="mss-tab-container-item">4</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-        <!-- script start -->
+    <!-- script start -->
 
-        <!-- script end -->
+    <!-- script end -->
 </body>
 
 </html>

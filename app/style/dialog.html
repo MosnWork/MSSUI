@@ -10,7 +10,7 @@
     <meta http-equiv="Cache-Control" content="no-cache">
     <!-- end no cache headers -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>mssiframe 框架集成外壳</title>
+    <title>MSSUI</title>
     <!------------------------>
     <!-- CSS请在发布前合并压缩 -->
     <!------------------------>
@@ -43,7 +43,7 @@
         <div class="fluid-row ">
             <div class="column16">
                 <div class="column-actual ">
-                    <h4>链接列表<small>css 前缀：mss-list</small></h4>
+                    <h4>弹出层<small>css 前缀：mss-dialog</small></h4>
                 </div>
             </div>
         </div>
@@ -52,11 +52,11 @@
                 <div class="column-actual fn-mr10">
                     <div class="mss-box">
                         <div class="mss-box-head fn-linear-light">
-                            <h4>默认文章列表<small>含有前缀小圆点</small><a href="#">→</a></h4>
+                            <h4>默认弹出层<small>自定义参数</small><a href="#">→</a></h4>
                         </div>
                         <div class="mss-box-container fn-nop">
                             <xmp>
-                                
+
                             </xmp>
                         </div>
                     </div>
@@ -64,14 +64,22 @@
             </div>
             <div class="column10">
                 <div class="column-actual">
-
+                    <button class="mss-button mss-button-big fn-mr10">打开弹出层</button>
+                    <script type="text/javascript">
+                        $(".mss-button-big").click(function() {
+                           
+                        })
+                    </script>
                 </div>
             </div>
         </div>
     </div>
-        <!-- script start -->
+    <div class="mss-dialog">
+    
+    </div>
+    <!-- script start -->
 
-        <!-- script end -->
+    <!-- script end -->
 </body>
 
 </html>

@@ -10,7 +10,7 @@
     height: 0;
 }
 .fn-clear {
-    zoom: 1;
+    *zoom: 1;
     /* for IE6 IE7 */
 }
 /**********************
@@ -31,6 +31,7 @@ body .fn-show {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
 }
 /**********************
  * 内边距 p

@@ -14,7 +14,7 @@
     width: 100%;
     height: auto;
     float: left;
-    zoom: 1;
+    *zoom: 1;
 }
 .fluid-row:after {
     visibility: hidden;
@@ -190,7 +190,7 @@
 .column-actual {
     height: auto;
     width: auto;
-    zoom: 1;
+    *zoom: 1;
 }
 .column-actual:after {
     visibility: hidden;

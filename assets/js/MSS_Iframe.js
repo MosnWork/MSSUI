@@ -29,6 +29,7 @@ var MSS_Iframe = (function() {
         quantity = 0;
         //给JQ新增一个发放
         addJsonFind();
+        addindexOf();
         //初始化绑定控制事件
         bindingEvents();
         //不需要顶部导航先删除DOM，放下下面初始化会有bug
@@ -112,6 +113,7 @@ var MSS_Iframe = (function() {
                 //去打开iframe
                 changeSelect($(this).attr('mss-id'));
             }
+            return false;
         });
 
         //点击除指定外，隐藏
@@ -127,11 +129,13 @@ var MSS_Iframe = (function() {
         $(".h-nav-home").click(function() {
             changeSelect("-1");
         });
-        
+
         //关闭工作区导航的右击菜单
         $(".iframe-nav-box").on("contextmenu", function(e) {
             return false;
         });
+
+
         //左右移动事件
         $(".iframe-nav-left").click(function() {
             quantity--;
@@ -398,6 +402,9 @@ var MSS_Iframe = (function() {
         html += "<li data-handle='right'><i class='icon-remove-sign'></i>关闭右侧</li>";
         html += "</ul></div>";
         var Ymenu = $(html).appendTo("body");
+        Ymenu.on("contextmenu", function(e) {
+            return false;
+        });
         Ymenu.on("click", "li", function(e) {
             //阻止冒泡
             e ? e.stopPropagation() : event.cancelBubble = true;
@@ -528,6 +535,22 @@ var MSS_Iframe = (function() {
     }
 
     //---------------------
+    // addindexOf  妈的，让IE7支持indexOf
+    //---------------------
+    var addindexOf = function() {
+        if (!Array.indexOf) {
+            Array.prototype.indexOf = function(obj) {
+                for (var i = 0; i < this.length; i++) {
+                    if (this[i] == obj) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+        }
+    }
+
+    //---------------------
     // setCookie   Cookie操作
     //---------------------
     var setCookie = function(b, j, m) {
@@ -609,7 +632,7 @@ var MSS_Iframe = (function() {
             text: "",
             background: "#ff7e00",
             color: "#ffffff",
-            location: "bottom,right",
+            location: "1",
             secs: 3
         }
         //合并参数
@@ -618,24 +641,35 @@ var MSS_Iframe = (function() {
         }
         var pos = "";
         switch (op.location) {
-            case "top,left":
-                pos = "top:5px;left:5px;";
+            case "1":
+                pos = "sendMsg-top-left";
                 break;
-            case "top,right":
-                pos = "top:5px;right:5px;";
+            case "2":
+                pos = "sendMsg-top-right";
                 break;
-            case "bottom,left":
-                pos = "bottom:5px;left:5px;";
+            case "3":
+                pos = "sendMsg-bottom-left";
                 break;
-            case "bottom,right":
-                pos = "bottom:5px;right:5px;";
+            case "4":
+                pos = "sendMsg-bottom-right";
                 break;
             default:
-                pos = "bottom:5px;right:5px;";
+                pos = "sendMsg-bottom-left";
                 break;
         }
-        var msgHtml = "<div style='" + pos + "color:" + op.color + ";background:" + op.background + ";width:auto;overflow: hidden;box-sizing: border-box;max-width:50%;height:auto;padding:8px;position: absolute; z-index: 999999;border-radius: 3px;box-shadow: 0 1px 3px #cccccc;'>" + op.text + "</div>";
-        var $soho = $(msgHtml).appendTo("body");
+        if (op.location == "2" || op.location == "3") {
+            var fl = "right";
+        } else {
+            var fl = "left";
+        }
+
+        var msgHtml = "<div style='color:" + op.color + ";background:" + op.background + ";width:auto;overflow: hidden;height:auto;padding:8px;float:" + fl + ";border-radius: 3px;box-shadow: 0 1px 3px #cccccc;margin:3px 0;clear:both'>" + op.text + "</div>";
+
+        if (op.location == "1" || op.location == "2") {
+            var $soho = $(msgHtml).prependTo("." + pos);
+        } else {
+            var $soho = $(msgHtml).appendTo("." + pos);
+        }
         $soho.click(function() {
             $(this).fadeOut(500, function() {
                 $(this).remove()

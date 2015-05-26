@@ -82,13 +82,13 @@ var menuData = [
         "nodes":[
             {
                 "id":21,
-                "text":"标准区块",
+                "text":"标准区块^",
                 "href":"app/style/box.html",
                 "nodes":[]
             },
             {
                 "id":22,
-                "text":"下拉菜单",
+                "text":"下拉菜单^",
                 "href":"app/style/dropdown.html",
                 "nodes":[]
             },
@@ -100,31 +100,31 @@ var menuData = [
             },
             {
                 "id":24,
-                "text":"按钮组件",
+                "text":"按钮组件^",
                 "href":"app/style/button.html",
                 "nodes":[]
             },
             {
                 "id":25,
-                "text":"链接列表",
+                "text":"链接列表^",
                 "href":"app/style/list.html",
                 "nodes":[]
             },
             {
                 "id":26,
-                "text":"导航样式",
+                "text":"导航样式^",
                 "href":"app/style/nav.html",
                 "nodes":[]
             },
             {
                 "id":27,
-                "text":"分页组件",
+                "text":"分页组件^",
                 "href":"app/style/paging.html",
                 "nodes":[]
             },
             {
-                "id":21,
-                "text":"气泡提示",
+                "id":214,
+                "text":"气泡提示^",
                 "href":"app/style/poptip.html",
                 "nodes":[]
             },
@@ -136,26 +136,20 @@ var menuData = [
             },
             {
                 "id":29,
-                "text":"标签切换",
+                "text":"标签切换^",
                 "href":"app/style/tab.html",
                 "nodes":[]
             },
             {
                 "id":210,
-                "text":"通用信息",
+                "text":"通用信息^",
                 "href":"app/style/tip.html",
                 "nodes":[]
             },
             {
                 "id":211,
-                "text":"提示文案",
+                "text":"提示文案^",
                 "href":"app/style/text.html",
-                "nodes":[]
-            },
-            {
-                "id":212,
-                "text":"下拉盒子",
-                "href":"app/style/popbox.html",
                 "nodes":[]
             },
             {
@@ -166,13 +160,13 @@ var menuData = [
             },
             {
                 "id":215,
-                "text":"Label",
+                "text":"Label^",
                 "href":"app/style/label.html",
                 "nodes":[]
             },
             {
                 "id":216,
-                "text":"Tag",
+                "text":"Tag^",
                 "href":"app/style/tag.html",
                 "nodes":[]
             },
@@ -184,7 +178,7 @@ var menuData = [
             },
             {
                 "id":218,
-                "text":"面包屑",
+                "text":"面包屑^",
                 "href":"app/style/crumbs.html",
                 "nodes":[]
             },
@@ -208,7 +202,7 @@ var menuData = [
             },
             {
                 "id":222,
-                "text":"等待开发",
+                "text":"还有什么...",
                 "href":"",
                 "nodes":[]
             }

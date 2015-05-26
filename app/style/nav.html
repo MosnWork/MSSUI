@@ -10,7 +10,7 @@
     <meta http-equiv="Cache-Control" content="no-cache">
     <!-- end no cache headers -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>mssiframe 框架集成外壳</title>
+    <title>MSSUI</title>
     <!------------------------>
     <!-- CSS请在发布前合并压缩 -->
     <!------------------------>
@@ -43,7 +43,7 @@
         <div class="fluid-row ">
             <div class="column16">
                 <div class="column-actual ">
-                    <h4>链接列表<small>css 前缀：mss-list</small></h4>
+                    <h4>导航样式<small>css 前缀：mss-nav</small></h4>
                 </div>
             </div>
         </div>
@@ -52,11 +52,37 @@
                 <div class="column-actual fn-mr10">
                     <div class="mss-box">
                         <div class="mss-box-head fn-linear-light">
-                            <h4>默认文章列表<small>含有前缀小圆点</small><a href="#">→</a></h4>
+                            <h4>默认导航<small>含二级，fn-linear-blue背景，可使用MSS预制或自定义</small><a href="#">→</a></h4>
                         </div>
                         <div class="mss-box-container fn-nop">
                             <xmp>
-                                
+                                <div class="mss-nav">
+                                    <ul class="mss-nav-main fn-linear-blue">
+                                        <li class="mss-nav-item">
+                                            <a href="#">一级导航 1</a>
+                                            <ul class="mss-nav-submain">
+                                                <li class="mss-nav-subitem"><a href="#">二级导航 1-1</a>
+                                                </li>
+                                                <li class="mss-nav-subitem"><a href="#">二级导航 1-2</a>
+                                                </li>
+                                                <li class="mss-nav-subitem"><a href="#">二级导航 1-3</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="mss-nav-item  mss-nav-item-current ">
+                                            <a href="#">一级导航 2</a>
+                                            <ul class="mss-nav-submain">
+                                                <li class="mss-nav-subitem"><a href="#">二级导航 2-1</a>
+                                                </li>
+                                                <li class="mss-nav-subitem mss-nav-subitem-current"><a href="#">二级导航 2-2</a>
+                                                </li>
+                                                <li class="mss-nav-subitem"><a href="#">二级导航 2-3</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <div class="mss-nav-subcontainer"></div>
+                                </div>
                             </xmp>
                         </div>
                     </div>
@@ -64,14 +90,113 @@
             </div>
             <div class="column10">
                 <div class="column-actual">
-
+                    <div class="mss-nav">
+                        <ul class="mss-nav-main fn-linear-blue">
+                            <li class="mss-nav-item">
+                                <a href="#">一级导航 1</a>
+                                <ul class="mss-nav-submain">
+                                    <li class="mss-nav-subitem"><a href="#">二级导航 1-1</a>
+                                    </li>
+                                    <li class="mss-nav-subitem"><a href="#">二级导航 1-2</a>
+                                    </li>
+                                    <li class="mss-nav-subitem"><a href="#">二级导航 1-3</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="mss-nav-item  mss-nav-item-current ">
+                                <a href="#">一级导航 2</a>
+                                <ul class="mss-nav-submain">
+                                    <li class="mss-nav-subitem"><a href="#">二级导航 2-1</a>
+                                    </li>
+                                    <li class="mss-nav-subitem mss-nav-subitem-current"><a href="#">二级导航 2-2</a>
+                                    </li>
+                                    <li class="mss-nav-subitem"><a href="#">二级导航 2-3</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="mss-nav-subcontainer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row fn-mt10">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>无二级菜单导航<small>实际有二级，仅隐藏 使用mss-nav-nosub</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <div class="mss-nav mss-nav-nosub">
+                                    <ul class="mss-nav-main fn-linear-blue">
+                                        <li class="mss-nav-item">
+                                            <a href="#">一级导航 1</a>
+                                            <ul class="mss-nav-submain">
+                                                <li class="mss-nav-subitem"><a href="#">二级导航 1-1</a>
+                                                </li>
+                                                <li class="mss-nav-subitem"><a href="#">二级导航 1-2</a>
+                                                </li>
+                                                <li class="mss-nav-subitem"><a href="#">二级导航 1-3</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="mss-nav-item  mss-nav-item-current ">
+                                            <a href="#">一级导航 2</a>
+                                            <ul class="mss-nav-submain">
+                                                <li class="mss-nav-subitem"><a href="#">二级导航 2-1</a>
+                                                </li>
+                                                <li class="mss-nav-subitem mss-nav-subitem-current"><a href="#">二级导航 2-2</a>
+                                                </li>
+                                                <li class="mss-nav-subitem"><a href="#">二级导航 2-3</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <div class="mss-nav-subcontainer"></div>
+                                </div>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual">
+                    <div class="mss-nav mss-nav-nosub">
+                        <ul class="mss-nav-main fn-linear-blue">
+                            <li class="mss-nav-item">
+                                <a href="#">一级导航 1</a>
+                                <ul class="mss-nav-submain">
+                                    <li class="mss-nav-subitem"><a href="#">二级导航 1-1</a>
+                                    </li>
+                                    <li class="mss-nav-subitem"><a href="#">二级导航 1-2</a>
+                                    </li>
+                                    <li class="mss-nav-subitem"><a href="#">二级导航 1-3</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="mss-nav-item  mss-nav-item-current ">
+                                <a href="#">一级导航 2</a>
+                                <ul class="mss-nav-submain">
+                                    <li class="mss-nav-subitem"><a href="#">二级导航 2-1</a>
+                                    </li>
+                                    <li class="mss-nav-subitem mss-nav-subitem-current"><a href="#">二级导航 2-2</a>
+                                    </li>
+                                    <li class="mss-nav-subitem"><a href="#">二级导航 2-3</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <div class="mss-nav-subcontainer"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-        <!-- script start -->
+    <!-- script start -->
 
-        <!-- script end -->
+    <!-- script end -->
 </body>
 
 </html>

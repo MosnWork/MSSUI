@@ -10,7 +10,7 @@
     <meta http-equiv="Cache-Control" content="no-cache">
     <!-- end no cache headers -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>mssiframe 框架集成外壳</title>
+    <title>MSSUI</title>
     <!------------------------>
     <!-- CSS请在发布前合并压缩 -->
     <!------------------------>
@@ -43,7 +43,7 @@
         <div class="fluid-row ">
             <div class="column16">
                 <div class="column-actual ">
-                    <h4>链接列表<small>css 前缀：mss-list</small></h4>
+                    <h4>气泡提示<small>css 前缀：mss-poptip</small></h4>
                 </div>
             </div>
         </div>
@@ -52,26 +52,154 @@
                 <div class="column-actual fn-mr10">
                     <div class="mss-box">
                         <div class="mss-box-head fn-linear-light">
-                            <h4>默认文章列表<small>含有前缀小圆点</small><a href="#">→</a></h4>
+                            <h4>正常气泡<small>一般本系统正常气泡在内容下方，为了兼容手机端</small><a href="#">→</a></h4>
                         </div>
                         <div class="mss-box-container fn-nop">
                             <xmp>
-                                
+                                <div class="mss-poptip">
+                                    <span class="mss-poptip-border">◆</span>
+                                    <span class="mss-poptip-background">◆</span>
+                                    <div class="mss-poptip-content">
+                                        我是内容我是内容我是内容我是内容我是内容我是内容容我是内容
+                                        <br>我是内容我是内容我是内容我是内容我是内容我是内容
+                                    </div>
+
+                                </div>
                             </xmp>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="column10">
-                <div class="column-actual">
+                <div class="column-actual" style="position:relative">
+                    <div class="mss-poptip">
+                        <span class="mss-poptip-border">◆</span>
+                        <span class="mss-poptip-background">◆</span>
+                        <div class="mss-poptip-content">
+                            我是内容我是内容我是内容我是内容我是内容我是内容容我是内容
+                            <br>我是内容我是内容我是内容我是内容我是内容我是内容
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row fn-mt10">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>可选方向气泡<small>可选方向：left(左侧)，right(右侧)</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <div class="mss-poptip mss-poptip-right">
+                                    <span class="mss-poptip-border">◆</span>
+                                    <span class="mss-poptip-background">◆</span>
+                                    <div class="mss-poptip-content">
+                                        我是内容我是内容我是内容我是内容我是内容我是内容容我是内容
+                                        <br>我是内容我是内容我是内容我是内容我是内容我是内容
+                                    </div>
+
+                                </div>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual" style="position:relative">
+                    <div class="mss-poptip mss-poptip-right">
+                        <span class="mss-poptip-border">◆</span>
+                        <span class="mss-poptip-background">◆</span>
+                        <div class="mss-poptip-content">
+                            我是内容我是内容我是内容我是内容我是内容我是内容容我是内容
+                            <br>我是内容我是内容我是内容我是内容我是内容我是内容
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row fn-mt10">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>带关闭按钮气泡<small>关闭按钮</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <div class="mss-poptip">
+                                    <span class="mss-poptip-border">◆</span>
+                                    <span class="mss-poptip-background">◆</span>
+                                    <div class="mss-poptip-content">
+                                        我是内容我是内容我是内容我是内容我是内容我是内容容我是内容
+                                        <br>我是内容我是内容我是内容我是内容我是内容我是内容
+                                    </div>
+                                    <div class="mss-poptip-close"><i class="icon-remove"></i>
+                                    </div>
+                                </div>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual" style="position:relative">
+                    <div class="mss-poptip">
+                        <span class="mss-poptip-border">◆</span>
+                        <span class="mss-poptip-background">◆</span>
+                        <div class="mss-poptip-content">
+                            我是内容我是内容我是内容我是内容我是内容我是内容容我是内容
+                            <br>我是内容我是内容我是内容我是内容我是内容我是内容
+                        </div>
+                        <div class="mss-poptip-close"><i class="icon-remove"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row fn-mt10">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>变色气泡<small>可选色：error(红色)，success(绿色)，info(蓝色)，warning(橙色)</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                <div class="mss-poptip mss-poptip-error">
+                                    <span class="mss-poptip-border">◆</span>
+                                    <span class="mss-poptip-background">◆</span>
+                                    <div class="mss-poptip-content">
+                                        我是内容我是内容我是内容我是内容我是内容我是内容容我是内容
+                                        <br>我是内容我是内容我是内容我是内容我是内容我是内容
+                                    </div>
+
+                                </div>
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual" style="position:relative">
+                    <div class="mss-poptip mss-poptip-error">
+                        <span class="mss-poptip-border">◆</span>
+                        <span class="mss-poptip-background">◆</span>
+                        <div class="mss-poptip-content">
+                            我是内容我是内容我是内容我是内容我是内容我是内容容我是内容
+                            <br>我是内容我是内容我是内容我是内容我是内容我是内容
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-        <!-- script start -->
+    <!-- script start -->
 
-        <!-- script end -->
+    <!-- script end -->
 </body>
 
 </html>

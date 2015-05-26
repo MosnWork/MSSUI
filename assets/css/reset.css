@@ -318,7 +318,7 @@ ol,ul,dl,dt {
     height: auto;
 }
 ol,ul{
-    zoom:1;
+    *zoom:1;
 }
 /* 
  * p 

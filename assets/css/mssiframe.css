@@ -14,7 +14,7 @@
     height:0;
 }
 .fn-clear {
-    zoom:1; /* for IE6 IE7 */
+    *zoom:1; /* for IE6 IE7 */
 }
 /*全局格式化*/
 
@@ -423,10 +423,30 @@ body {
 }
 
 
-
-
-
-
+/*发送信息*/
+.sendMsg-top-left,.sendMsg-top-right,.sendMsg-bottom-left,.sendMsg-bottom-right{
+    position: absolute;
+    z-index: 999999;
+    width: auto;
+    height: auto;
+    max-width: 80%;
+}
+.sendMsg-top-left{
+    top:5px;
+    left:5px;
+}
+.sendMsg-top-right{
+    top:5px;
+    right:5px;
+}
+.sendMsg-bottom-left{
+    bottom:5px;
+    left:5px;
+}
+.sendMsg-bottom-right{
+    bottom:5px;
+    right:5px;
+}
 
 
 

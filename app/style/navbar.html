@@ -10,7 +10,7 @@
     <meta http-equiv="Cache-Control" content="no-cache">
     <!-- end no cache headers -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>mssiframe 框架集成外壳</title>
+    <title>MSSUI</title>
     <!------------------------>
     <!-- CSS请在发布前合并压缩 -->
     <!------------------------>
@@ -43,7 +43,7 @@
         <div class="fluid-row ">
             <div class="column16">
                 <div class="column-actual ">
-                    <h4>链接列表<small>css 前缀：mss-list</small></h4>
+                    <h4>导航条<small>css 前缀：mss-navbar</small></h4>
                 </div>
             </div>
         </div>
@@ -52,11 +52,11 @@
                 <div class="column-actual fn-mr10">
                     <div class="mss-box">
                         <div class="mss-box-head fn-linear-light">
-                            <h4>默认文章列表<small>含有前缀小圆点</small><a href="#">→</a></h4>
+                            <h4>导航条<small>不浮动</small><a href="#">→</a></h4>
                         </div>
                         <div class="mss-box-container fn-nop">
                             <xmp>
-                                
+
                             </xmp>
                         </div>
                     </div>
@@ -65,13 +65,54 @@
             <div class="column10">
                 <div class="column-actual">
 
+
+
+                    <div class="mss-navbar">
+                        <div class="mss-navbar-logo"><a class="mss-navbar-brand" href="#">MSSUI</a>
+                        </div>
+                        <ul class="mss-navbar-list">
+                            <li class="mss-navbar-active"><a href="#">首页</a>
+                            </li>
+                            <li><a href="#">组件<i class="icon-angle-down"></i></a>
+                                <ul class="mss-navbar-menu">
+                                    <li><a href="#">项目组成员</a>
+                                    </li>
+                                    <li><a href="#">版权</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="#">关于</a>
+                            </li>
+                        </ul>
+                        <ul class="mss-navbar-list mss-navbar-right">
+                            <li><a href="#">登录</a>
+                            </li>
+                            <li><a href="#">退出</a>
+                            </li>
+                        </ul>
+                        <div class="mss-navbar-btn mss-navbar-right">
+                            <input class="mss-navbar-input" type="text" placeholder="宝贝/店铺名称...">
+                            <button class="mss-navbar-button">搜索</button>
+                        </div>
+                    </div>
                 </div>
+
+
+
+
+
+
+
+
+
+
             </div>
         </div>
     </div>
-        <!-- script start -->
+    </div>
+    <!-- script start -->
 
-        <!-- script end -->
+    <!-- script end -->
 </body>
 
 </html>

@@ -43,7 +43,7 @@
         <div class="fluid-row ">
             <div class="column16">
                 <div class="column-actual ">
-                    <h4>链接列表<small>css 前缀：mss-list</small></h4>
+                    <h4>表格组件<small>css 前缀：mss-table</small></h4>
                 </div>
             </div>
         </div>
@@ -52,26 +52,308 @@
                 <div class="column-actual fn-mr10">
                     <div class="mss-box">
                         <div class="mss-box-head fn-linear-light">
-                            <h4>默认文章列表<small>含有前缀小圆点</small><a href="#">→</a></h4>
+                            <h4>表格组件<small>3种模式</small><a href="#">→</a></h4>
                         </div>
-                        <div class="mss-box-container fn-nop">
-                            <xmp>
-                                
-                            </xmp>
+                        <div class="mss-box-container">
+                            这里我就说说，一般不会让各位用得到，都是用JS脚本生成的.
+                            <br>如果您是在想用就自己抄录本页面代码吧
+
                         </div>
                     </div>
                 </div>
             </div>
             <div class="column10">
                 <div class="column-actual">
-
+                    <div class="fluid-row ">
+                        <!--基础表格-->
+                        <div class="column16">
+                            <table class="mss-table">
+                                <thead>
+                                    <tr class="fn-linear-lightblue">
+                                        <th>
+                                            <input class="ms-table-checkboxs" type="checkbox" name="ms-table-checkboxs" />
+                                        </th>
+                                        <th>创建时间</th>
+                                        <th>名称<em class="mss-table-split">|</em>交易号</th>
+                                        <th>对方</th>
+                                        <th>金额<em class="mss-table-split">|</em>明细</th>
+                                        <th>状态</th>
+                                        <th>操作</th>
+                                        <th>备注</th>
+                                    </tr>
+                                </thead>
+                                <!-- 表头可选 -->
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>DataDataData</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="7">
+                                            <div class="mss-paging">
+                                                <a href="#" class="mss-paging-prev">
+                                                    <i class="icon-caret-left" title="上一页"></i> 上一页
+                                                </a>
+                                                <a href="#" class="mss-paging-item">1</a>
+                                                <a href="#" class="mss-paging-item mss-paging-current">2</a>
+                                                <a href="#" class="mss-paging-item">3</a>
+                                                <span class="mss-paging-ellipsis">...</span>
+                                                <a href="#" class="mss-paging-item">24</a>
+                                                <a href="#" class="mss-paging-next fn-r3px">下一页 <i class="icon-caret-right" title="下一页"></i></a>
+                                                <span class="mss-paging-info"><span class="mss-paging-bold">5/7</span>页</span>
+                                                <span class="mss-paging-which"><input class="mss-paging-page" name="mss-paging-page" value="6" type="text"></span>
+                                                <a class="mss-paging-goto fn-r3px" href="#">跳转</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                                <!-- 表尾可选 -->
+                            </table>
+                        </div>
+                        <!--无边框-->
+                        <div class="column16 fn-mt10">
+                            <table class="mss-table mss-table-noborder">
+                                <thead>
+                                    <tr class="fn-linear-lightblue">
+                                        <th>
+                                            <input class="ms-table-checkboxs" type="checkbox" name="ms-table-checkboxs" />
+                                        </th>
+                                        <th>创建时间</th>
+                                        <th>名称<em class="mss-table-split">|</em>交易号</th>
+                                        <th>对方</th>
+                                        <th>金额<em class="mss-table-split">|</em>明细</th>
+                                        <th>状态</th>
+                                        <th>操作</th>
+                                        <th>备注</th>
+                                    </tr>
+                                </thead>
+                                <!-- 表头可选 -->
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>DataDataData</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="7">
+                                            表尾数据
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                                <!-- 表尾可选 -->
+                            </table>
+                        </div>
+                        <!--嵌套用表格-->
+                        <div class="column16 fn-mt10">
+                            <table class="mss-table mss-table-inbox">
+                                <thead>
+                                    <tr class="fn-linear-lightblue">
+                                        <th>
+                                            <input class="ms-table-checkboxs" type="checkbox" name="ms-table-checkboxs" />
+                                        </th>
+                                        <th>创建时间</th>
+                                        <th>名称<em class="mss-table-split">|</em>交易号</th>
+                                        <th>对方</th>
+                                        <th>金额<em class="mss-table-split">|</em>明细</th>
+                                        <th>状态</th>
+                                        <th>操作</th>
+                                        <th>备注</th>
+                                    </tr>
+                                </thead>
+                                <!-- 表头可选 -->
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>DataDataData</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="mss-table-checkbox" type="checkbox" name="mss-table-checkbox" />
+                                        </td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                        <td>Data</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="7">表尾数据</td>
+                                    </tr>
+                                </tfoot>
+                                <!-- 表尾可选 -->
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-        <!-- script start -->
+    <!-- script start -->
 
-        <!-- script end -->
+    <!-- script end -->
 </body>
 
 </html>

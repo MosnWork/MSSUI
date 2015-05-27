@@ -236,6 +236,65 @@ body .fn-bg-gay {
     color: #999;
 }
 
+/**********************
+ * 文字色色 cl
+ **********************/
+/* 白色 */
+body .fn-cl-white {
+    color: #ffffff;
+}
+/* 大红，错误，危险 */
+body .fn-cl-Red {
+    color: #FF0000;
+}
+/* 金黄，重要，警告 */
+body .fn-cl-Orange {
+    color: #FF7E00;
+}
+/* 绿色，成功 */
+body .fn-cl-Green {
+    color: #2D8F26;
+}
+/* 青色，首要 */
+body .fn-cl-Teal {
+    color: #238477;
+}
+/* 蓝色，信息 */
+body .fn-cl-Blue {
+    color: #2972ed;
+}
+/* 黑色，伪默认 */
+body .fn-cl-Black {
+    color: #000000;
+}
+/* 灰色，失效 */
+body .fn-cl-gay {
+    color: #999;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

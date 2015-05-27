@@ -54,10 +54,9 @@
                         <div class="mss-box-head fn-linear-light">
                             <h4>默认弹出层<small>自定义参数</small><a href="#">→</a></h4>
                         </div>
-                        <div class="mss-box-container fn-nop">
-                            <xmp>
-
-                            </xmp>
+                        <div class="mss-box-container">
+                            配合JS工作，请注意参数变化
+                            <br>可自选遮罩层
                         </div>
                     </div>
                 </div>
@@ -67,15 +66,50 @@
                     <button class="mss-button mss-button-big fn-mr10">打开弹出层</button>
                     <script type="text/javascript">
                         $(".mss-button-big").click(function() {
-                           
+                            $(".mss-dialog").show();
                         })
                     </script>
                 </div>
             </div>
         </div>
     </div>
-    <div class="mss-dialog">
+<!--
     
+    <div class="mss-dialog" style="width:600px;height:400px;margin-left:-300px;margin-top:-200px;">
+        <div class="mss-dialog-title">
+            <h5>默认弹出层<small>自定义参数</small></h5>
+            <div class="mss-dialog-close">X</div>
+        </div>
+        <div class="mss-dialog-container" style="height:316px;"></div>
+        <div class="mss-dialog-button">
+            <button class="mss-button fn-bg-Blue">确认</button>
+            <button class="mss-button">取消</button>
+        </div>
+    </div>
+-->
+
+    <div class="mss-dialog mss-dialog-confirm" style="width:400px;height:150px;margin-left:-200px;margin-top:-75px;">
+        <div class="mss-dialog-title">
+            <div class="mss-dialog-confirm-cnt">
+                <div class="mss-tip">
+                    <div class="mss-tip-icon">
+                        <i title="提示" class="icon-info-sign"></i>
+                    </div>
+                    <div class="mss-tip-right">
+                        <div class="mss-tip-content">
+                            <h4 class="mss-tip-title">空白</h4>
+                            <p class="mss-tip-explain">完成的说明完成的说明。</p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mss-dialog-close">X</div>
+        </div>
+        <div class="mss-dialog-button">
+            <button class="mss-button fn-bg-Blue">确认</button>
+            <button class="mss-button">取消</button>
+        </div>
     </div>
     <!-- script start -->
 

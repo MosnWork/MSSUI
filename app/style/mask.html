@@ -43,7 +43,7 @@
         <div class="fluid-row ">
             <div class="column16">
                 <div class="column-actual ">
-                    <h4>幻灯片<small>css 前缀：mss-carousel</small></h4>
+                    <h4>遮罩层<small>css 前缀：mss-mask</small></h4>
                 </div>
             </div>
         </div>
@@ -52,11 +52,12 @@
                 <div class="column-actual fn-mr10">
                     <div class="mss-box">
                         <div class="mss-box-head fn-linear-light">
-                            <h4>默认幻灯片<small>渐变，控制器居中</small><a href="#">→</a></h4>
+                            <h4>默认遮罩层<small>body层</small><a href="#">→</a></h4>
                         </div>
                         <div class="mss-box-container fn-nop">
                             <xmp>
-
+                                JS操作
+                                一般用于配合其他功能，单个出现的几率渺茫
                             </xmp>
                         </div>
                     </div>
@@ -64,33 +65,45 @@
             </div>
             <div class="column10">
                 <div class="column-actual">
-                    <div class="mss-carousel">
-                        <ul class="mss-carousel-cnt">
-                            <li class="mss-carousel-item">
-                                <a href="www.MSSUI.com">
-                                    <img src="http://www.debug.com/upload/banner_01.jpg" />
-                                </a>
-                            </li>
-                            <li class="mss-carousel-item">
-                                <a href="www.MSSUI.com">
-                                    <img src="http://www.debug.com/upload/banner_01.jpg" />
-                                </a>
-                            </li>
-                            <li class="mss-carousel-item">
-                                <a href="www.MSSUI.com">
-                                    <img src="http://www.debug.com/upload/banner_01.jpg" />
-                                </a>
-                            </li>
-                        </ul>
-                        <dl class="mss-carousel-control">
-                            <dt class="mss-carousel-move"></dt>
-                            <dt class="mss-carousel-move mss-carousel-current"></dt>
-                            <dt class="mss-carousel-move"></dt>
-                        </dl>
+                    <button class="mss-button mss-button-big fn-mr10" id="bodyc">打开弹出层</button>
+                    <script type="text/javascript">
+                        $("#bodyc").click(function() {
+                            $("#bodyma").show();
+                        })
+                    </script>
+                </div>
+            </div>
+        </div>
+        <div class="fluid-row fn-mt10">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>局部遮罩层<small>DIV层</small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container fn-nop">
+                            <xmp>
+                                JS操作
+                            </xmp>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual" style="height:200px; position:relative">
+                    <button class="mss-button mss-button-big fn-mr10" id="divc">打开弹出层</button>
+                    <script type="text/javascript">
+                        $("#divc").click(function() {
+                            $("#divma").show();
+                        })
+                    </script>
+                    <div class="mss-mask" id="divma">
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="mss-mask" id="bodyma">
     </div>
     <!-- script start -->
 

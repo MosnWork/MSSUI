@@ -25,6 +25,7 @@ h6,
     line-height: 1.9em;
     margin: 0;
     padding: 0;
+    position: relative
 }
 h1 a,
 .h1 a,
@@ -39,9 +40,13 @@ h5 a,
 h6 a,
 .h6 a {
     font-size: 12px;
-    float: right;
+    *line-height: 1.9em;
+    position: absolute;
+    top: 0;
+    right: 0;
     color: #08c;
     text-decoration: none;
+    margin: 0;
 }
 h1,
 .h1 {
@@ -166,12 +171,14 @@ h6 small,
     z-index: 1;
 }
 .mss-dropdown-input {
-    padding: 5px 5px;
+    padding: 4px 5px;
+    padding-top: 5px;
     text-align: left;
     padding-right: 20px;
     border: 1px solid #ccc;
     background-color: #fff;
-    cursor: pointer
+    cursor: pointer;
+    margin: 1px 0;
 }
 .mss-dropdown-text i {
     position: absolute;
@@ -977,11 +984,11 @@ h6 small,
     padding-left: 10px;
     padding-right: 10px;
 }
-.mss-navbar a{
+.mss-navbar a {
     text-decoration: none;
     color: #777777;
 }
-.mss-navbar a:hover{
+.mss-navbar a:hover {
     color: #333;
 }
 .mss-navbar:after {
@@ -995,7 +1002,7 @@ h6 small,
 .mss-navbar-logo {
     float: left;
     width: auto;
-    padding:0 5px;
+    padding: 0 5px;
     margin-right: 10px;
     line-height: 40px;
     height: 40px;
@@ -1006,45 +1013,45 @@ h6 small,
     font-size: 20px;
     font-weight: normal;
 }
-.mss-navbar-list{
+.mss-navbar-list {
     float: left;
     width: auto;
-    margin:0 10px;
+    margin: 0 10px;
     height: 40px;
 }
-.mss-navbar-list li{
+.mss-navbar-list li {
     float: left;
     width: auto;
-    padding:0 10px;
+    padding: 0 10px;
     line-height: 40px;
     height: 40px;
     color: #333;
     position: relative;
     z-index: 1;
 }
-.mss-navbar-active{
-     background: #e2e2e2
+.mss-navbar-active {
+    background: #e2e2e2
 }
-.mss-navbar-list li i{
+.mss-navbar-list li i {
     margin-left: 5px;
 }
-.mss-navbar-menu{
+.mss-navbar-menu {
     background-color: #ffffff;
     border: 1px solid #e2e2e2;
     -moz-box-shadow: 0 1px 3px #ebebeb;
     -webkit-box-shadow: 0 1px 3px #ebebeb;
     box-shadow: 0 1px 3px #ebebeb;
-    list-style:none;
+    list-style: none;
     position: absolute;
     left: 0;
     top: 40px;
     width: auto;
     z-index: 2;
 }
-.mss-navbar-menu li{
+.mss-navbar-menu li {
     float: left;
     width: auto;
-    padding:0 10px;
+    padding: 0 10px;
     line-height: 25px;
     height: 25px;
     color: #333;
@@ -1055,27 +1062,27 @@ h6 small,
     text-align: center;
     cursor: pointer;
 }
-.mss-navbar-menu li:hover{
+.mss-navbar-menu li:hover {
     background: #efefef
 }
-.mss-navbar-btn{
+.mss-navbar-btn {
     float: left;
     width: auto;
-    margin:0 10px;
-    padding:7px 0;
+    margin: 0 10px;
+    padding: 7px 0;
     height: 26px;
 }
-.mss-navbar-input{
+.mss-navbar-input {
     float: left;
     height: 26px;
     line-height: 26px;
-    padding:0 3px;
+    padding: 0 3px;
 }
-.mss-navbar-button{
+.mss-navbar-button {
     float: left;
     height: 27px;
     line-height: 25px;
-    padding:0 8px;
+    padding: 0 8px;
     border-radius: 2px;
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -1087,25 +1094,459 @@ h6 small,
     vertical-align: middle;
     margin-left: 5px;
 }
-.mss-navbar-right{
+.mss-navbar-right {
     float: right;
 }
+/**********************
+ * 导航条  mss-mask
+ **********************/
 
+.mss-mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+    display: none;
+}
+/**********************
+ * 表格组件  mss-table
+ **********************/
 
+.mss-table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+}
+.m-table thead {
+    color: #666;
+}
+.mss-table tr {
+    color: #808080;
+}
+.mss-table th,
+.mss-table td {
+    border-bottom: 1px solid #d9d9d9;
+    padding: 7px 9px;
+    text-align: left;
+}
+.mss-table td a.mss-table-handle-a {
+    margin: 0 5px;
+}
+.mss-table th {
+    white-space: nowrap;
+}
+.mss-table thead tr {
+    color: #666;
+    background: #f2f2f2;
+}
+.mss-table thead th {
+    font-weight: 600;
+    color: #666;
+}
+.mss-table thead th:hover {
+    background: #ebebeb;
+}
+.mss-table thead th i {
+    margin-left: 5px;
+    color: #999;
+}
+.mss-table thead th em.mss-table-split {
+    padding: 0 2px;
+}
+.mss-table tbody tr:hover {
+    background: #f7f7f7
+}
+.mss-table-noborder {
+    border: none;
+}
+.mss-table-noborder th,
+.mss-table-noborder td {
+    border: none;
+}
+.mss-table-inbox {
+    border: none;
+}
+/**********************
+ * 幻灯片  mss-carousel
+ **********************/
 
+.mss-carousel {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    *zoom: 1;
+}
+.mss-carousel:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.mss-carousel-cnt {
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+}
+.mss-carousel-item {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    font-size: 0;
+}
+.mss-carousel-item img {
+    width: 100%;
+    height: auto;
+}
+.mss-carousel-control {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    width: auto;
+    height: auto;
+    z-index: 4;
+}
+.mss-carousel-move {
+    float: left;
+    width: 10px;
+    height: 10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    filter: alpha(opacity=70);
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
+    background: #dddddd;
+    margin: 0 5px;
+}
+.mss-carousel-current {
+    background: #6cb8fa;
+}
+/**********************
+ * 树形图  mss-tree
+ **********************/
 
+.mss-tree {
+    width: 100%;
+    overflow: hidden;
+    zoom: 1;
+    cursor: pointer;
+}
+.mss-tree:after {
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    content: ".";
+}
+.mss-tree-ul {
+    width: 100%;
+    float: left;
+    height: auto;
+    padding-left: 17px;
+    box-sizing: border-box;
+}
+.mss-tree-item {
+    width: 100%;
+    float: left;
+    height: auto;
+    line-height: 20px;
+}
+.mss-tree-title {
+    width: 100%;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+}
+.mss-tree-title i {
+    margin-right: 5px;
+}
+mss-tree-checkbox {
+    margin-right: 5px;
+}
+/**********************
+ * 弹出层  mss-dialog
+ **********************/
 
+.mss-dialog {
+    background-color: #fff;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 2px 5px #a8a8a8;
+    -moz-box-shadow: 0 2px 5px #a8a8a8;
+    box-shadow: 0 2px 5px #a8a8a8;
+    outline: 0;
+    position: absolute;
+    z-index: 499;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    *zoom: 1;
+}
+.mss-dialog:after {
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    content: ".";
+}
+.mss-dialog-title {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid #e5e5e5;
+    cursor: move;
+    position: relative;
+    padding: 4px 0;
+    padding-left: 10px;
+    z-index: 1;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.mss-dialog-close {
+    position: absolute;
+    width: auto;
+    right: 20px;
+    top: 10px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+.mss-dialog-container {
+    float: left;
+    height: auto;
+    width: 100%;
+    overflow: auto;
+    overflow-y: auto;
+}
+.mss-dialog-button {
+    float: left;
+    height: auto;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid #e5e5e5;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.mss-dialog-confirm .mss-dialog-button {
+    border-top: none;
+}
+/**********************
+ * 表单  mss-form
+ **********************/
 
+.mss-form {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    *zoom: 1;
+}
+.mss-form:after {
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    content: ".";
+}
+.mss-form-item {
+    width: 100%;
+    height: auto;
+    float: left;
+    margin: 5px 0;
+}
+.mss-form-leftname {
+    float: left;
+    margin-right: -75px;
+    position: relative;
+    text-align: right;
+    line-height: 30px;
+    width: 75px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mss-form-container {
+    float: right;
+    width: 100%;
+}
+.mss-form-container-box {
+    margin-left: 85px;
+}
+/*纯文本*/
 
+.mss-form-text {
+    line-height: 30px;
+    width: auto;
+    height: auto;
+}
+/*单选，多选*/
 
+.mss-form-check {
+    margin: 0;
+    padding: 0;
+    padding: 5px 0;
+    *zoom: 1;
+}
+.mss-form-check:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+.mss-form-check label {
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin-right: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mss-form-check label input {
+    float: left;
+    padding: 0;
+    margin: 0;
+    margin-right: 3px;
+    margin-top: 3px;
+}
+/*输入框容器*/
 
+.mss-form-box {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.mss-form-box .mss-form-split {
+    height: 30px;
+    line-height: 30px;
+    display: inline
+}
+.mss-form-box .mss-form-split em {
+    float: left;
+    padding: 0 5px;
+}
+/*输入框*/
 
+.mss-form-input-txt {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 5px 4px 5px;
+    margin: 1px 0;
+}
+/*下拉*/
 
+.mss-form-input-select {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 5px 4px 5px;
+    margin: 1px 0;
+}
+/*textarea*/
 
+.mss-form-input-textarea {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 5px 4px 5px;
+    margin: 1px 0;
+    max-width: 90%;
+}
+/*前缀图标，后缀图标*/
 
+.mss-form-input-lefticon,
+.mss-form-input-righticon {
+    height: 30px;
+    line-height: 30px;
+    width: auto;
+    display: inline;
+    word-break: break-all;
+}
+.mss-form-input-lefticon input,
+.mss-form-input-righticon input {
+    float: left;
+}
+.mss-form-input-lefticon i.mss-form-icon,
+.mss-form-input-righticon i.mss-form-icon {
+    border: 1px solid #ccc;
+    background: #eee;
+    border-right: none;
+    width: 26px;
+    text-align: center;
+    line-height: 26px;
+    margin: 1px 0;
+    height: 26px;
+    float: left;
+    height: 25px\9;
+    line-height: 25px\9;
+}
+.mss-form-input-righticon i.mss-form-icon {
+    border: 1px solid #ccc;
+    border-left: none;
+}
+.mss-form-input-lefticon i.mss-form-boicon,
+.mss-form-input-righticon i.mss-form-boicon {
+    border-right: none;
+    border-left: none;
+}
+.mss-form-input-lefticon i.mss-form-ricon,
+.mss-form-input-righticon i.mss-form-ricon {
+    border: 1px solid #ccc;
+    border-left: none;
+}
+/*焦点变色*/
 
+.mss-form input:focus {
+    border-color: #2972ed
+}
+/*提示*/
 
+.mss-form-tip {
+    line-height: 30px;
+    width: 100%;
+    height: 30px;
+    display: inline-block;
+    float: left
+}
+.mss-form-tip i {
+    margin-right: 5px;
+}
+/*额外链接*/
 
+.mss-form-link {
+    line-height: 30px;
+    margin-left: 10px;
+    color: #08c;
+    cursor: pointer;
+}
+.mss-form-link:hover {
+    text-decoration: underline;
+}
+/*验证码图片*/
 
-
-
+.mss-form-imgcode {
+    margin: 1px 0;
+    padding: 0;
+    height: 28px;
+    margin-left: 5px;
+}

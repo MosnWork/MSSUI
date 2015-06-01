@@ -41,7 +41,7 @@
         <div class="fluid-row ">
             <div class="column16">
                 <div class="column-actual ">
-                    <h4>导航条<small>css 前缀：mss-navbar</small></h4>
+                    <h4>日历<small>css 前缀：mss-form</small></h4>
                 </div>
             </div>
         </div>
@@ -50,56 +50,43 @@
                 <div class="column-actual fn-mr10">
                     <div class="mss-box">
                         <div class="mss-box-head fn-linear-light">
-                            <h4>导航条<small>不浮动</small><a href="#">→</a></h4>
+                            <h4>默认日历<small>不带分秒</small><a href="#">→</a></h4>
                         </div>
-                        <div class="mss-box-container fn-nop">
-                            <xmp>
+                        <div class="mss-box-container">
 
-                            </xmp>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="column10">
                 <div class="column-actual">
-
-
-
-                    <div class="mss-navbar">
-                        <div class="mss-navbar-logo"><a class="mss-navbar-brand" href="#">MSSUI</a>
+                    <!--form可以替换为div-->
+                    <form class="mss-form" name="" method="post" action="#" id="">
+                        <div class="mss-form-item">
+                            <div class="mss-form-leftname">时间:</div>
+                            <div class="mss-form-container">
+                                <div class="mss-form-container-box">
+                                    <div class="mss-form-box">
+                                        <div class="mss-form-input-lefticon"><i class="mss-form-icon icon-table"></i>
+                                            <input type="text" class="mss-form-input-txt" mss-calender="true">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <ul class="mss-navbar-list">
-                            <li><a href="#">首页</a>
-                            </li>
-                            <li><a href="#">组件<i class="icon-angle-down"></i></a>
-                                <ul class="mss-navbar-menu">
-                                    <li><a href="#">项目组成员</a>
-                                    </li>
-                                    <li><a href="#">版权</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="#">关于</a>
-                            </li>
-                        </ul>
-                        <ul class="mss-navbar-list mss-navbar-right">
-                            <li><a href="#">登录</a>
-                            </li>
-                            <li><a href="#">退出</a>
-                            </li>
-                        </ul>
-                        <div class="mss-navbar-btn mss-navbar-right">
-                            <input class="mss-navbar-input" type="text" placeholder="宝贝/店铺名称...">
-                            <button class="mss-navbar-button">搜索</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    </div>
     <!-- script start -->
     <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
+    <script>
+        require(['jquery','dialog'], function($,D) {
+            D.dialog();
+        });
+    </script>
+
     <!-- script end -->
 </body>
 

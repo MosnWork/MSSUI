@@ -213,5 +213,24 @@ var menuData = [
                 "nodes":[]
             }
         ]
+    },
+    {
+        "id":3,
+        "text":"插件",
+        "href":"",
+        "nodes":[
+            {
+                "id":31,
+                "text":"日历",
+                "href":"app/plug/calendar.html",
+                "nodes":[]
+            },
+            {
+                "id":32,
+                "text":"弹出层",
+                "href":"app/plug/dialog.html",
+                "nodes":[]
+            }
+        ]
     }
 ]

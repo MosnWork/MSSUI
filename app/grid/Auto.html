@@ -33,8 +33,6 @@
     <!------------------------>
     <!-- CSS请在发布前合并压缩 -->
     <!------------------------>
-    <!-- JQ 183稳定版本 -->
-    <script src="../../assets/js/jquery-1.8.3.min.js"></script>
 </head>
 
 <body>
@@ -177,17 +175,18 @@
         <div class="fluid-row ">
             <div class="column16">
                 <div class="column-actual fn-m5 ">
-                   本栅格系统在不定宽情况自动适应<br>
-                   在定宽情况下适应“limit-column”让列不自动适应按照百分比执行，如果不增加“limit-column”，依旧自适应。使用在“fluid-row”上<br>
-                   本栅格系统在column上没有做任何处理纯粹的比例大小，为了让用着可以在内部执行边框、边距等在内部结构中增加了column-actual适应column<br>
-                   在column-actual上可以增加边框边距等，宽度讲自动适应到外层column的100%<br>
-                   请尽量使用2列排布或者等比排布，如果在不等比累加情况下，适应系统会出现BUG，其他自适应框架也存在同样问题，如果不足以满足您的要求可以看“布局栅格”<br>
-                   所有预制的小的边框边距可以在“MSS预制”里面查找<br>
-                   <br>
-                   <br>强烈建议在每个列分配的时候增加5个以上像素的margin 左右
+                    本栅格系统在不定宽情况自动适应
+                    <br>在定宽情况下适应“limit-column”让列不自动适应按照百分比执行，如果不增加“limit-column”，依旧自适应。使用在“fluid-row”上
+                    <br>本栅格系统在column上没有做任何处理纯粹的比例大小，为了让用着可以在内部执行边框、边距等在内部结构中增加了column-actual适应column
+                    <br>在column-actual上可以增加边框边距等，宽度讲自动适应到外层column的100%
+                    <br>请尽量使用2列排布或者等比排布，如果在不等比累加情况下，适应系统会出现BUG，其他自适应框架也存在同样问题，如果不足以满足您的要求可以看“布局栅格”
+                    <br>所有预制的小的边框边距可以在“MSS预制”里面查找
+                    <br>
+                    <br>
+                    <br>强烈建议在每个列分配的时候增加5个以上像素的margin 左右
                 </div>
             </div>
-        </div>   
+        </div>
         <div class="fluid-row ">
             <div class="column16">
                 <div class="column-actual fn-m5 fn-text-align bg-cnt">
@@ -318,7 +317,7 @@
         </div>
     </div>
     <!-- script start -->
-
+    <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
     <!-- script end -->
 </body>
 

@@ -33,8 +33,6 @@
     <!------------------------>
     <!-- CSS请在发布前合并压缩 -->
     <!------------------------>
-    <!-- JQ 183稳定版本 -->
-    <script src="../../assets/js/jquery-1.8.3.min.js"></script>
 </head>
 
 <body>
@@ -56,8 +54,7 @@
                         </div>
                         <div class="mss-box-container fn-nop">
                             <xmp>
-                                JS操作
-                                一般用于配合其他功能，单个出现的几率渺茫
+                                JS操作 一般用于配合其他功能，单个出现的几率渺茫
                             </xmp>
                         </div>
                     </div>
@@ -66,11 +63,7 @@
             <div class="column10">
                 <div class="column-actual">
                     <button class="mss-button mss-button-big fn-mr10" id="bodyc">打开弹出层</button>
-                    <script type="text/javascript">
-                        $("#bodyc").click(function() {
-                            $("#bodyma").show();
-                        })
-                    </script>
+
                 </div>
             </div>
         </div>
@@ -92,11 +85,6 @@
             <div class="column10">
                 <div class="column-actual" style="height:200px; position:relative">
                     <button class="mss-button mss-button-big fn-mr10" id="divc">打开弹出层</button>
-                    <script type="text/javascript">
-                        $("#divc").click(function() {
-                            $("#divma").show();
-                        })
-                    </script>
                     <div class="mss-mask" id="divma">
                     </div>
                 </div>
@@ -106,7 +94,17 @@
     <div class="mss-mask" id="bodyma">
     </div>
     <!-- script start -->
-
+    <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
+    <script type="text/javascript">
+        require(['jquery'], function($) {
+            $("#bodyc").click(function() {
+                $("#bodyma").show();
+            })
+            $("#divc").click(function() {
+                $("#divma").show();
+            })
+        });
+    </script>
     <!-- script end -->
 </body>
 

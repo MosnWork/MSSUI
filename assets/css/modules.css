@@ -214,7 +214,8 @@ h6 small,
 }
 .mss-dropdown-list-item .m-dropdown-label {
     width: 100%;
-    cursor: pointer
+    cursor: pointer;
+    display: block;
 }
 .mss-dropdown-list-item .m-dropdown-label .m-dropdown-checkbox {
     float: left;
@@ -276,7 +277,7 @@ h6 small,
     position: relative;
     vertical-align: middle;
     white-space: nowrap;
-    margin-left: -1px;
+    margin-left: 0px;
 }
 .mss-button:hover {
     filter: alpha(opacity=70);
@@ -297,9 +298,11 @@ h6 small,
     position: relative;
     vertical-align: middle;
     white-space: nowrap;
+    padding-left: 1px;
 }
 .mss-button-group .mss-button {
-    float: left
+    float: left;
+    margin-left: -1px;
 }
 .mss-button-group .mss-button:first-child {
     border-bottom-left-radius: 2px;
@@ -621,6 +624,16 @@ h6 small,
 }
 .mss-poptip-warning .mss-poptip-content {
     background: #fff4ea;
+}
+/* 上方 */
+
+.mss-poptip-top .mss-poptip-border {
+    top: auto;
+    bottom: -7px;
+}
+.mss-poptip-top .mss-poptip-background {
+    top: auto;
+    bottom: -5px;
 }
 /* 右侧 */
 
@@ -1047,6 +1060,7 @@ h6 small,
     top: 40px;
     width: auto;
     z-index: 2;
+    display: none;
 }
 .mss-navbar-menu li {
     float: left;
@@ -1104,7 +1118,7 @@ h6 small,
 .mss-mask {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position:absolute;
     top: 0;
     left: 0;
     background: #000;
@@ -1112,8 +1126,41 @@ h6 small,
     -moz-opacity: 0.5;
     -khtml-opacity: 0.5;
     opacity: 0.5;
-    display: none;
 }
+
+
+
+.mss-mask-load {
+    width:100px;
+    padding:5px;
+    height:30px;
+    position:absolute;
+    top: 50%;
+    margin-top:-20px;
+    left: 50%;
+    margin-left:-55px;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    line-height: 30px;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+filter: alpha(opacity=80);
+    -moz-opacity: 0.8;
+    -khtml-opacity: 0.8;
+    opacity: 0.8;
+    color: black
+}
+.mss-mask-load i{
+    margin: 0 8px;
+}
+
+
+
+
+
 /**********************
  * 表格组件  mss-table
  **********************/
@@ -1183,6 +1230,7 @@ h6 small,
     height: auto;
     position: relative;
     z-index: 1;
+    overflow: hidden;
     *zoom: 1;
 }
 .mss-carousel:after {
@@ -1290,7 +1338,7 @@ mss-tree-checkbox {
     -moz-box-shadow: 0 2px 5px #a8a8a8;
     box-shadow: 0 2px 5px #a8a8a8;
     outline: 0;
-    position: absolute;
+    position: fixed;
     z-index: 499;
     top: 50%;
     left: 50%;
@@ -1312,7 +1360,6 @@ mss-tree-checkbox {
     cursor: move;
     position: relative;
     padding: 4px 0;
-    padding-left: 10px;
     z-index: 1;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -1322,7 +1369,7 @@ mss-tree-checkbox {
 .mss-dialog-close {
     position: absolute;
     width: auto;
-    right: 20px;
+    right: 10px;
     top: 10px;
     text-align: center;
     font-size: 12px;
@@ -1334,6 +1381,7 @@ mss-tree-checkbox {
     width: 100%;
     overflow: auto;
     overflow-y: auto;
+    position: relative;
 }
 .mss-dialog-button {
     float: left;
@@ -1549,4 +1597,52 @@ mss-tree-checkbox {
     padding: 0;
     height: 28px;
     margin-left: 5px;
+}
+/**********************
+ * 时间控件  mss-calender
+ **********************/
+
+.mss-calender {
+    height: auto;
+    left: 10px;
+    position: absolute;
+    width: auto;
+    border: 1px solid #d9d9d9;
+    top: 10;
+    z-index: 97;
+    -moz-box-shadow: 0 1px 3px #cccccc;
+    -webkit-box-shadow: 0 1px 3px #cccccc;
+    box-shadow: 0 1px 3px #cccccc;
+    *zoom: 1;
+}
+.mss-calender:after {
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    content: ".";
+}
+.mss-calender-border,
+.mss-calender-background {
+    position: absolute;
+    top: -6px;
+    left: 3px;
+    color: #d9d9d9;
+    font-family: "宋体", "Arial Unicode MS";
+    height: 12px;
+    line-height: 12px;
+    overflow: hidden;
+    width: 12px;
+    z-index: 98;
+}
+.mss-calender-background {
+    top: -5px;
+    color: #f7f7f7;
+    z-index: 99
+}
+.mss-calender-content {
+    position: relative;
+    z-index: 97;
+    background: #f7f7f7;
 }

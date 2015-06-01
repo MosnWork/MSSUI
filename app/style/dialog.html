@@ -33,8 +33,6 @@
     <!------------------------>
     <!-- CSS请在发布前合并压缩 -->
     <!------------------------>
-    <!-- JQ 183稳定版本 -->
-    <script src="../../assets/js/jquery-1.8.3.min.js"></script>
 </head>
 
 <body>
@@ -64,20 +62,15 @@
             <div class="column10">
                 <div class="column-actual">
                     <button class="mss-button mss-button-big fn-mr10">打开弹出层</button>
-                    <script type="text/javascript">
-                        $(".mss-button-big").click(function() {
-                            $(".mss-dialog").show();
-                        })
-                    </script>
                 </div>
             </div>
         </div>
     </div>
-<!--
-    
-    <div class="mss-dialog" style="width:600px;height:400px;margin-left:-300px;margin-top:-200px;">
-        <div class="mss-dialog-title">
-            <h5>默认弹出层<small>自定义参数</small></h5>
+
+
+    <div class="mss-dialog"  style="width:600px;height:400px;margin-left:-300px;margin-top:-200px;">
+        <div class="mss-dialog-title" mss-Drag='true'>
+            <h5 class="fn-text-indent">默认弹出层<small>自定义参数</small></h5>
             <div class="mss-dialog-close">X</div>
         </div>
         <div class="mss-dialog-container" style="height:316px;"></div>
@@ -86,10 +79,11 @@
             <button class="mss-button">取消</button>
         </div>
     </div>
--->
 
+
+    
     <div class="mss-dialog mss-dialog-confirm" style="width:400px;height:150px;margin-left:-200px;margin-top:-75px;">
-        <div class="mss-dialog-title">
+        <div class="mss-dialog-title" mss-Drag='true'>
             <div class="mss-dialog-confirm-cnt">
                 <div class="mss-tip">
                     <div class="mss-tip-icon">
@@ -111,8 +105,9 @@
             <button class="mss-button">取消</button>
         </div>
     </div>
-    <!-- script start -->
 
+    <!-- script start -->
+<script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
     <!-- script end -->
 </body>
 

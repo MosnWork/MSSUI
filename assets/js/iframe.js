@@ -1,14 +1,14 @@
 /**
- * MSS_Iframe.js
+ * iframe.js
  * Mosn 2015.4.16
  * From MosnWork
  */
 
 /*
-@ 主函数 MSS_Iframe
+@ 主函数 iframe
 @ init 初始化
 */
-var MSS_Iframe = (function() {
+var iframe = (function() {
     //---------------------
     // 初始参数
     //---------------------
@@ -480,9 +480,7 @@ var MSS_Iframe = (function() {
             "height": $(window).height() - $(".header").height() - 15 + "px"
         });
 
-        $(".iframe-box").css({
-            "height": $(".myiframe").height() - 30 + "px"
-        });
+
 
 
         //自动适应的 一般用CSS就可以改好，尽量别动
@@ -512,6 +510,10 @@ var MSS_Iframe = (function() {
             });
             $(".myiframe").removeClass("myiframe-media");
         }
+
+        $(".iframe-box").css({
+            "height": $(".myiframe").height() - 30 + "px"
+        });
     }
 
     //---------------------
@@ -680,6 +682,9 @@ var MSS_Iframe = (function() {
         }, parseInt(op.secs) * 1000);
 
     }
+
+
+
 
     //---------------------
     // return 可调用函数区

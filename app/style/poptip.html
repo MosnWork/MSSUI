@@ -33,8 +33,6 @@
     <!------------------------>
     <!-- CSS请在发布前合并压缩 -->
     <!------------------------>
-    <!-- JQ 183稳定版本 -->
-    <script src="../../assets/js/jquery-1.8.3.min.js"></script>
 </head>
 
 <body>
@@ -89,11 +87,11 @@
                 <div class="column-actual fn-mr10">
                     <div class="mss-box">
                         <div class="mss-box-head fn-linear-light">
-                            <h4>可选方向气泡<small>可选方向：left(左侧)，right(右侧)</small><a href="#">→</a></h4>
+                            <h4>可选方向气泡<small>可选方向：top(上方),left(左侧)，right(右侧)</small><a href="#">→</a></h4>
                         </div>
                         <div class="mss-box-container fn-nop">
                             <xmp>
-                                <div class="mss-poptip mss-poptip-right">
+                                <div class="mss-poptip mss-poptip-top">
                                     <span class="mss-poptip-border">◆</span>
                                     <span class="mss-poptip-background">◆</span>
                                     <div class="mss-poptip-content">
@@ -109,7 +107,7 @@
             </div>
             <div class="column10">
                 <div class="column-actual" style="position:relative">
-                    <div class="mss-poptip mss-poptip-right">
+                    <div class="mss-poptip mss-poptip-top">
                         <span class="mss-poptip-border">◆</span>
                         <span class="mss-poptip-background">◆</span>
                         <div class="mss-poptip-content">
@@ -196,9 +194,50 @@
                 </div>
             </div>
         </div>
+        <div class="fluid-row fn-mt10">
+            <div class="column6">
+                <div class="column-actual fn-mr10">
+                    <div class="mss-box">
+                        <div class="mss-box-head fn-linear-light">
+                            <h4>JS控制<small></small><a href="#">→</a></h4>
+                        </div>
+                        <div class="mss-box-container">
+                            在元素上使用"mss-poptip"属性,true为打开提示
+                            <br>mss-direction属性值为4个方向：top,left,right,bottom
+                            <br>文字放置在"mss-text"属性中
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column10">
+                <div class="column-actual">
+                    <button class="mss-button fn-bg-Blue" mss-poptip="true" mss-direction="right" mss-text="我是按钮！">气泡提示</button>
+                    <a mss-poptip="true" mss-direction="left" mss-text="我是A！">气泡提示</a>
+                    <div class="fluid-row">
+                        <div class="column6">
+                            <div class="mss-dropdown" mss-poptip="true" mss-direction="top" mss-text="我是dropdown！">
+                                <div class="mss-dropdown-text">
+                                    <input class="mss-dropdown-input" type="text" value="" onfocus="this.blur()" readonly/>
+                                    <input class="mss-dropdown-val" type="hidden" value="" />
+                                    <i class="icon-angle-down" title="点击选择"></i>
+                                </div>
+                                <ul class="mss-dropdown-list">
+                                    <li class="mss-dropdown-list-item fn-text-overflow" mss-value="2">
+                                        <span>标为已缴</span>
+                                    </li>
+                                    <li class="mss-dropdown-list-item fn-text-overflow" mss-value="2">
+                                        <span>标为已缴</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- script start -->
-
+    <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
     <!-- script end -->
 </body>
 

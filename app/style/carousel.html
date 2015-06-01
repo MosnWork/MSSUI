@@ -33,8 +33,6 @@
     <!------------------------>
     <!-- CSS请在发布前合并压缩 -->
     <!------------------------>
-    <!-- JQ 183稳定版本 -->
-    <script src="../../assets/js/jquery-1.8.3.min.js"></script>
 </head>
 
 <body>
@@ -64,7 +62,7 @@
             </div>
             <div class="column10">
                 <div class="column-actual">
-                    <div class="mss-carousel">
+                    <div class="mss-carousel" mss-interval="3000" mss-time="1000">
                         <ul class="mss-carousel-cnt">
                             <li class="mss-carousel-item">
                                 <a href="www.MSSUI.com">
@@ -73,18 +71,18 @@
                             </li>
                             <li class="mss-carousel-item">
                                 <a href="www.MSSUI.com">
-                                    <img src="http://www.debug.com/upload/banner_01.jpg" />
+                                    <img src="http://www.debug.com/upload/banner_02.jpg" />
                                 </a>
                             </li>
                             <li class="mss-carousel-item">
                                 <a href="www.MSSUI.com">
-                                    <img src="http://www.debug.com/upload/banner_01.jpg" />
+                                    <img src="http://www.debug.com/upload/banner_03.jpg" />
                                 </a>
                             </li>
                         </ul>
                         <dl class="mss-carousel-control">
-                            <dt class="mss-carousel-move"></dt>
                             <dt class="mss-carousel-move mss-carousel-current"></dt>
+                            <dt class="mss-carousel-move "></dt>
                             <dt class="mss-carousel-move"></dt>
                         </dl>
                     </div>
@@ -93,7 +91,7 @@
         </div>
     </div>
     <!-- script start -->
-
+    <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
     <!-- script end -->
 </body>
 

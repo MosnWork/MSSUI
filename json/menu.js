@@ -230,6 +230,12 @@ var menuData = [
                 "text":"弹出层",
                 "href":"app/plug/dialog.html",
                 "nodes":[]
+            },
+            {
+                "id":33,
+                "text":"树结构",
+                "href":"app/plug/tree.html",
+                "nodes":[]
             }
         ]
     }

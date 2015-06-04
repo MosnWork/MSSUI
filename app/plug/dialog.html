@@ -61,7 +61,8 @@
             </div>
             <div class="column10">
                 <div class="column-actual">
-                    <button class="mss-button mss-button-big fn-mr10">打开弹出层</button>
+                    <button class="mss-button mss-button-big fn-mr10" id="eqwe">打开弹出层</button>
+                    <button class="mss-button mss-button-big fn-mr10" id="asdas">打开对话</button>
                 </div>
             </div>
         </div>
@@ -112,10 +113,18 @@
     <script>
         //页面初始化
         require(['jquery', 'dialog'], function($, D) {
-            $(".mss-button").click(function() {
+            $("#eqwe").click(function() {
                 D.dialog();
             })
-
+            $("#asdas").click(function() {
+                D.dialog({
+                    isAlert: true,
+                    aTitle: "qweqweqweqwe", //测试标题
+                    aIcon: "icon-question-sign", //测试标题
+                    aColor: "red", //测试标题
+                    aContent: "测试内容测" //测试内容
+                });
+            })
         });
     </script>
     <!-- script end -->

@@ -60,33 +60,58 @@
             </div>
             <div class="column10">
                 <div class="column-actual">
-                    <!--form可以替换为div-->
-                    <form class="mss-form" name="" method="post" action="#" id="">
-                        <div class="mss-form-item">
-                            <div class="mss-form-leftname">时间:</div>
-                            <div class="mss-form-container">
-                                <div class="mss-form-container-box">
-                                    <div class="mss-form-box">
-                                        <div class="mss-form-input-lefticon"><i class="mss-form-icon icon-table"></i>
-                                            <input type="text" class="mss-form-input-txt" mss-calender="true">
+
+                    <div class="fluid-row">
+                        <div class="column6">
+                            <div class="column-actual">
+                                <!--form可以替换为div-->
+                                <div class="mss-form">
+                                    <div class="mss-form-item">
+                                        <div class="mss-form-leftname">时间1:</div>
+                                        <div class="mss-form-container">
+                                            <div class="mss-form-container-box">
+                                                <div class="mss-form-box">
+                                                    <div class="mss-form-input-lefticon"><i class="mss-form-icon icon-table"></i>
+                                                        <input type="text" value="2015-8-6 10:20:30" class="mss-form-input-txt" mss-calender='true' mss-today='true' mss-auto='true' mss-format="yyyy-MM-dd hh:mm:ss" mss-min="2014-1-1 1:1:1"/>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
-                    </form>
+                    </div>
+                    <div class="fluid-row">
+                        <div class="column6">
+                            <div class="column-actual">
+                                <!--form可以替换为div-->
+                                <div class="mss-form">
+                                    <div class="mss-form-item">
+                                        <div class="mss-form-leftname">时间2:</div>
+                                        <div class="mss-form-container">
+                                            <div class="mss-form-container-box">
+                                                <div class="mss-form-box">
+                                                    <div class="mss-form-input-lefticon"><i class="mss-form-icon icon-table"></i>
+                                                        <input type="text" class="mss-form-input-txt" mss-calender='true' mss-auto='true'/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
     <!-- script start -->
     <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
-    <script>
-        require(['jquery','dialog'], function($,D) {
-            D.dialog();
-        });
-    </script>
-
     <!-- script end -->
 </body>
 

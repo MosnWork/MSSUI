@@ -1118,7 +1118,7 @@ h6 small,
 .mss-mask {
     width: 100%;
     height: 100%;
-    position:absolute;
+    position: absolute;
     top: 0;
     left: 0;
     background: #000;
@@ -1127,18 +1127,15 @@ h6 small,
     -khtml-opacity: 0.5;
     opacity: 0.5;
 }
-
-
-
 .mss-mask-load {
-    width:100px;
-    padding:5px;
-    height:30px;
-    position:absolute;
+    width: 100px;
+    padding: 5px;
+    height: 30px;
+    position: absolute;
     top: 50%;
-    margin-top:-20px;
+    margin-top: -20px;
     left: 50%;
-    margin-left:-55px;
+    margin-left: -55px;
     background: #fff;
     border: 1px solid #e3e3e3;
     line-height: 30px;
@@ -1147,20 +1144,15 @@ h6 small,
     -webkit-border-radius: 2px;
     -o-border-radius: 2px;
     -ms-border-radius: 2px;
-filter: alpha(opacity=80);
+    filter: alpha(opacity=80);
     -moz-opacity: 0.8;
     -khtml-opacity: 0.8;
     opacity: 0.8;
     color: black
 }
-.mss-mask-load i{
+.mss-mask-load i {
     margin: 0 8px;
 }
-
-
-
-
-
 /**********************
  * 表格组件  mss-table
  **********************/
@@ -1171,6 +1163,7 @@ filter: alpha(opacity=80);
     font-size: 12px;
     text-align: left;
     width: 100%;
+    overflow-x: auto
 }
 .m-table thead {
     color: #666;
@@ -1334,9 +1327,9 @@ mss-tree-checkbox {
 .mss-dialog {
     background-color: #fff;
     border-radius: 6px;
-    -webkit-box-shadow: 0 2px 5px #a8a8a8;
-    -moz-box-shadow: 0 2px 5px #a8a8a8;
-    box-shadow: 0 2px 5px #a8a8a8;
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     outline: 0;
     position: fixed;
     z-index: 499;
@@ -1604,15 +1597,20 @@ mss-tree-checkbox {
 
 .mss-calender {
     height: auto;
-    left: 10px;
     position: absolute;
     width: auto;
     border: 1px solid #d9d9d9;
-    top: 10;
     z-index: 97;
     -moz-box-shadow: 0 1px 3px #cccccc;
     -webkit-box-shadow: 0 1px 3px #cccccc;
     box-shadow: 0 1px 3px #cccccc;
+    moz-user-select: -moz-none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     *zoom: 1;
 }
 .mss-calender:after {
@@ -1638,11 +1636,241 @@ mss-tree-checkbox {
 }
 .mss-calender-background {
     top: -5px;
-    color: #f7f7f7;
-    z-index: 99
+    color: #fff;
+    z-index: 99;
 }
 .mss-calender-content {
     position: relative;
     z-index: 97;
-    background: #f7f7f7;
+    background: #fff;
+}
+.mss-calender-title {
+    width: 100%;
+    height: 31px;
+    border-bottom: 1px solid #d9d9d9;
+    line-height: 31px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    font-family: "Helvetica Neue", "Helvetica", "Arial";
+}
+.mss-calender-left,
+.mss-calender-right {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: auto;
+    height: 21px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #888;
+    padding: 0 5px;
+    background: #ebeff3;
+    cursor: pointer;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+}
+.mss-calender-right {
+    left: auto;
+    right: 5px;
+}
+.mss-calender-time {
+    width: 100%;
+    height: 160px;
+    text-align: center;
+    color: #333;
+}
+.mss-calender-tool {
+    width: 100%;
+    height: 31px;
+    border-top: 1px solid #d9d9d9;
+    line-height: 31px;
+    color: #333;
+    padding: 5px 0;
+}
+.mss-calender-today {
+    float: right;
+    margin-right: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    padding:0 5px;
+    background: #eb7501;
+    color: #fff;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    line-height: 26px;
+    margin-top:3px;
+}
+.mss-calender-yes {
+    float: right;
+    margin-right: 5px;
+    color: #3f8ddb;
+    font-weight: 600;
+    cursor: pointer;
+    padding:0 5px;
+    background: #2972ed;
+    color: #fff;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    line-height: 26px;
+    margin-top:3px;
+}
+.mss-calender-select {
+    float: left;
+    padding-left: 5px;
+}
+.mss-calender-hour,
+.mss-calender-points,
+.mss-calender-seconds {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 2px 0;
+    width: 40px;
+}
+.mss-calender-table {
+    border: none;
+    border-collapse: collapse;
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+}
+.mss-calender-table thead {
+    color: #333;
+    height: 22px;
+    font-weight: 600;
+    border-bottom: 1px solid #d9d9d9;
+    background: #f2f2f2;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f2f2f2));
+    background: -moz-linear-gradient(top, #f8f8f8, #f2f2f2);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f8f8f8', endColorstr='#f2f2f2');
+    background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
+    background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
+    background: linear-gradient(to bottom, #f8f8f8, #f2f2f2);
+}
+.mss-calender-table thead .weekend {
+    color: #FF0000;
+}
+.mss-calender-table tbody td {
+    height: 22px;
+}
+.mss-calender-table tbody td span {
+    margin: 3px;
+    display: block;
+    cursor: pointer;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+}
+.mss-calender-table tbody td span.noclick {
+    color: #999;
+    text-decoration: line-through;
+}
+/*节假日*/
+
+.mss-calender-table tbody td span.mss-calender-holiday {
+    background: #ffe7b2;
+}
+/*已选择，输入框值*/
+
+.mss-calender-table tbody td span.mss-calender-blue {
+    background: #b2ceff;
+}
+/*今天*/
+
+.mss-calender-table tbody td span.mss-calender-Teal {
+    background: #9cd9d1;
+}
+.mss-calender-table tbody td span:hover {
+    background: #dedede;
+}
+.mss-calender-switch {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 32px;
+    height: 160px;
+    background: #fff;
+    display: none;
+}
+.mss-calender-month {
+    float: left;
+    height: 50px;
+    padding: 5px;
+    padding-top: 4px;
+    border-top: 1px solid #d9d9d9;
+}
+.mss-calender-month ins {
+    float: left;
+    width: 16.6665%;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.mss-calender-month ins.current {
+    background: #8abcff;
+    color: #fff;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+}
+.mss-calender-year {
+    float: left;
+    height: 100px;
+    width: 100%;
+}
+.mss-calender-switch-left,
+.mss-calender-switch-right {
+    float: left;
+    height: 100px;
+    width: 15px;
+    line-height: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+.mss-calender-year:hover .mss-calender-switch-left,
+.mss-calender-year:hover .mss-calender-switch-right {
+    background: #f4f4f4;
+}
+.mss-calender-switch-dl {
+    float: left;
+    height: 90px;
+    padding: 5px;
+}
+.mss-calender-switch-dl dt {
+    float: left;
+    width: 25%;
+    height: 22.5px;
+    line-height: 22.5px;
+    text-align: center;
+    cursor: pointer;
+}
+.mss-calender-switch-dl dt.current {
+    background: #8abcff;
+    color: #fff;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
 }

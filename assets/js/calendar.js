@@ -8,8 +8,7 @@ define(function(require, exports, module) {
         "min": "", //最小时间
         "max": "", //最大时间
         "today": true, //今天按钮
-        "auto": true, //时分秒
-        "fn": "" //回调函数--跟随返回时间
+        "auto": true //时分秒
     }
 
     //时间架
@@ -104,8 +103,6 @@ define(function(require, exports, module) {
             //initialize.double = el.attr("mss-double") == "true" ? "true" : "false";
             //格式化
             initialize.format = (el.attr("mss-format") != "" && el.attr("mss-format") != undefined) ? el.attr("mss-format") : "yyyy-MM-dd";
-            //格式化
-            initialize.fn = (el.attr("mss-fn") != "" && el.attr("mss-fn") != undefined) ? el.attr("mss-fn") : "";
             //元素
             initialize.target = (el.attr("mss-target") != "" && el.attr("mss-target") != undefined) ? $(el.attr("mss-target")) : el;
             initialize.target = initialize.target.length > 0 ? initialize.target : el;
@@ -165,8 +162,9 @@ define(function(require, exports, module) {
         var docWidth = $(document).width();
         var docHeight = $(document).height();
         //时间架定位
-        var c_top = docHeight - top - 7 - height - objMe.height > 0 ? top + height + 7 : top - 7 - height;
-        var c_left = docWidth - left - objMe.width > 0 ? left : docWidth - width;
+        var c_top = (docHeight - top - 7 - height - objMe.height < 10 && top - 7 - objMe.height > 10) ? top - 7 - objMe.height : top + height + 7;
+        //var c_top = docHeight - top - 7 - height - objMe.height > 0 ? top + height + 7 : top - 7 - height;
+        var c_left = docWidth - left - objMe.width > 0 ? left : docWidth - objMe.width - 10;
         //生成框架
         var html = "<div  class=\"mss-calender\" style=\"left:" + c_left + "px;top:" + c_top + "px\">";
         html += "<span class=\"mss-calender-border\">◆</span><span class=\"mss-calender-background\">◆</span>";
@@ -329,19 +327,12 @@ define(function(require, exports, module) {
         if (initialize.auto == true) {
             //确认事件
             curObj.tool.on("click", ".mss-calender-yes", function() {
-                changeAuto();
+                //changeAuto();
                 backInput();
                 return false;
             })
         }
-        
-        
-        //这里要给3个选择框绑定时间限制可选范围................
-        //研究下回调函数的方式，apply,call的this指针
-        //好烦躁
-        
-        
-        
+        //限制时分秒的选择范围，求指导
     }
 
     //---------------------
@@ -408,20 +399,20 @@ define(function(require, exports, module) {
             if (!$(this).hasClass("noclick")) {
                 $(this).parent().parent().parent().find("span").removeClass("mss-calender-blue");
                 $(this).addClass("mss-calender-blue");
-                
+
                 var sfm = "";
                 if (initialize.auto == true) {
                     sfm = " " + $(curObj.tool.find("select")[0]).val() + ":" + $(curObj.tool.find("select")[1]).val() + ":" + $(curObj.tool.find("select")[2]).val() + "";
                 } else {
                     sfm = " 00:00:00";
                 }
-                curObj.input = new Date(curObj.begin.getFullYear().toString() + "/" + (curObj.begin.getMonth()+1).toString() + "/" + $(this).html() + sfm);
-
+                curObj.input = new Date(curObj.begin.getFullYear().toString() + "/" + (curObj.begin.getMonth() + 1).toString() + "/" + $(this).html() + sfm);
                 if (initialize.auto == true) {
                     changeAuto();
                 } else {
                     backInput();
                 }
+
             }
             return false;
         })
@@ -534,25 +525,27 @@ define(function(require, exports, module) {
         //判断有效期
         if (curObj.input.getTime() < initialize.min.getTime()) {
             alert("选择时间错误，小于最小时间(" + initialize.min.format(initialize.format) + ")");
+            curObj.input = initialize.min;
             initialize.target.val(initialize.min.format(initialize.format));
         } else if (curObj.input.getTime() > initialize.max.getTime()) {
             alert("选择时间错误，大于最大时间(" + initialize.max.format(initialize.format) + ")");
+            curObj.input = initialize.max;
             initialize.target.val(initialize.max.format(initialize.format));
         } else {
             initialize.target.val(curObj.input.format(initialize.format));
         }
-        var backcall = initialize.fn;
+        var el = initialize.target;
+        var t = curObj.input.format(initialize.format);
         closeclear();
-        if (backcall != "") {
-            try {
-                if (typeof(eval(initialize.fn)) == "function") {
-                    eval("window." + initialize.fn + "(" + curObj.input + ")");
-                } else {
-                    alert("回调函数初始化失败");
-                }
-            } catch (ex) {
-                alert("回调失败");
+        //看下页面中是否有默认的回调函数，如果存在就把对象以及时间回调回去
+        try {
+            if (typeof(calerdarBack) == "function") {
+                eval("calerdarBack(" + el + "," + t + ")");
+            } else {
+                console.log("未找到回调函数");
             }
+        } catch (ex) {
+            alert("回调失败");
         }
     }
 

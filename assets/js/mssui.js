@@ -38,8 +38,6 @@ define(function(require, exports, module) {
         timersDoc: [] //定时器对象
     }
 
-
-
     //初始化
     var init = function() {
         //下拉菜单
@@ -63,7 +61,6 @@ define(function(require, exports, module) {
         //判断关闭
         closeShow();
     }
-
 
     //---------------------
     // dropdown 下拉菜单

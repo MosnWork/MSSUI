@@ -3,7 +3,8 @@ require.config({
     paths: {
         mssui: 'mssui',
         dialog: 'dialog',
-        calendar: 'calendar'
+        calendar: 'calendar',
+        tree: 'tree'
     }
 });
 

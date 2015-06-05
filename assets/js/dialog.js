@@ -1,11 +1,14 @@
 define(function(require, exports, module) {
     //默认参数
-    var options = {
-        title: "", //弹出层标题
+    var options = {};
+
+    //参数重置
+    var pubFig = {
+        title: "MSSUI弹出层", //弹出层标题
         width: 0, //弹出层宽度
         height: 0, //弹出层高度
         mask: true, //是否需要遮罩层
-        animatime: 00, //进出动画时间
+        animatime: 0, //进出动画时间
         buttons: [], //按钮层//增加回调函数
         loader: {
             isload: true, //是否异步
@@ -22,48 +25,52 @@ define(function(require, exports, module) {
         aContent: "" //测试内容
     };
 
+
+
+
+
     //默认参数
-    var pubFig = {
-        title: "MSSUI弹出层", //弹出层标题
-        width: 0, //弹出层宽度
-        height: 0, //弹出层高度
-        mask: true, //是否需要遮罩层
-        animatime: 500, //进出动画时间
-        buttons: [{
-            text: '自定义', //文字
-            elCls: 'fn-bg-Blue', //样式
-            handler: function(obj) {
-                this.callback = function() {
-                    if (confirm("确认要关闭？")) {
-                        this.close();
-                    }
-                }
-            }
-        }, {
-            text: '取消', //文字
-            elCls: '', //样式
-            handler: function() {
-                this.callback = function() {
-                    alert("s");
-                }
-            }
-        }], //按钮层//增加回调函数
-        loader: {
-            isload: true, //是否异步
-            isiframe: true, //是否iframe
-            url: 'http://www.mui.com/app/debug/iframe.html',
-            params: {
-                a: 'a'
-            }, //附加的参数
-            ispost: true, //提交方式
-            content: "" //显示内容
-        }, //加载数据
-        isAlert: false, //是否用对话形式
-        aTitle: "标题", //测试标题
-        aIcon: "icon-info-sign", //测试图表
-        aColor: "#66cae2", //图标颜色
-        aContent: "内容" //测试内容
-    };
+    //    var pubFig = {
+    //        title: "MSSUI弹出层", //弹出层标题
+    //        width: 0, //弹出层宽度
+    //        height: 0, //弹出层高度
+    //        mask: true, //是否需要遮罩层
+    //        animatime: 500, //进出动画时间
+    //        buttons: [{
+    //            text: '自定义', //文字
+    //            elCls: 'fn-bg-Blue', //样式
+    //            handler: function(obj) {
+    //                this.callback = function() {
+    //                    if (confirm("确认要关闭？")) {
+    //                        this.close();
+    //                    }
+    //                }
+    //            }
+    //        }, {
+    //            text: '取消', //文字
+    //            elCls: '', //样式
+    //            handler: function() {
+    //                this.callback = function() {
+    //                    alert("s");
+    //                }
+    //            }
+    //        }], //按钮层//增加回调函数
+    //        loader: {
+    //            isload: true, //是否异步
+    //            isiframe: true, //是否iframe
+    //            url: 'http://www.mui.com/app/debug/iframe.html',
+    //            params: {
+    //                a: 'a'
+    //            }, //附加的参数
+    //            ispost: true, //提交方式
+    //            content: "" //显示内容
+    //        }, //加载数据
+    //        isAlert: false, //是否用对话形式
+    //        aTitle: "标题", //测试标题
+    //        aIcon: "icon-info-sign", //测试图表
+    //        aColor: "#66cae2", //图标颜色
+    //        aContent: "内容" //测试内容
+    //    };
 
 
     //---------------------

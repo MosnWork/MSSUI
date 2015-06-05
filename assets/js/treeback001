@@ -1,0 +1,193 @@
+define(function(require, exports, module) {
+    //-----------------------
+    // 默认参数
+    //-----------------------
+    var options = {
+        target: "", //渲染节点
+        data: {}, //数据
+        closeicon: "icon-folder-close", //有节点的情况下，关闭节点
+        openicon: "icon-folder-open", //打开节点
+        nodeicon: "icon-file", //没有节点
+        accordion: false, //设置手风琴效果
+        check: true, //选择
+        nodecheck: false, //仅允许子节点选择
+        multi: true, //多选
+        callback: "" //点击节点回调
+    };
+
+    //选择
+    //外部接口-----全选，反选，获取选中值，删除选中，重置，取消选择，
+
+
+
+    //啊啊啊啊啊
+    //选中状态需要记忆到数据内，不然会无法反复打开节点
+
+
+
+    var init = function(ops) {
+        //合并参数
+        if (ops && typeof ops === 'object') {
+            $.extend(options, ops);
+        }
+        try {
+            //增加原型-根据key  val 找到JSON数组里面符合条件的第一个JSON对象  如果没找到返回空对象
+            Array.prototype.findJson = function(fkey, fval) {
+                var thisJson = this;
+                for (var i = 0; i < thisJson.length; i++) {
+                    var xobj = thisJson[i];
+                    for (var key in xobj) {
+                        if (key == fkey) {
+                            if (xobj[key] == fval) {
+                                return xobj;
+                            }
+                        }
+                    }
+                }
+                return {};
+            }
+            //判断是否可以执行
+            if (options.target == "") {
+                alert("未指定节点");
+                return false;
+            }
+            if (options.data.success) {
+                //打开树结构
+                var $treeget = $("<div class=\"mss-tree\"></div>").appendTo($(options.target));
+                openTree($treeget, options.data.nodes, "", false);
+                //绑定事件-----行事件
+                $treeget.on("click", "p", function() {
+                    if ($(this).parent().find("ul").length > 0) {
+                        $(this).parent().find("ul").remove();
+                    } else {
+                        var pindex = $(this).attr("mss-index").split(",");
+                        var bydata = options.data.nodes;
+                        for (var i = 0; i < pindex.length; i++) {
+                            bydata = bydata[parseInt(pindex[i])].children;
+                        }
+                        if (bydata.length > 0) {
+                            var ischeck = false;
+                            if ($(this).find("input").length > 0) {
+                                if ($($(this).find("input")).is(":checked")) {
+                                    ischeck = true;
+                                }
+                            }
+                            openTree($(this).parent(), bydata, $(this).attr("mss-index"), ischeck);
+                        }
+                        if (options.accordion == true) {
+                            $(this).parent().siblings().find("ul").remove();
+                        }
+                    }
+                })
+                //绑定事件-----行事件
+                $treeget.on("click", "input", function(e) {
+                    if (options.multi == true) {
+                        if ($(this).is(":checked")) {
+                            $(this).parent().parent().find("input").attr("checked", "true");
+                            //回溯
+                            var ord = $(this).parent().attr("mss-index").split(",");
+                            var cor = "";
+                            for (var i = 0; i < ord.length - 1; i++) {
+                                cor += ord[i];
+                                var myp = $(this).parents(".mss-tree").find("p");
+                                for (var s = 0; s < myp.length; s++) {
+                                    if ($(myp[s]).attr("mss-index") == cor) {
+                                        $(myp[s]).find("input").attr("checked", "true");
+                                    }
+                                }
+                                cor += ",";
+                            }
+                        } else {
+                            //取消
+                            $(this).parent().parent().find("input").removeAttr("checked");
+                            //回溯取消
+                            //判断是否有同级打开
+                            if (!$(this).parent().parent().siblings().find("input").is(":checked")) {
+                                //回溯过程中要注意他的父节点的同级元素是否有打开的
+                                var ord = $(this).parent().attr("mss-index").split(",");
+                                var cor = "";
+                                for (var i = 0; i < ord.length - 1; i++) {
+                                    cor += ord[i];
+                                    var myp = $(this).parents(".mss-tree").find("p");
+                                    for (var s = 0; s < myp.length; s++) {
+                                        if ($(myp[s]).attr("mss-index") == cor) {
+                                            if (!$(myp[s]).siblings("ul").find("input").is(":checked")) {
+                                                $(myp[s]).find("input").removeAttr("checked");
+                                            }
+                                        }
+                                    }
+                                    cor += ",";
+                                }
+                            }
+                        }
+                    } else {
+                        if ($(this).is(":checked")) {
+                            $(this).parents(".mss-tree").find("input").removeAttr("checked");
+                            $(this).attr("checked", "true");
+                        }
+                    }
+                    //处理点击事件
+                    window.event ? window.event.cancelBubble = true : e.stopPropagation();
+                })
+            } else {
+                alert("无数据");
+                return false;
+            }
+        } catch (e) {
+            console.log("树节点数据解析失败");
+        }
+    }
+
+    var openTree = function(obj, data, ord, checked) {
+        var html = "";
+        var pd = "";
+        if (ord == "") {
+            pd = "style=\"padding-left:0px;\"";
+        }
+        html += "<ul class=\"mss-tree-ul\" " + pd + ">";
+        for (var i = 0; i < data.length; i++) {
+            var wi = "";
+            if (ord == "") {
+                wi = i;
+            } else {
+                wi = ord + "," + i;
+            }
+            html += "<li class=\"mss-tree-item\"><p class=\"mss-tree-title\" mss-index=\"" + wi + "\">";
+            if (data[i].children.length > 0) {
+                html += "<i class=\"mss-tree-icont " + options.closeicon + "\"></i>";
+            } else {
+                html += "<i class=\"mss-tree-icont " + options.nodeicon + "\"></i>";
+            }
+            if (options.check == true) {
+                if (options.nodecheck == false) {
+                    var ischecked = "";
+                    if (checked == true) {
+                        if (options.multi == true) {
+                            ischecked = "checked";
+                        } else {
+                            if (i == 0) {
+                                ischecked = "checked";
+                            }
+                        }
+                    }
+                    if (options.multi == false) {
+                        ischecked = "";
+                    }
+                    html += "<input type=\"checkbox\" " + ischecked + " name=\"mss-tree-checkbox\" class=\"mss-tree-checkbox\">";
+                } else if (options.nodecheck == true && data[i].children.length <= 0) {
+                    html += "<input type=\"checkbox\" name=\"mss-tree-checkbox\" class=\"mss-tree-checkbox\">";
+                }
+            }
+            html += "<span class=\"mss-tree-item-font\">" + data[i].value + "</span>";
+            html += "</p></li>";
+        }
+        html += "</ul>";
+        $(html).appendTo(obj);
+    }
+    //-----------------------
+    // 对外接口
+    //-----------------------
+    return {　　　　　　　
+        init: init
+    };
+});

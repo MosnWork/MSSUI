@@ -6,17 +6,17 @@ var cityJsosn = {
         "value": "\u5317\u4eac",
         "parent": "1",
         "children": [{
-            "id": "\u5317\u4eac\u5e02",
+            "id": "\u4eac\u5e02",
             "value": "\u5317\u4eac\u5e02",
             "parent": "\u5317\u4eac",
             "children": [{
-                "id": "\u4e1c\u57ce\u533a",
+                "id": "\u4e1c\u533a",
                 "value": "\u4e1c\u57ce\u533a",
                 "parent": "\u5317\u4eac\u5e02",
                 "children": [],
                 "isleaf": true
             }, {
-                "id": "\u897f\u57ce\u533a",
+                "id": "\u897f\u533a",
                 "value": "\u897f\u57ce\u533a",
                 "parent": "\u5317\u4eac\u5e02",
                 "children": [],

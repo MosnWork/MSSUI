@@ -1,6 +1,7 @@
 /**********************
  * 清理浮动  clear
  **********************/
+
 .fn-clear:after {
     visibility: hidden;
     display: block;
@@ -16,13 +17,13 @@
 /**********************
  * 隐藏  hide-show
  **********************/
+
 body .fn-hide {
-    display:none;
+    display: none;
 }
 body .fn-show {
-    display:block;
+    display: block;
 }
-
 /**********************
  * 单行文字溢出时出现省略号，需设定宽 text-overflow
  **********************/
@@ -31,7 +32,6 @@ body .fn-show {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-
 }
 /**********************
  * 单行文字溢出时出现省略号，需设定宽 text-overflow
@@ -45,14 +45,14 @@ body .fn-show {
  **********************/
 
 .fn-text-indent {
-  text-indent: 10px;
+    text-indent: 10px;
 }
 /**********************
  * 内边距 p
  **********************/
 
-body .fn-nop{
-    padding:0;
+body .fn-nop {
+    padding: 0;
 }
 .fn-pl10 {
     padding-left: 10px;
@@ -107,20 +107,20 @@ body .fn-nop{
 .fn-m5 {
     margin: 5px;
 }
-
 /**********************
  * 边框 bor
  **********************/
+
 .fn-bor1-gay {
     border: 1px solid #cdcdcd;
 }
 .fn-bor1-gay-bottom {
     border-bottom: 1px solid #cdcdcd;
 }
-
 /**********************
  * 圆角 bra
  **********************/
+
 .fn-bra2 {
     border-radius: 2px;
     -moz-border-radius: 2px;
@@ -143,7 +143,7 @@ body .fn-nop{
     -ms-border-radius: 4px;
 }
 .fn-bra5 {
-    border-radius:5px;
+    border-radius: 5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     -o-border-radius: 5px;
@@ -152,193 +152,191 @@ body .fn-nop{
 /**********************
  * 渐变 linear
  **********************/
+
 /* 简单的渐变 */
+
 .fn-linear {
     background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#f1f1f1));
     background: -moz-linear-gradient(top, #fcfcfc, #f1f1f1);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f1f1f1');
-    background:-o-linear-gradient(top, #fcfcfc, #f1f1f1);
-    background:-ms-linear-gradient(top, #fcfcfc, #f1f1f1);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f1f1f1');
+    background: -o-linear-gradient(top, #fcfcfc, #f1f1f1);
+    background: -ms-linear-gradient(top, #fcfcfc, #f1f1f1);
     background: linear-gradient(to bottom, #fcfcfc, #f1f1f1);
 }
-
 /* 浅色的渐变 */
+
 .fn-linear-light {
     background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#f9f9f9));
     background: -moz-linear-gradient(top, #fcfcfc, #f9f9f9);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f9f9f9');
-    background:-o-linear-gradient(top, #fcfcfc, #f9f9f9);
-    background:-ms-linear-gradient(top, #fcfcfc, #f9f9f9);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f9f9f9');
+    background: -o-linear-gradient(top, #fcfcfc, #f9f9f9);
+    background: -ms-linear-gradient(top, #fcfcfc, #f9f9f9);
     background: linear-gradient(to bottom, #fcfcfc, #f9f9f9);
 }
 /* 淡蓝的渐变 */
+
 .fn-linear-lightblue {
     background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f2f2f2));
     background: -moz-linear-gradient(top, #f8f8f8, #f2f2f2);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f8f8f8', endColorstr='#f2f2f2');
-    background:-o-linear-gradient(top, #f8f8f8, #f2f2f2);
-    background:-ms-linear-gradient(top, #f8f8f8, #f2f2f2);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f8f8f8', endColorstr='#f2f2f2');
+    background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
+    background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
     background: linear-gradient(to bottom, #f8f8f8, #f2f2f2);
 }
 /* 蓝色的渐变 */
+
 .fn-linear-blue {
     background: -webkit-gradient(linear, left top, left bottom, from(#79daf7), to(#27a7cd));
     background: -moz-linear-gradient(top, #79daf7, #27a7cd);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#79daf7', endColorstr='#27a7cd');
-    background:-o-linear-gradient(top, #79daf7, #27a7cd);
-    background:-ms-linear-gradient(top, #79daf7, #27a7cd);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#79daf7', endColorstr='#27a7cd');
+    background: -o-linear-gradient(top, #79daf7, #27a7cd);
+    background: -ms-linear-gradient(top, #79daf7, #27a7cd);
     background: linear-gradient(to bottom, #79daf7, #27a7cd);
 }
 /* 橙色的渐变 */
+
 .fn-linear-orange {
     background: -webkit-gradient(linear, left top, left bottom, from(#f8b659), to(#c37910));
     background: -moz-linear-gradient(top, #f8b659, #c37910);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f8b659', endColorstr='#c37910');
-    background:-o-linear-gradient(top, #f8b659, #c37910);
-    background:-ms-linear-gradient(top, #f8b659, #c37910);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f8b659', endColorstr='#c37910');
+    background: -o-linear-gradient(top, #f8b659, #c37910);
+    background: -ms-linear-gradient(top, #f8b659, #c37910);
     background: linear-gradient(to bottom, #f8b659, #c37910);
 }
 /**********************
  * 背景色 bg
  **********************/
+
 /* 白色 */
+
 body .fn-bg-white {
- border-color: #ccc;
+    border-color: #ccc;
     background: #ffffff;
     color: #333333;
 }
 /* 大红，错误，危险 */
+
 body .fn-bg-Red {
     border-color: #ed0000;
     background: #FF0000;
     color: #ffffff;
 }
 /* 金黄，重要，警告 */
+
 body .fn-bg-Orange {
     border-color: #eb7501;
     background: #FF7E00;
     color: #ffffff;
 }
 /* 绿色，成功 */
+
 body .fn-bg-Green {
     border-color: #2c8626;
     background: #2D8F26;
     color: #ffffff;
 }
 /* 青色，首要 */
+
 body .fn-bg-Teal {
     border-color: #238477;
     background: #268F81;
     color: #ffffff;
 }
 /* 蓝色，信息 */
+
 body .fn-bg-Blue {
     border-color: #2972ed;
     background: #2D7CFF;
     color: #ffffff;
 }
 /* 黑色，伪默认 */
+
 body .fn-bg-Black {
     border-color: #000000;
     background: #000000;
     color: #ffffff;
 }
 /* 灰色，失效 */
+
 body .fn-bg-gay {
     border-color: #e1e1e1;
     background: #eeeeee;
     color: #999;
 }
-
 /**********************
  * 文字色色 cl
  **********************/
+
 /* 白色 */
+
 body .fn-cl-white {
     color: #ffffff;
 }
 /* 大红，错误，危险 */
+
 body .fn-cl-Red {
     color: #FF0000;
 }
 /* 金黄，重要，警告 */
+
 body .fn-cl-Orange {
     color: #FF7E00;
 }
 /* 绿色，成功 */
+
 body .fn-cl-Green {
     color: #2D8F26;
 }
 /* 青色，首要 */
+
 body .fn-cl-Teal {
     color: #238477;
 }
 /* 蓝色，信息 */
+
 body .fn-cl-Blue {
     color: #2972ed;
 }
 /* 黑色，伪默认 */
+
 body .fn-cl-Black {
     color: #000000;
 }
 /* 灰色，失效 */
+
 body .fn-cl-gay {
     color: #999;
 }
+/**********************
+ * 图表 mic
+ **********************/
 
+/* check */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.mic-check {
+    width: 13px;
+    height: 14px;
+    display: block;
+    background: url("../../assets/images/check.png") no-repeat 0 0;
+}
+.mic-check-no {
+    background-position: 0 0;
+}
+.mic-check-all {
+    background-position: 0 -20px;
+}
+.mic-check-part {
+    background-position: 0 -40px;
+}
+.mic-radio {
+    width: 13px;
+    height: 14px;
+    display: block;
+    background: url("../../assets/images/check.png") no-repeat -20px 0;
+}
+.mic-radio-no {
+    background-position: -20px 0;
+}
+.mic-radio-all {
+    background-position: -20px -20px;
+}

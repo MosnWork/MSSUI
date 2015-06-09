@@ -2,12 +2,12 @@ var cityJson = {
     "success": true,
     "message": "ok",
     "nodes": [{
-        "id": "\u5317\u4eac",
-        "value": "\u5317\u4eac",
+        "id": "北京",
+        "value": "北京啊",
         "parent": "1",
         "children": [{
-            "id": "\u5317\u4eac\u5e02",
-            "value": "\u5317\u4eac\u5e02",
+            "id": "北京市",
+            "value": "北京市啊",
             "parent": "\u5317\u4eac",
             "children": [{
                 "id": "\u4e1c\u57ce\u533a",

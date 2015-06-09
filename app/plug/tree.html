@@ -57,6 +57,61 @@
                         </div>
                     </div>
                 </div>
+                <div class="fluid-row fn-mt10">
+                    <div class="column16">
+                        <div class="column-actual fn-mt10">
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="tinit">初始化树</button>
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="tinitto">再次初始</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fluid-row fn-mt10">
+                    <div class="column16">
+                        <div class="column-actual fn-mt10">
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="treplace">替换数据(本地)</button>
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="treplaceasyn">替换数据(异步)</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fluid-row fn-mt10">
+                    <div class="column16">
+                        <div class="column-actual fn-mt10">
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="trefresh">刷新</button>
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="tconstraintrefresh">异步下强制刷新</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fluid-row fn-mt10">
+                    <div class="column16">
+                        <div class="column-actual fn-mt10">
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="tget">获取选中</button>
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="tgettxt">指定获取（value）</button>
+                            <button class="mss-button mss-button-small fn-bra5 fn-mr10 fn-bg-Green" id="tgetnumber">获取选中量</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fluid-row fn-mt10">
+                    <div class="column16">
+                        <div class="column-actual fn-mt10">
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="tdel">删除某个节点</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fluid-row fn-mt10">
+                    <div class="column16">
+                        <div class="column-actual fn-mt10">
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="tcheckall">全选-仅限多选</button>
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="tcancel">取消</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="fluid-row fn-mt10">
+                    <div class="column16">
+                        <div class="column-actual fn-mt10">
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="tdestroy">销毁</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="column10">
                 <div class="column-actual" id="gridtree">
@@ -72,18 +127,97 @@
         //页面初始化
         require(['jquery', 'tree'], function($, T) {
             var demo = T.tree();
-            demo.init({
-                target: "#gridtree", //渲染节点
-                data: cityJsosn.nodes, //数据
-                check: true, //选择
-                multi: true, //多选
-                callback: function(str) {
-                    //alert(str);
-                    console.log(str);
-                }
+
+
+
+
+            //初始化
+            $("#tinit").click(function() {
+                demo.init({
+                    target: "#gridtree", //渲染节点
+                    data: cityJsosn.nodes, //数据
+                    check: true, //选择
+                    multi: true, //多选
+                    line: true,
+                    nodecheck: false, //仅允许子节点选择
+                    callback: function(str) {
+                        console.log(str);
+                    },
+                    inputcallback: function(fn, str) {
+                        console.log(fn);
+                        console.log(str);
+                    },
+                    asyn: false,
+                    url: "../../json/demo.json" //异步地址---参数为id
+                })
+            })
+            //再次初始
+            $("#tinitto").click(function() {
+                demo.init({
+                    target: "#gridtree", //渲染节点
+                    check: true, //选择
+                    multi: false, //多选
+                    line: true,
+                    nodecheck: false, //仅允许子节点选择
+                    callback: function(str) {
+                        console.log(str);
+                    },
+                    inputcallback: function(fn, str) {
+                        console.log(fn);
+                        console.log(str);
+                    },
+                    asyn: true,
+                    url: "../../json/demo.json" //异步地址---参数为id
+                })
             })
 
-
+            //替换数据-本地
+            $("#treplace").click(function() {
+                demo.replace(cityJsosn.nodes, false);
+            })
+            //替换数据(异步)    
+            $("#treplaceasyn").click(function() {
+                demo.replace("../../json/demo.json", true);
+            })
+            //刷新   
+            $("#trefresh").click(function() {
+                demo.refresh();
+            })
+            //异步下强制刷新   
+            $("#tconstraintrefresh").click(function() {
+                demo.constraintrefresh();
+            })
+            //获取选中   
+            $("#tget").click(function() {
+                console.log(demo.get());
+                alert(demo.get());
+            })
+            //指定获取（value）   
+            $("#tgettxt").click(function() {
+                console.log(demo.get("value"));
+                alert(demo.get("value"));
+            })
+            //获取选中量 
+            $("#tgetnumber").click(function() {
+                console.log(demo.getnumber());
+                alert(demo.getnumber());
+            })
+            //删除某个节点 
+            $("#tdel").click(function() {
+               demo.del("\u5317\u4eac");
+            })
+            //全选-仅限多选
+            $("#tcheckall").click(function() {
+               demo.checkall();
+            })
+            //取消
+            $("#tcancel").click(function() {
+               demo.cancel();
+            })
+            //销毁
+            $("#tdestroy").click(function() {
+               demo.destroy();
+            })
         });
     </script>
     <!-- script end -->

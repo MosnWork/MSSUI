@@ -1296,11 +1296,10 @@ h6 small,
     content: ".";
 }
 .mss-tree-ul {
-    width: 100%;
-    float: left;
-    height: auto;
+    height: 0px;
+    overflow: hidden;
     padding-left: 17px;
-    box-sizing: border-box;
+    display: block;
 }
 .mss-tree-item {
     width: 100%;
@@ -1309,33 +1308,36 @@ h6 small,
     line-height: 20px;
 }
 .mss-tree-title {
-    width: 100%;
-    float: left;
     height: 20px;
     line-height: 20px;
+    padding-left: 10px;
+}
+.mss-tree-title-selected {
+    background: #ccd7ff
 }
 .mss-tree-title:hover {
-     background: #f6f6f6;
+    background: #ccd7ff;
 }
-.mss-tree-title i,.mss-tree-title input,.mss-tree-title span{
+.mss-tree-title i,
+.mss-tree-title input,
+.mss-tree-title span {
     float: left;
 }
 .mss-tree-title i {
     margin-right: 5px;
     margin-top: 4px;
 }
-.mss-tree-title input.mss-tree-checkbox {
+.mss-tree-check {
     margin-right: 5px;
     margin-top: 4px;
-};
+    float: left;
+}
 .mss-tree-title span {
     line-height: 20px;
-
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
 /**********************
  * 弹出层  mss-dialog
  **********************/
@@ -1714,7 +1716,7 @@ h6 small,
     margin-right: 5px;
     font-weight: 600;
     cursor: pointer;
-    padding:0 5px;
+    padding: 0 5px;
     background: #eb7501;
     color: #fff;
     border-radius: 3px;
@@ -1723,7 +1725,7 @@ h6 small,
     -o-border-radius: 3px;
     -ms-border-radius: 3px;
     line-height: 26px;
-    margin-top:3px;
+    margin-top: 3px;
 }
 .mss-calender-yes {
     float: right;
@@ -1731,7 +1733,7 @@ h6 small,
     color: #3f8ddb;
     font-weight: 600;
     cursor: pointer;
-    padding:0 5px;
+    padding: 0 5px;
     background: #2972ed;
     color: #fff;
     border-radius: 3px;
@@ -1740,7 +1742,7 @@ h6 small,
     -o-border-radius: 3px;
     -ms-border-radius: 3px;
     line-height: 26px;
-    margin-top:3px;
+    margin-top: 3px;
 }
 .mss-calender-select {
     float: left;

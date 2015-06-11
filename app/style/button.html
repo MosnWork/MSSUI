@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="column10">
-                <div class="column-actual">
+                <div class="column-actual" id="getheight">
                     <button class="mss-button mss-button-big fn-mr10">基础按钮</button>
                     <button class="mss-button fn-mr10 fn-bra5">圆角 fn-bra5</button>
                     <button class="mss-button mss-button-small fn-mr10">基础按钮</button>
@@ -168,6 +168,12 @@
     </div>
     <!-- script start -->
     <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
+    <script>
+        //页面初始化
+        require(['jquery', 'dialog'], function($, D) {
+alert($("#getheight").height());
+        });
+    </script>
     <!-- script end -->
 </body>
 

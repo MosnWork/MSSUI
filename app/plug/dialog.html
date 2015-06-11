@@ -22,6 +22,8 @@
     <link href="../../assets/css/gird.css" rel="stylesheet">
     <!-- 模块开发 -->
     <link href="../../assets/css/modules.css" rel="stylesheet">
+    <!-- 动画库 -->
+    <link href="../../assets/css/animate.css" rel="stylesheet">
     <!-- 字体文件 -->
     <link rel="stylesheet" href="../../assets/css/font-awesome.min.css">
     <!-- 支持IE78 IE6就死去吧-->
@@ -61,70 +63,249 @@
             </div>
             <div class="column10">
                 <div class="column-actual">
-                    <button class="mss-button mss-button-big fn-mr10" id="eqwe">打开弹出层</button>
-                    <button class="mss-button mss-button-big fn-mr10" id="asdas">打开对话</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!--
-    <div class="mss-dialog" style="width:600px;height:400px;margin-left:-300px;margin-top:-200px;">
-        <div class="mss-dialog-title" mss-Drag='true'>
-            <h5 class="fn-text-indent">默认弹出层<small>自定义参数</small></h5>
-            <div class="mss-dialog-close">X</div>
-        </div>
-        <div class="mss-dialog-container" style="height:316px;"></div>
-        <div class="mss-dialog-button">
-            <button class="mss-button fn-bg-Blue">确认</button>
-            <button class="mss-button">取消</button>
-        </div>
-    </div>
-
-
-    <div class="mss-dialog mss-dialog-confirm"  style="width:400px;height:150px;margin-left:-200px;margin-top:-75px;">
-        <div class="mss-dialog-title" mss-Drag='true'>
-            <div class="mss-dialog-confirm-cnt">
-                <div class="mss-tip">
-                    <div class="mss-tip-icon">
-                        <i title="提示" class="icon-info-sign"></i>
+                    <div class="fluid-row fn-mt10">
+                        <div class="column16">
+                            <div class="column-actual fn-mt10">
+                                <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="msg">msg</button>
+                                <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="msgh">msg回调</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="mss-tip-right">
-                        <div class="mss-tip-content">
-                            <h4 class="mss-tip-title">空白</h4>
-                            <p class="mss-tip-explain">完成的说明完成的说明。</p>
-                            </p>
+                    <div class="fluid-row fn-mt10">
+                        <div class="column16">
+                            <div class="column-actual fn-mt10">
+                                <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="tips">tips</button>
+                                <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="tipsh">tips回调</button>
+                                <button class="mss-button fn-mr10 fn-bra5 fn-bg-Green" id="tipsa">tips按钮</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fluid-row fn-mt10">
+                        <div class="column16">
+                            <div class="column-actual fn-mt10">
+                                <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="dialog">dialog</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fluid-row fn-mt10">
+                        <div class="column16">
+                            <div class="column-actual fn-mt10">
+                                <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="ajax">ajax</button>
+                                <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="ajaxa">ajax按钮</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fluid-row fn-mt10">
+                        <div class="column16">
+                            <div class="column-actual fn-mt10">
+                                <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="iframe">iframe</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fluid-row fn-mt10">
+                        <div class="column16">
+                            <div class="column-actual fn-mt10">
+                                <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="load">load</button>
+                                <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="loadx">load销毁</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fluid-row fn-mt10">
+                        <div class="column16">
+                            <div class="column-actual fn-mt10">
+                                <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="prompt">prompt</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="mss-dialog-close">X</div>
-        </div>
-        <div class="mss-dialog-button">
-            <button class="mss-button fn-bg-Blue">确认</button>
-            <button class="mss-button">取消</button>
         </div>
     </div>
--->
 
     <!-- script start -->
+    <script src="../../json/form.js"></script>
     <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
     <script>
         //页面初始化
         require(['jquery', 'dialog'], function($, D) {
-            $("#eqwe").click(function() {
-                D.dialog();
-            })
-            $("#asdas").click(function() {
-                D.dialog({
-                    isAlert: true,
-                    aTitle: "qweqweqweqwe", //测试标题
-                    aIcon: "icon-question-sign", //测试标题
-                    aColor: "red", //测试标题
-                    aContent: "测试内容测" //测试内容
+            var msg = D.init();
+            $("#msg").click(function() {
+                msg.dialog({
+                    type: "msg", //弹出层类型
+                    time: 5000,
+                    animatime: "shake", //进入动画
+                    content: "欢迎使用MSS-Dialog" //内容
                 });
             })
+            var msgh = D.init();
+            $("#msgh").click(function() {
+                msgh.dialog({
+                    type: "msg", //弹出层类型
+                    content: "欢迎使用MSS-Dialog回调", //内容
+                    callback: function() {
+                        alert("MSS-Dialog回调");
+                    }
+                });
+            })
+
+
+            var tips = D.init();
+            $("#tips").click(function() {
+                tips.dialog({
+                    title: 'MSS-tips测试单元', //标题名称
+                    type: "tips", //弹出层类型
+                    icon: "<i class='icon-warning-sign fn-cl-Orange'></i>", //需要加的特殊图标示意      橙色警告图标
+                    content: "欢迎使用MSS-tips测试单元", //内容
+                    move: true, //是否可拖动
+                    close: false
+                });
+            })
+            var tipsh = D.init();
+            $("#tipsh").click(function() {
+                tipsh.dialog({
+                    title: 'MSS-tips测试单元', //标题名称
+                    type: "tips", //弹出层类型
+                    icon: "<i class='icon-warning-sign fn-cl-Orange'></i>", //需要加的特殊图标示意      橙色警告图标
+                    content: "欢迎使用MSS-tips测试单元", //内容
+                    move: true, //是否可拖动
+                    close: false,
+                    callback: function() {
+                        alert("MSS-tips回调");
+                    }
+                });
+            })
+            var tipsa = D.init();
+            $("#tipsa").click(function() {
+                tipsa.dialog({
+                    title: 'MSS-tips测试按钮', //标题名称
+                    type: "tips", //弹出层类型
+                    icon: "<i class='icon-warning-sign fn-cl-Orange'></i>", //需要加的特殊图标示意      橙色警告图标
+                    content: "欢迎使用MSS-tips测试单元", //内容
+                    move: true, //是否可拖动
+                    close: true,
+                    buttons: [{
+                        text: '取消', //文字
+                        elCls: '', //样式
+                        handler: function() {
+                            this.callback = function() {
+                                alert("s");
+                                this.close();
+                            }
+                        }
+                    }, {
+                        text: '确认', //文字
+                        elCls: '', //样式
+                        handler: function() {
+                            this.callback = function() {
+                                alert("w");
+                                this.close();
+                            }
+                        }
+                    }]
+                });
+            })
+
+            var dialog = D.init();
+            $("#dialog").click(function() {
+                dialog.dialog({
+                    title: 'MSS-dialog测试单元', //标题名称
+                    type: "dialog", //弹出层类型
+                    content: formhtml, //内容
+                    move: true //是否可拖动
+                });
+            })
+
+            var ajax = D.init();
+            $("#ajax").click(function() {
+                ajax.dialog({
+                    title: 'MSS-ajax测试单元', //标题名称
+                    type: "ajax", //弹出层类型
+                    url: "../../json/form.json",
+                    move: true, //是否可拖动
+                    mask: true, //遮罩
+                    width: 500, //弹出层宽度 0表示自动
+                    height: 400 //弹出层高度 0表示自动
+                });
+            })
+            var ajaxa = D.init();
+            $("#ajaxa").click(function() {
+                ajaxa.dialog({
+                    title: 'MSS-ajax测试单元', //标题名称
+                    type: "ajax", //弹出层类型
+                    url: "../../json/form.json",
+                    move: true, //是否可拖动
+                    mask: true, //遮罩
+                    width: 500, //弹出层宽度 0表示自动
+                    height: 400, //弹出层高度 0表示自动
+                    buttons: [{
+                        text: '取消', //文字
+                        elCls: 'xcv', //样式
+                        handler: function() {
+                            this.callback = function() {
+                                alert("s");
+                                this.close();
+                            }
+                        }
+                    }, {
+                        text: '确认', //文字
+                        elCls: 'ccc', //样式
+                        handler: function() {
+                            this.callback = function() {
+                                alert("w");
+                                this.close();
+                            }
+                        }
+                    }]
+                });
+            })
+
+
+            var iframe = D.init();
+            $("#iframe").click(function() {
+                iframe.dialog({
+                    title: 'MSS-iframe测试单元', //标题名称
+                    type: "iframe", //弹出层类型
+                    url: "../../app/plug/tree.html",
+                    move: true, //是否可拖动
+                    padding: 5,
+                    width: 700, //弹出层宽度 0表示自动
+                    height: 600 //弹出层高度 0表示自动
+                });
+            })
+
+            var load = D.init();
+            $("#load").click(function() {
+                load.dialog({
+                    type: "load", //弹出层类型
+                    content: "" //内容
+                });
+            })
+            $("#loadx").click(function() {
+                load.destroy();
+            })
+
+
+            var prompt = D.init();
+            $("#prompt").click(function() {
+                load.dialog({
+                    type: "prompt", //弹出层类型
+                    title: "请问您的鸟多大？",
+                    mask: true,
+                    icon: "<i class='icon-warning-sign fn-cl-Orange'></i>", //需要加的特殊图标示意      橙色警告图标
+                    move:true,
+                    buttons: [{
+                        text: '确认', //文字
+                        elCls: 'fn-bg-Blue', //样式
+                        handler: function() {
+                            this.callback = function(str) {
+                                alert("小鸟");
+                                this.close();
+                            }
+                        }
+                    }]
+                });
+            })
+
         });
     </script>
     <!-- script end -->

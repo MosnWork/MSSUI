@@ -4,7 +4,8 @@ require.config({
         mssui: 'mssui',
         dialog: 'dialog',
         calendar: 'calendar',
-        tree: 'tree'
+        tree: 'tree',
+        template:'template'
     }
 });
 

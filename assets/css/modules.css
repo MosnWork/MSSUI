@@ -1342,6 +1342,7 @@ h6 small,
  * 弹出层  mss-dialog
  **********************/
 
+/*
 .mss-dialog {
     background-color: #fff;
     border-radius: 6px;
@@ -1408,6 +1409,158 @@ h6 small,
 }
 .mss-dialog-confirm .mss-dialog-button {
     border-top: none;
+}
+*/
+
+/*弹出层重写*/
+
+/*背景*/
+
+.mss-dialog-shade {
+    position: fixed;
+    _position: absolute;
+    pointer-events: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    _height: expression(document.body.offsetHeight+"px");
+    background: #000;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    -khtml-opacity: 0.5;
+    opacity: 0.5;
+}
+.mss-dialog-shadow {
+    -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+.mss-dialog-radius {
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -o-border-radius: 2px;
+    -ms-border-radius: 2px;
+}
+.mss-dialog-padding {
+    padding: 12px 20px;
+    color: #fff;
+}
+.mss-dialog-box {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    overflow: hidden;
+    display: none;
+    *zoom: 1;
+}
+.mss-dialog-box:after {
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    content: ".";
+}
+.mss-dialog-title {
+    border-bottom: 1px solid #e5e5e5;
+    clear: both;
+    cursor: move;
+    padding: 4px 0;
+    height: 22px;
+    line-height: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: #fff;
+    position: relative;
+    padding-left: 5px;
+    padding-right:20px;
+    color: #333;
+}
+.mss-dialog-title i {
+    margin-right: 4px;
+}
+.mss-dialog-close {
+    position: absolute;
+    width: auto;
+    right: 4px;
+    top: 7px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    /* Firefox 4 */
+    -webkit-transition-duration: 1s;
+    /* Safari 和 Chrome */
+    -o-transition-duration: 1s;
+    /* Opera */
+}
+.mss-dialog-close:hover {
+    transform: rotate(720deg);
+    -ms-transform: rotate(720deg);
+    /* IE 9 */
+    -moz-transform: rotate(720deg);
+    /* Firefox */
+    -webkit-transform: rotate(720deg);
+    /* Safari 和 Chrome */
+    -o-transform: rotate(720deg);
+    /* Opera */
+    
+}
+.mss-dialog-content {
+    background: #fff;
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+
+.mss-dialog-button {
+    border-top: 1px solid #e5e5e5;
+    padding: 6px 0;
+    height: 27px;
+    background: #fff;
+    color: #333;
+    width: 100%;
+    text-align: center;
+    *zoom:1;
+}
+.mss-dialog-button:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}
+.mss-dialog-btn {
+    border: 1px solid #ccc;
+    color: #777;
+    cursor: pointer;
+    margin-left: 0;
+    padding: 4px 12px;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+.mss-dialog-btn:hover {
+    filter: alpha(opacity=70);
+    -moz-opacity: 0.7;
+    -khtml-opacity: 0.7;
+    opacity: 0.7;
 }
 /**********************
  * 表单  mss-form

@@ -21,7 +21,7 @@ define(function(require, exports, module) {
         tab: ".mss-tab-item", //标签切换
         tag: ".mss-tag-item-remove", //Tag删除自身
         navbar: ".mss-navbar-list", //导航条
-        dialog: ".mss-dialog", //可拖动层
+        dialog: ".mss-dialog-box", //可拖动层
         carousel: ".mss-carousel" //幻灯片
     }
 

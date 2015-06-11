@@ -204,11 +204,6 @@ button {
 }
 
 button,
-select {
-    text-transform: none;
-}
-
-button,
 html input[type="button"],
 /* 1 */
 

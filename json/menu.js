@@ -236,6 +236,12 @@ var menuData = [
                 "text":"树结构",
                 "href":"app/plug/tree.html",
                 "nodes":[]
+            },
+            {
+                "id":34,
+                "text":"模板引擎",
+                "href":"app/plug/template.html",
+                "nodes":[]
             }
         ]
     }

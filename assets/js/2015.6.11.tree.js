@@ -1,6 +1,6 @@
 define(function(require, exports, module) {
     return {
-        init: function(_config) {
+        tree: function() {
             $(function() {
                 //增加原型-根据key  val 找到JSON数组里面符合条件的第一个JSON对象  如果没找到返回空对象
                 if (!Array.findJson) {
@@ -77,6 +77,7 @@ define(function(require, exports, module) {
             };
             //默认可以使用disabled="true"
 
+
             //一些内置参数
             var _inlay = {
                 state: false, //状态
@@ -86,13 +87,22 @@ define(function(require, exports, module) {
                 radio: "", //单选状态当前选择点
                 check: [], //多选状态当前选择点
                 isinit: true //允许初始化
+
+
             }
 
-            //正式初始化
-            $(function() {
+            //不够就继续增加
+
+            //---------------------
+            // init 初始化
+            //---------------------
+            var init = function(ops) {
+                if (_inlay.isinit == false) {
+                    return false;
+                }
                 //合并参数
-                if (_config && typeof _config === 'object') {
-                    $.extend(_op, _config);
+                if (ops && typeof ops === 'object') {
+                    $.extend(_op, ops);
                 }
                 if (_op.target == "" || $(_op.target).length <= 0) {
                     _inlay.state = false;
@@ -100,16 +110,6 @@ define(function(require, exports, module) {
                     return false;
                 } else {
                     _inlay.state = true;
-                }
-            })
-
-            //---------------------
-            // show 初始化
-            //---------------------
-            var show = function(ops) {
-                if (_inlay.state == false) {
-                    alert("未初始化或者已销毁");
-                    return false;
                 }
                 try {
                     $(_op.target).empty();
@@ -123,6 +123,7 @@ define(function(require, exports, module) {
                     }
                     //绑定事件
                     _addEvent();
+                    _inlay.isinit = false;
                 } catch (e) {
                     console.log("Tree node data resolution fail");
                 }
@@ -132,6 +133,9 @@ define(function(require, exports, module) {
             // _get 加载节点
             //---------------------
             var _get = function(index) {
+                if (_inlay.state == false) {
+                    return false;
+                }
                 var getid = "-1";
                 var curclass = "";
                 if (index.length <= 0) {
@@ -428,6 +432,9 @@ define(function(require, exports, module) {
             // guide 当前指针
             //---------------------
             var _open = function(data, sp, guide) {
+                if (_inlay.state == false) {
+                    return false;
+                }
                 var _haspadding = "";
                 if (sp == true) {
                     _haspadding = _inlay.padding;
@@ -577,6 +584,122 @@ define(function(require, exports, module) {
             }
 
             //-----------------------
+            // refresh 刷新
+            //-----------------------
+            var refresh = function() {
+                if (_inlay.state == false) {
+                    return false;
+                }
+                _inlay.dom.empty();
+                _inlay.curdom = _inlay.dom;
+                //判断是否开启异步
+                if (_op.asyn == true && _op.data.length <= 0) {
+                    _get("-1");
+                } else {
+                    _open(_op.data, true, "");
+                }
+            }
+
+            //-----------------------
+            // refresh 刷新
+            //-----------------------
+            var constraintrefresh = function() {
+                if (_inlay.state == false) {
+                    return false;
+                }
+                if (_op.asyn == true) {
+                    _inlay.dom.empty();
+                    _inlay.curdom = _inlay.dom;
+                    //判断是否开启异步
+                    _inlay.check = [];
+                    _inlay.radio = "";
+                    _op.data = [];
+                    _get([]);
+                }
+            }
+
+            //-----------------------
+            // get 回去选中数据
+            //-----------------------
+            var get = function() {
+                if (_inlay.state == false) {
+                    return false;
+                }
+                //判断参数个数
+                if (arguments.length > 0) {
+                    //判断是否开启异步
+                    if (_op.check == true) {
+                        if (_op.multi == true) {
+                            if (_op.line == true) {
+                                return _con_more(_inlay.check, arguments[0]);
+                            } else {
+                                var bf = _con_more(_inlay.check, arguments[0]);
+                                var bff = [];
+                                for (var i = 0; i < bf.length; i++) {
+                                    bff.push(bf[i].split("-")[bf[i].split("-").length - 2]);
+                                }
+                                return bff;
+                            }
+                        } else {
+                            if (_op.line == true) {
+                                return _con_once(_inlay.radio, arguments[0]);
+                            } else {
+                                var bf = _con_once(_inlay.radio, arguments[0]);
+                                return bf.split("-")[bf.split("-").length - 2];
+                            }
+                        }
+                    } else {
+                        return "failure";
+                    }
+                } else {
+                    //无参数默认获取ID
+                    //判断是否开启异步
+                    if (_op.check == true) {
+                        if (_op.multi == true) {
+                            if (_op.line == true) {
+                                console.log(_con_more(_inlay.check));
+                                return _con_more(_inlay.check);
+                            } else {
+                                var bf = _con_more(_inlay.check);
+                                var bff = [];
+                                for (var i = 0; i < bf.length; i++) {
+                                    bff.push(bf[i].split("-")[bf[i].split("-").length - 2]);
+                                }
+                                console.log(typeof(_con_more(_inlay.check)));
+                                return bff;
+                            }
+                        } else {
+                            if (_op.line == true) {
+                                return _con_once(_inlay.radio);
+                            } else {
+                                var bf = _con_once(_inlay.radio);
+                                return bf.split("-")[bf.split("-").length - 2];
+                            }
+                        }
+                    } else {
+                        return "failure";
+                    }
+                }
+            }
+
+            //-----------------------
+            // del 删除数据-指定序号
+            //-----------------------
+            var del = function(str) {
+                if (_inlay.state == false) {
+                    return false;
+                }
+                if (str instanceof Array) {
+                    for (var i = 0; i < str.length; i++) {
+                        _del(str[i]);
+                    }
+
+                } else {
+                    _del(str);
+                }
+            }
+
+            //-----------------------
             // _del 删除数据-内部方法
             //-----------------------
             var _del = function(str) {
@@ -649,6 +772,68 @@ define(function(require, exports, module) {
             }
 
             //-----------------------
+            // cancel 取消选择
+            //-----------------------
+            var cancel = function(str) {
+                if (_inlay.state == false) {
+                    return false;
+                }
+                _inlay.check = [];
+                _inlay.radio = "";
+                _inlay.dom.find(".mss-tree-check").each(function() {
+                    if ($(this).hasClass("mic-check")) {
+                        $(this).removeClass("mic-check-all").removeClass("mic-check-part").addClass("mic-check-no");
+                    } else {
+                        $(this).removeClass("mic-radio-all").addClass("mic-radio-no");
+                    }
+                })
+            }
+
+            //-----------------------
+            // replace 替换数据
+            //-----------------------
+            var replace = function(data, asyn) {
+                if (_inlay.state == false) {
+                    return false;
+                }
+                _inlay.check = [];
+                _inlay.radio = "";
+                if (asyn == true) {
+                    _op.asyn = true;
+                    _op.data = [];
+                    _op.url = data;
+                } else {
+                    _op.asyn = false;
+                    _op.data = data;
+                }
+                _inlay.dom.empty();
+                _inlay.curdom = _inlay.dom;
+                if (_op.asyn == true) {
+                    _get([]);
+                } else {
+                    _open(_op.data, true, "");
+                }
+            }
+
+            //-----------------------
+            // checkall 取消选择
+            //-----------------------
+            var checkall = function() {
+                if (_inlay.state == false) {
+                    return false;
+                }
+                if (_op.check == true && _op.multi == true) {
+                    _inlay.dom.find(".mss-tree-check").each(function() {
+                        if ($(this).hasClass("mic-check")) {
+                            $(this).removeClass("mic-check-no").removeClass("mic-check-part").addClass("mic-check-all");
+                        }
+                    })
+                    _inlay.check = [];
+                    _pushcheck(_op.data, "");
+                }
+            }
+
+            //-----------------------
             // _pushcheck 把所有已经存在的数据插入到选中对象
             //-----------------------
             var _pushcheck = function(data, index) {
@@ -659,6 +844,16 @@ define(function(require, exports, module) {
                         _pushcheck(data[i].children, getindex);
                     }
                 }
+            }
+
+            //-----------------------
+            // getnumber 获取选中量
+            //-----------------------
+            var getnumber = function() {
+                if (_inlay.state == false) {
+                    return false;
+                }
+                return _getnumber(_op.data, "");
             }
 
             //-----------------------
@@ -681,239 +876,35 @@ define(function(require, exports, module) {
                 return num;
             }
 
-
-            //-----------------------
-            // 以下方法暴露
-            //-----------------------
-
-
-            //-----------------------
-            // refresh 刷新
-            //-----------------------
-            var refresh = function() {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
-                }
-                hide();
-                show();
-            }
-
-            //-----------------------
-            // get 回去选中数据
-            //-----------------------
-            var get = function() {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
-                }
-                //判断参数个数
-                if (arguments.length > 0) {
-                    //判断是否开启异步
-                    if (_op.check == true) {
-                        if (_op.multi == true) {
-                            if (_op.line == true) {
-                                return _con_more(_inlay.check, arguments[0]);
-                            } else {
-                                var bf = _con_more(_inlay.check, arguments[0]);
-                                var bff = [];
-                                for (var i = 0; i < bf.length; i++) {
-                                    bff.push(bf[i].split("-")[bf[i].split("-").length - 2]);
-                                }
-                                return bff;
-                            }
-                        } else {
-                            if (_op.line == true) {
-                                return _con_once(_inlay.radio, arguments[0]);
-                            } else {
-                                var bf = _con_once(_inlay.radio, arguments[0]);
-                                return bf.split("-")[bf.split("-").length - 2];
-                            }
-                        }
-                    } else {
-                        return "failure";
-                    }
-                } else {
-                    //无参数默认获取ID
-                    //判断是否开启异步
-                    if (_op.check == true) {
-                        if (_op.multi == true) {
-                            if (_op.line == true) {
-                                console.log(_con_more(_inlay.check));
-                                return _con_more(_inlay.check);
-                            } else {
-                                var bf = _con_more(_inlay.check);
-                                var bff = [];
-                                for (var i = 0; i < bf.length; i++) {
-                                    bff.push(bf[i].split("-")[bf[i].split("-").length - 2]);
-                                }
-                                console.log(typeof(_con_more(_inlay.check)));
-                                return bff;
-                            }
-                        } else {
-                            if (_op.line == true) {
-                                return _con_once(_inlay.radio);
-                            } else {
-                                var bf = _con_once(_inlay.radio);
-                                return bf.split("-")[bf.split("-").length - 2];
-                            }
-                        }
-                    } else {
-                        return "failure";
-                    }
-                }
-            }
-
-            //-----------------------
-            // del 删除数据-指定序号
-            //-----------------------
-            var del = function(str) {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
-                }
-                if (str instanceof Array) {
-                    for (var i = 0; i < str.length; i++) {
-                        _del(str[i]);
-                    }
-
-                } else {
-                    _del(str);
-                }
-            }
-
-            //-----------------------
-            // cancel 取消选择
-            //-----------------------
-            var cancel = function(str) {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
-                }
-                _inlay.check = [];
-                _inlay.radio = "";
-                _inlay.dom.find(".mss-tree-check").each(function() {
-                    if ($(this).hasClass("mic-check")) {
-                        $(this).removeClass("mic-check-all").removeClass("mic-check-part").addClass("mic-check-no");
-                    } else {
-                        $(this).removeClass("mic-radio-all").addClass("mic-radio-no");
-                    }
-                })
-            }
-
-            //-----------------------
-            // checkall 取消选择
-            //-----------------------
-            var checkall = function() {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
-                }
-                if (_op.check == true && _op.multi == true) {
-                    _inlay.dom.find(".mss-tree-check").each(function() {
-                        if ($(this).hasClass("mic-check")) {
-                            $(this).removeClass("mic-check-no").removeClass("mic-check-part").addClass("mic-check-all");
-                        }
-                    })
-                    _inlay.check = [];
-                    _pushcheck(_op.data, "");
-                }
-            }
-
-            //-----------------------
-            // getnumber 获取选中量
-            //-----------------------
-            var getnumber = function() {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
-                }
-                return _getnumber(_op.data, "");
-            }
-
-            //-----------------------
-            // replace 替换数据
-            //-----------------------
-            var replace = function(data, asyn) {
-                hide();
-                if (asyn == true) {
-                    _op.asyn = true;
-                    _op.data = [];
-                    _op.url = data;
-                } else {
-                    _op.asyn = false;
-                    _op.data = data;
-                }
-                show();
-            }
-
-            //-----------------------
-            // reset 重置
-            //-----------------------
-            var reset = function(ops) {
-                destroy();
-                //合并参数
-                if (ops && typeof ops === 'object') {
-                    $.extend(_op, ops);
-                }
-                if (_op.target == "" || $(_op.target).length <= 0) {
-                    _inlay.state = false;
-                    console.log("重置失败");
-                    return false;
-                } else {
-                    _inlay.state = true;
-                    show();
-                }
-            }
-
-            //-----------------------
-            // hide 关闭
-            //-----------------------
-            var hide = function() {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
-                }
-                _inlay.dom.off("click", "p");
-                _inlay.dom.off("click", ".mss-tree-check");
-                _inlay.dom.empty();
-                _inlay.dom.remove();
-                _inlay.curdom = ""; //当前结构
-                _inlay.radio = ""; //单选状态当前选择点
-                _inlay.check = []; //多选状态当前选择点
-            }
-
             //-----------------------
             // destroy 禁止当前对象使用，并销毁绑定时间
             //-----------------------
             var destroy = function(data, index) {
-                if (_inlay.state == true) {
-
+                if (_inlay.isinit == false) {
+                    _inlay.state = false;
                     _inlay.dom.off("click", "p");
                     _inlay.dom.off("click", ".mss-tree-check");
                     _inlay.dom.empty();
-                    _inlay.dom.remove();
+                    _inlay.check = [];
+                    _inlay.radio = "";
                     _inlay.dom = "";
-                    _inlay.curdom = ""; //当前结构
-                    _inlay.radio = ""; //单选状态当前选择点
-                    _inlay.check = []; //多选状态当前选择点
-                    _inlay.state = false;
+                    _inlay.curdom = "";
+                    _inlay.isinit = true;
                 }
             }
             //-----------------------
             // 对外接口
             //-----------------------
             return {　　　　　　　
-                show: show, //显示
+                init: init, //初始化
                 refresh: refresh, //刷新
+                constraintrefresh: constraintrefresh, //异步下强制刷新
                 get: get, //获取选中--可设置获取属性
                 del: del, //删除某个节点
                 cancel: cancel, //取消
-                reset: reset, //重置
                 replace: replace, //替换数据
                 checkall: checkall, //全选-仅限多选
                 getnumber: getnumber, //获取选中量
-                hide: hide, //关闭
                 destroy: destroy //禁止当前对象使用，并销毁绑定时间
             };
         }

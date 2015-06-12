@@ -5,7 +5,9 @@ require.config({
         dialog: 'dialog',
         calendar: 'calendar',
         tree: 'tree',
-        template:'template'
+        template:'template',
+        binding:'binding',
+        table:"table"
     }
 });
 

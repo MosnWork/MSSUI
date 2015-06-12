@@ -128,30 +128,29 @@
     <script>
         //页面初始化
         require(['jquery', 'dialog'], function($, D) {
-            var msg = D.init();
-            $("#msg").click(function() {
-                msg.dialog({
+            var msg = D.init({
                     type: "msg", //弹出层类型
                     time: 5000,
                     animatime: "shake", //进入动画
                     content: "欢迎使用MSS-Dialog" //内容
                 });
+            $("#msg").click(function() {
+                msg.show();
             })
-            var msgh = D.init();
-            $("#msgh").click(function() {
-                msgh.dialog({
+
+            var msgh = D.init({
                     type: "msg", //弹出层类型
                     content: "欢迎使用MSS-Dialog回调", //内容
                     callback: function() {
                         alert("MSS-Dialog回调");
                     }
                 });
+            $("#msgh").click(function() {
+                msgh.show();
             })
 
 
-            var tips = D.init();
-            $("#tips").click(function() {
-                tips.dialog({
+            var tips = D.init({
                     title: 'MSS-tips测试单元', //标题名称
                     type: "tips", //弹出层类型
                     icon: "<i class='icon-warning-sign fn-cl-Orange'></i>", //需要加的特殊图标示意      橙色警告图标
@@ -159,10 +158,11 @@
                     move: true, //是否可拖动
                     close: false
                 });
+            $("#tips").click(function() {
+                tips.show();
             })
-            var tipsh = D.init();
-            $("#tipsh").click(function() {
-                tipsh.dialog({
+            
+            var tipsh = D.init({
                     title: 'MSS-tips测试单元', //标题名称
                     type: "tips", //弹出层类型
                     icon: "<i class='icon-warning-sign fn-cl-Orange'></i>", //需要加的特殊图标示意      橙色警告图标
@@ -173,10 +173,11 @@
                         alert("MSS-tips回调");
                     }
                 });
+            $("#tipsh").click(function() {
+                tipsh.show();
             })
-            var tipsa = D.init();
-            $("#tipsa").click(function() {
-                tipsa.dialog({
+            
+            var tipsa = D.init({
                     title: 'MSS-tips测试按钮', //标题名称
                     type: "tips", //弹出层类型
                     icon: "<i class='icon-warning-sign fn-cl-Orange'></i>", //需要加的特殊图标示意      橙色警告图标
@@ -203,66 +204,38 @@
                         }
                     }]
                 });
+            $("#tipsa").click(function() {
+                tipsa.show();
             })
 
-            var dialog = D.init();
-            $("#dialog").click(function() {
-                dialog.dialog({
+            var dialog = D.init({
                     title: 'MSS-dialog测试单元', //标题名称
                     type: "dialog", //弹出层类型
                     content: formhtml, //内容
                     move: true //是否可拖动
                 });
+            $("#dialog").click(function() {
+                dialog.show();
             })
 
-            var ajax = D.init();
-            $("#ajax").click(function() {
-                ajax.dialog({
+            var ajax = D.init({
                     title: 'MSS-ajax测试单元', //标题名称
                     type: "ajax", //弹出层类型
                     url: "../../json/form.json",
                     move: true, //是否可拖动
-                    mask: true, //遮罩
                     width: 500, //弹出层宽度 0表示自动
                     height: 400 //弹出层高度 0表示自动
                 });
+            $("#ajax").click(function() {
+                ajax.show();
             })
-            var ajaxa = D.init();
+            
             $("#ajaxa").click(function() {
-                ajaxa.dialog({
-                    title: 'MSS-ajax测试单元', //标题名称
-                    type: "ajax", //弹出层类型
-                    url: "../../json/form.json",
-                    move: true, //是否可拖动
-                    mask: true, //遮罩
-                    width: 500, //弹出层宽度 0表示自动
-                    height: 400, //弹出层高度 0表示自动
-                    buttons: [{
-                        text: '取消', //文字
-                        elCls: 'xcv', //样式
-                        handler: function() {
-                            this.callback = function() {
-                                alert("s");
-                                this.close();
-                            }
-                        }
-                    }, {
-                        text: '确认', //文字
-                        elCls: 'ccc', //样式
-                        handler: function() {
-                            this.callback = function() {
-                                alert("w");
-                                this.close();
-                            }
-                        }
-                    }]
-                });
+                ajax.refresh();
             })
 
 
-            var iframe = D.init();
-            $("#iframe").click(function() {
-                iframe.dialog({
+            var iframe = D.init({
                     title: 'MSS-iframe测试单元', //标题名称
                     type: "iframe", //弹出层类型
                     url: "../../app/plug/tree.html",
@@ -271,23 +244,23 @@
                     width: 700, //弹出层宽度 0表示自动
                     height: 600 //弹出层高度 0表示自动
                 });
+            $("#iframe").click(function() {
+                iframe.show();
             })
 
-            var load = D.init();
-            $("#load").click(function() {
-                load.dialog({
+            var load = D.init({
                     type: "load", //弹出层类型
-                    content: "" //内容
+                    target: "body" //内容
                 });
+            $("#load").click(function() {
+                load.show();
             })
+            
             $("#loadx").click(function() {
-                load.destroy();
+                load.hide();
             })
 
-
-            var prompt = D.init();
-            $("#prompt").click(function() {
-                load.dialog({
+            var prompt = D.init({
                     type: "prompt", //弹出层类型
                     title: "请问您的鸟多大？",
                     mask: true,
@@ -304,6 +277,8 @@
                         }
                     }]
                 });
+            $("#prompt").click(function() {
+                prompt.show();
             })
 
         });

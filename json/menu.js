@@ -242,6 +242,18 @@ var menuData = [
                 "text":"模板引擎",
                 "href":"app/plug/template.html",
                 "nodes":[]
+            },
+            {
+                "id":35,
+                "text":"数据绑定",
+                "href":"app/plug/binding.html",
+                "nodes":[]
+            },
+            {
+                "id":36,
+                "text":"表格",
+                "href":"app/plug/table.html",
+                "nodes":[]
             }
         ]
     }

@@ -1,3 +1,4 @@
+
 define(function(require, exports, module) {
     return {
         init: function(_config) {
@@ -20,16 +21,29 @@ define(function(require, exports, module) {
                 //待续
             })
 
-
-            //当前状态的可用性
-            var _state = false;
-
+            //实现初始
+            $(function() {
+                //indexof---数组存在原型，判定是否存在数组中，用于IE7及以下
+                if (!Array.indexOf) {
+                    Array.prototype.indexOf = function(obj) {
+                        for (var i = 0; i < this.length; i++) {
+                            if (this[i] == obj) {
+                                return i;
+                            }
+                        }
+                        return -1;
+                    }
+                }
+                //待续
+            })
+            
+            
+            
             /**
              * 默认配置
-             * @name  _options
+             * @config  参数
              */
             var _options = {
-                target: "", //弹出层针对什么，仅LOading有效
                 type: "dialog", //弹出层类型
                 mask: false, //遮罩
                 width: 0, //弹出层宽度 0表示自动
@@ -47,21 +61,6 @@ define(function(require, exports, module) {
                 content: "", //内容
                 url: "" //origin为ajax、iframe时生效
             }
-
-
-            //实现初始
-            $(function() {
-                //当前函数二次初始化时，先重置所有参数
-                destroy();
-                if (_config && typeof _config === 'object') {
-                    $.extend(_options, _config);
-                }
-                if (_inlay.type.indexOf(_options.type) < 0) {
-                    console.log("未指定类型");
-                } else {
-                    _state = true;
-                }
-            })
 
             //一些内置参数
             var _inlay = {
@@ -99,33 +98,37 @@ define(function(require, exports, module) {
             }]
 
             /**
-             * 显示
-             * @name    show
+             * 初始化
+             * @name    init
              * @param   {String}            模板名
              * @param   {Boolean}           是否可以点击
              * @param   {Funciton}          回调函数
              * @return  --                  无返回
              */
-            var show = function() {
-                if (_state == false) {
-                    alert("未初始化或已销毁");
-                    return false;
+            var dialog = function(ops) {
+
+                //当前函数二次初始化时，先重置所有参数
+                destroy();
+                if (ops && typeof ops === 'object') {
+                    $.extend(_options, ops);
                 }
                 try {
+                    if (_inlay.type.indexOf(_options.type) < 0) {
+                        console.log("未指定类型");
+                        _resetting();
+                        return false;
+                    }
+                    //console.log(_options);
                     //声明层次
                     _index();
                     //验证数据
                     _validate();
                     //建立遮罩
-                    var tagert = "body";
-                    if (_options.target != "") {
-                        tagert = _options.target;
-                    }
                     if (_options.mask == true) {
-                        _inlay.mask = $("<div class=\"" + _class.mask + "\"\ style=\"height:" + $(document).outerHeight(true) + "px;z-index:" + _inlay.index + "\"></div>").appendTo(tagert);
+                        _inlay.mask = $("<div class=\"" + _class.mask + "\"\ style=\"height:" + $(document).outerHeight(true) + "px;z-index:" + _inlay.index + "\"></div>").appendTo("body");
                     }
                     //建立数据模型
-                    _inlay.dom = $(_view()).appendTo(tagert);
+                    _inlay.dom = $(_view()).appendTo("body");
                     if (_options.buttons.length > 0) {
                         _inlay.button = $(_button()).appendTo(_inlay.dom);
                     }
@@ -218,16 +221,6 @@ define(function(require, exports, module) {
                     "margin-left": "-" + w / 2 + "px",
                     "margin-top": "-" + h / 2 + "px"
                 });
-
-                if (_options.target != "") {
-                    _inlay.dom.css({
-                        "width": (w - cw) + "px",
-                        "height": (h - ch) + "px",
-                        "margin-left": "-" + w / 2 + "px",
-                        "margin-top": "-" + h / 2 + "px",
-                        "position": "absolute"
-                    });
-                }
                 _inlay.dom.find("." + _class.content).css({
                     "height": (h - ch - th - bh - parseInt(_inlay.dom.find("." + _class.content).css("padding-top")) * 2) + "px"
                 });
@@ -248,8 +241,8 @@ define(function(require, exports, module) {
             };
 
             /**
-             * 验证结果
-             * @name    _validate
+             * 变量重置
+             * @name    _resetting
              * @return  {Boolean}           验证结果
              */
             var _validate = function() {
@@ -278,9 +271,6 @@ define(function(require, exports, module) {
                     }
                 }
                 if (_options.type == "load") {
-                    if ($(_options.target).length > 0) {} else {
-                        _options.target = "body";
-                    }
                     _options.content = _animated[0].html;
                     _options.width = 200;
                     _options.height = 100;
@@ -325,7 +315,6 @@ define(function(require, exports, module) {
              * @name    _resetting
              */
             var _resetting = function() {
-                _options.target = "";
                 _options.type = "dialog";
                 _options.mask = false;
                 _options.width = 0;
@@ -345,7 +334,6 @@ define(function(require, exports, module) {
                 _options.url = "";
                 _inlay.dom = "";
                 _inlay.mask = "";
-                _inlay.target = "";
             }
 
             /**
@@ -356,34 +344,43 @@ define(function(require, exports, module) {
                 //关闭
                 if (_options.close == true) {
                     _inlay.dom.find("." + _class.close).click(function() {
-                        hide();
+                        if (_inlay.mask.length > 0) {
+                            _inlay.mask.remove();
+                        }
+                        _inlay.dom.remove();
                         if (typeof(_options.callback) == "function") {
                             _options.callback();
                         }
+                        _resetting();
                     })
                 }
                 //遮罩层
                 if (_inlay.mask != "") {
                     _inlay.mask.click(function() {
-                        hide();
+                        if (_inlay.mask.length > 0) {
+                            _inlay.mask.remove();
+                        }
+                        _inlay.dom.remove();
                         if (typeof(_options.callback) == "function") {
                             _options.callback();
                         }
+                        _resetting();
                     })
                 }
                 //按钮
                 if (_inlay.button.length > 0) {
                     _inlay.dom.find("." + _class.button).each(function(i) {
+                        //$(this).attr("mss-dialog-index",i);
                         var index = i;
                         //增加原型
                         var baseClose = function() {
                             this.close = function() {
-                                hide();
                                 if (arguments.length > 0 && arguments[0] == true) {
                                     if (typeof(_options.callback) == "function") {
                                         _options.callback();
                                     }
                                 }
+                                destroy();
                             }
                         }
                         $(this).click(function() {
@@ -401,28 +398,29 @@ define(function(require, exports, module) {
                 if (_options.time > 0) {
                     setTimeout(function() {
                         if (_inlay.dom != "") {
-                            hide();
-                            if (typeof(_options.callback) == "function") {
-                                _options.callback();
+                            if (arguments.length > 0 && arguments[0] == true) {
+                                if (typeof(_options.callback) == "function") {
+                                    _options.callback();
+                                }
                             }
-
+                            destroy();
                         }
                     }, parseInt(_options.time))
                 }
                 //修正弹出层层次
                 if (_options.type == "msg") {
                     _inlay.dom.click(function() {
-                        hide();
                         if (typeof(_options.callback) == "function") {
                             _options.callback();
                         }
+                        destroy();
                     });
                 } else if (_options.close == false && _options.buttons.length == 0 && _options.mask == false && _options.type != "load") {
                     _inlay.dom.click(function() {
-                        hide();
                         if (typeof(_options.callback) == "function") {
                             _options.callback();
                         }
+                        destroy();
                     });
                 } else {
                     _inlay.dom.click(function() {
@@ -457,20 +455,12 @@ define(function(require, exports, module) {
                 })
             }
 
-            /**
-             * 销毁
-             * @name    refresh
-             */
-            var refresh = function() {
-                hide();
-                show();
-            }
 
             /**
-             * 关闭
-             * @name    hide
+             * 销毁
+             * @name    destroy
              */
-            var hide = function() {
+            var destroy = function() {
                 //删除当前对象
                 if (_inlay.dom.length > 0) {
                     _inlay.dom.remove();
@@ -483,62 +473,16 @@ define(function(require, exports, module) {
                 if (_inlay.button.length > 0) {
                     _inlay.button.remove();
                 }
-                _inlay.dom = ""; //当前对象DOM对象
-                _inlay.mask = "";
-                _inlay.button = ""; //按钮框
-            }
-
-            /**
-             * 销毁
-             * @name    destroy
-             */
-            var destroy = function() {
-                hide();
-                _options.target = "";
-                _options.type = "dialog";
-                _options.mask = false;
-                _options.width = 0;
-                _options.height = 0;
-                _options.icon = "";
-                _options.skin = '';
-                _options.padding = -1;
-                _options.time = 0;
-                _options.animatime = "";
-                _options.close = true;
-                _options.move = false;
-                _options.callback = "";
-                _options.title = '';
-                _options.buttons = [];
-                _options.content = "";
-                _options.url = "";
-                _state = false;
-            }
-
-            /**
-             * 重新启动
-             * @name    reboot
-             */
-            var reboot = function(ops) {
-                destroy();
-                if (ops && typeof ops === 'object') {
-                    $.extend(_options, ops);
-                }
-                if (_inlay.type.indexOf(_options.type) < 0) {
-                    console.log("未指定类型");
-                } else {
-                    _state = true;
-                }
+                //销毁当前对象后继续重置所有参数
+                _resetting();
             }
 
             //-----------------------
             // 对外接口
             //-----------------------
             return {　
-                show: show,
-                destroy: destroy,
-                refresh: refresh,
-                hide: hide,
-                reboot: reboot
+                dialog: dialog,
+                destroy: destroy
             }
         }
     }

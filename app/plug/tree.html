@@ -60,8 +60,9 @@
                 <div class="fluid-row fn-mt10">
                     <div class="column16">
                         <div class="column-actual fn-mt10">
-                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="tinit">初始化树</button>
-                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="tinitto">再次初始</button>
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="tinit">显示</button>
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="tclose">关闭</button>
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="trest">重置</button>
                         </div>
                     </div>
                 </div>
@@ -77,7 +78,6 @@
                     <div class="column16">
                         <div class="column-actual fn-mt10">
                             <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="trefresh">刷新</button>
-                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="tconstraintrefresh">异步下强制刷新</button>
                         </div>
                     </div>
                 </div>
@@ -126,14 +126,7 @@
     <script>
         //页面初始化
         require(['jquery', 'tree'], function($, T) {
-            var demo = T.tree();
-
-
-
-
-            //初始化
-            $("#tinit").click(function() {
-                demo.init({
+            var demo = T.init({
                     target: "#gridtree", //渲染节点
                     data: cityJsosn.nodes, //数据
                     check: true, //选择
@@ -149,11 +142,21 @@
                     },
                     asyn: false,
                     url: "../../json/demo.json" //异步地址---参数为id
-                })
+                });
+
+            //显示
+            $("#tinit").click(function() {
+                demo.show()
             })
-            //再次初始
-            $("#tinitto").click(function() {
-                demo.init({
+            
+            //关闭
+            $("#tclose").click(function() {
+                demo.hide()
+            })
+            
+            //重置
+            $("#trest").click(function() {
+                demo.reset({
                     target: "#gridtree", //渲染节点
                     check: true, //选择
                     multi: false, //多选
@@ -175,45 +178,50 @@
             $("#treplace").click(function() {
                 demo.replace(cityJsosn.nodes, false);
             })
+            
             //替换数据(异步)    
             $("#treplaceasyn").click(function() {
                 demo.replace("../../json/demo.json", true);
             })
+            
             //刷新   
             $("#trefresh").click(function() {
                 demo.refresh();
             })
-            //异步下强制刷新   
-            $("#tconstraintrefresh").click(function() {
-                demo.constraintrefresh();
-            })
+            
             //获取选中   
             $("#tget").click(function() {
                 console.log(demo.get());
                 alert(demo.get());
             })
+            
             //指定获取（value）   
             $("#tgettxt").click(function() {
                 console.log(demo.get("value"));
                 alert(demo.get("value"));
             })
+            
             //获取选中量 
             $("#tgetnumber").click(function() {
                 console.log(demo.getnumber());
                 alert(demo.getnumber());
             })
+            
             //删除某个节点 
             $("#tdel").click(function() {
                demo.del("\u5317\u4eac");
             })
+            
             //全选-仅限多选
             $("#tcheckall").click(function() {
                demo.checkall();
             })
+            
             //取消
             $("#tcancel").click(function() {
                demo.cancel();
             })
+            
             //销毁
             $("#tdestroy").click(function() {
                demo.destroy();

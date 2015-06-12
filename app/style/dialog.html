@@ -68,46 +68,208 @@
     </div>
 
 
-    <div class="mss-dialog"  style="width:600px;height:400px;margin-left:-300px;margin-top:-200px;">
-        <div class="mss-dialog-title" mss-Drag='true'>
-            <h5 class="fn-text-indent">默认弹出层<small>自定义参数</small></h5>
-            <div class="mss-dialog-close">X</div>
-        </div>
-        <div class="mss-dialog-container" style="height:316px;"></div>
-        <div class="mss-dialog-button">
-            <button class="mss-button fn-bg-Blue">确认</button>
-            <button class="mss-button">取消</button>
-        </div>
-    </div>
-
-
-    
-    <div class="mss-dialog mss-dialog-confirm" style="width:400px;height:150px;margin-left:-200px;margin-top:-75px;">
-        <div class="mss-dialog-title" mss-Drag='true'>
-            <div class="mss-dialog-confirm-cnt">
-                <div class="mss-tip">
-                    <div class="mss-tip-icon">
-                        <i title="提示" class="icon-info-sign"></i>
-                    </div>
-                    <div class="mss-tip-right">
-                        <div class="mss-tip-content">
-                            <h4 class="mss-tip-title">空白</h4>
-                            <p class="mss-tip-explain">完成的说明完成的说明。</p>
-                            </p>
+    <div style="z-index: 1002; width: 604px; height: 547.2px; margin-left: -302px; margin-top: -273.6px; display: block;" class="mss-dialog-box mss-dialog-shadow  animated  ">
+        <div mss-drag="true" class="mss-dialog-title">MSS-dialog测试单元</div>
+        <div style="padding: 10px; height: 496.2px;" class="mss-dialog-content">
+            <form id="" action="#" method="post" name="" class="mss-form">
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname">文本项:</div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <div class="mss-form-text">一个个文字文字<a class="mss-form-link">验证</a> 
+                            </div>
+                            <p class="mss-form-tip fn-cl-Red"><i class="icon-remove"></i>文本验证失败，请勿非法修改</p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="mss-dialog-close">X</div>
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname">输入框:</div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <div class="mss-form-box">
+                                <input type="text" class="mss-form-input-txt">
+                            </div>
+                            <p class="mss-form-tip fn-cl-Green"><i class="icon-warning-sign"></i>异步验证成功</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname">时间:</div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <div class="mss-form-box">
+                                <div class="mss-form-input-lefticon"><i class="mss-form-icon icon-table"></i> 
+                                    <input type="text" class="mss-form-input-txt mss-calendar">
+                                </div>
+                                <div class="mss-form-split"><em>-</em> 
+                                </div>
+                                <div class="mss-form-input-righticon">
+                                    <input type="text" class="mss-form-input-txt"><i class="mss-form-icon icon-table"></i> 
+                                </div> <a class="mss-form-link">验证</a> 
+                            </div>
+                            <p class="mss-form-tip fn-cl-Orange"><i class="icon-ok"></i>选择时间过长，需要等待响应</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname">邮箱:</div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <div class="mss-form-box">
+                                <div class="mss-form-input-lefticon">
+                                    <input type="text" style="width:30px;" class="mss-form-input-txt"> <i class="mss-form-icon mss-form-boicon">@</i> 
+                                    <input type="text" style="width:90px;" class="mss-form-input-txt">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname">RMB:</div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <div class="mss-form-box">
+                                <div class="mss-form-input-lefticon"> <i class="mss-form-icon">$</i> 
+                                    <input type="text" class="mss-form-input-txt"> <i class="mss-form-icon mss-form-ricon">.00</i> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname">默认下拉:</div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <div class="mss-form-box">
+                                <select class="mss-form-input-select" name="">
+                                    <option>平台类型</option>
+                                    <option>平台类型</option>
+                                    <option>平台类型</option>
+                                    <option>平台类型</option>
+                                </select>
+                                <input type="text" class="mss-form-input-txt">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname">模拟下拉:</div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <div class="mss-form-box">
+                                <div class="mss-dropdown">
+                                    <div class="mss-dropdown-text">
+                                        <input type="text" readonly="" onfocus="this.blur()" value="设置代扣" class="mss-dropdown-input">
+                                        <input type="hidden" value="1" class="mss-dropdown-val"> <i title="点击选择" class="icon-angle-down"></i> 
+                                    </div>
+                                    <ul class="mss-dropdown-list fn-show" style="display: none;">
+                                        <li data-value="2" class="mss-dropdown-list-item fn-text-overflow"> <span>标为已缴</span> 
+                                        </li>
+                                        <li data-value="2" class="mss-dropdown-list-item fn-text-overflow"> <span>标为已缴</span> 
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname">组合:</div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <div class="mss-form-box">
+                                <select class="mss-form-input-select" name="">
+                                    <option>平台类型</option>
+                                    <option>平台类型</option>
+                                    <option>平台类型</option>
+                                    <option>平台类型</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname">单选:</div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <div class="mss-form-check">
+                                <label for="heckbox1">
+                                    <input type="radio" id="heckbox1" name="heckbox3">无数据</label>
+                                <label for="heckbox2">
+                                    <input type="radio" id="heckbox2" name="heckbox3">无数据</label>
+                                <label for="heckbox3">
+                                    <input type="radio" id="heckbox3" name="heckbox3">无数据</label>
+                                <label for="heckbox4">
+                                    <input type="radio" id="heckbox4" name="heckbox3">无数据</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname">多选:</div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <div class="mss-form-check">
+                                <label for="checkbox1">
+                                    <input type="checkbox" id="checkbox1" name="">无数据</label>
+                                <label for="checkbox2">
+                                    <input type="checkbox" id="checkbox2" name="">无数据</label>
+                                <label for="checkbox3">
+                                    <input type="checkbox" id="checkbox3" name="">无数据</label>
+                                <label for="checkbox4">
+                                    <input type="checkbox" id="checkbox4" name="">无数据</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname">默认下拉:</div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <div class="mss-form-box">
+                                <textarea class="mss-form-input-textarea">一二三四五六七八九十</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname"></div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <div class="mss-form-check">
+                                <label for="checkbox11">
+                                    <input type="checkbox" id="checkbox11" name="">我已阅读并接受自主缴费服务协议</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname">验证码：</div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <div class="mss-form-box">
+                                <input type="text" class="mss-form-input-txt">
+                                <img align="absMiddle" title="点击刷新图片校验码" src="https://omeo.alipay.com/service/checkcode?sessionID=82012ab6b1f4ed9e675fb9092a25cb3b&amp;r=0.9321065918075809" alt="请输入您看到的内容" class="mss-form-imgcode"> <a class="mss-form-link">看不清楚</a> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mss-form-item">
+                    <div class="mss-form-leftname"></div>
+                    <div class="mss-form-container">
+                        <div class="mss-form-container-box">
+                            <button class="mss-button fn-mr10 fn-bg-Blue">确认</button>
+                            <button class="mss-button fn-mr10 ">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="mss-dialog-button">
-            <button class="mss-button fn-bg-Blue">确认</button>
-            <button class="mss-button">取消</button>
-        </div>
+        <div class="mss-dialog-close">X</div>
     </div>
 
     <!-- script start -->
-<script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
+    <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
     <!-- script end -->
 </body>
 

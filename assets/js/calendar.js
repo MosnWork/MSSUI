@@ -14,7 +14,7 @@ define(function(require, exports, module) {
     //时间架
     var objMe = {
         "width": 240,
-        "height": 234 //不可以更改234高度为带底部工具栏/底部工具栏高度为42；
+        "height": 254 //不可以更改234高度为带底部工具栏/底部工具栏高度为42；
     }
 
     //基础时间；
@@ -148,9 +148,9 @@ define(function(require, exports, module) {
         curObj.input = curObj.basis;
         curObj.begin = new Date(curObj.basis.getFullYear().toString() + "/" + (curObj.basis.getMonth() + 1).toString() + "/1");
         if (initialize.auto == true || initialize.today == true) {
-            objMe.height = 234;
+            objMe.height = 254;
         } else {
-            objMe.height = 192;
+            objMe.height = 212;
         }
         //元素定位
         var top = el.offset().top;

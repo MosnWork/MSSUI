@@ -64,15 +64,27 @@
                         <div class="column6">
                             <div class="column-actual">
                                 <!--form可以替换为div-->
-                                <div class="mss-form" mss-np="adata">
+                                <div class="mss-form" mss-mvc="demo">
                                     <div class="mss-form-item">
                                         <div class="mss-form-leftname">数据1:</div>
                                         <div class="mss-form-container">
                                             <div class="mss-form-container-box">
                                                 <div class="mss-form-box">
-                                                    <div class="mss-form-input-lefticon">
-                                                        <input type="text" value="" class="mss-form-input-txt" />
-                                                    </div>
+                                                    <div class="mss-dropdown">
+                                            <div class="mss-dropdown-text">
+                                                <input class="mss-dropdown-input"  type="text" value="设置代扣" onfocus="this.blur()" readonly/>
+                                                <input class="mss-dropdown-val" mss-model="num" type="hidden" value="" id="asdas"/>
+                                                <i class="icon-angle-down" title="点击选择"></i>
+                                            </div>
+                                            <ul class="mss-dropdown-list">
+                                                <li class="mss-dropdown-list-item fn-text-overflow" mss-value="1">
+                                                    <span>标已缴</span>
+                                                </li>
+                                                <li class="mss-dropdown-list-item fn-text-overflow" mss-value="2">
+                                                    <span>标为已缴</span>
+                                                </li>
+                                            </ul>
+                                        </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -83,7 +95,7 @@
                                             <div class="mss-form-container-box">
                                                 <div class="mss-form-box">
                                                     <div class="mss-form-input-lefticon">
-                                                        <input type="text" value="" class="mss-form-input-txt" />
+                                                        <input type="text" value="" mss-model="num" class="mss-form-input-txt" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -93,7 +105,15 @@
                                         <div class="mss-form-leftname">结果:</div>
                                         <div class="mss-form-container">
                                             <div class="mss-form-container-box">
-                                                <p class="mss-form-tip fn-cl-Green">12</p>
+                                                <p class="mss-form-tip fn-cl-Green" mss-view="data*num">12</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mss-form-item">
+                                        <div class="mss-form-leftname">结果:</div>
+                                        <div class="mss-form-container">
+                                            <div class="mss-form-container-box">
+                                                <input type="button" value="sssss" id="asdasqwe" class="mss-form-input-txt" />
                                             </div>
                                         </div>
                                     </div>
@@ -110,8 +130,17 @@
     <script>
         //页面初始化
         require(['jquery', 'binding'], function($, B) {
+            var model=new B.init("demo");
+            model.create();
             
+            
+            $("#asdasqwe").click(function(){
+            alert("sdasd");
+            alert($("#asdas").val());
+            })
         });
+        
+        
     </script>
     <!-- script end -->
 </body>

@@ -254,6 +254,12 @@ var menuData = [
                 "text":"表格",
                 "href":"app/plug/table.html",
                 "nodes":[]
+            },
+            {
+                "id":37,
+                "text":"表单验证",
+                "href":"app/plug/form.html",
+                "nodes":[]
             }
         ]
     }

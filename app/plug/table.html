@@ -60,17 +60,17 @@
                 <div class="fluid-row fn-mt10">
                     <div class="column16">
                         <div class="column-actual fn-mt10">
-                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="tinit">显示</button>
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="tinit">应用</button>
                             <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="tclose">关闭</button>
-                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="trest">重置</button>
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="trest">显示</button>
                         </div>
                     </div>
                 </div>
                 <div class="fluid-row fn-mt10">
                     <div class="column16">
                         <div class="column-actual fn-mt10">
-                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="treplace">替换数据(本地)</button>
-                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="treplaceasyn">替换数据(异步)</button>
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Red" id="treplace">获取选中数据</button>
+                            <button class="mss-button fn-mr10 fn-bra5 fn-bg-Orange" id="treplaceasyn">销毁</button>
                         </div>
                     </div>
                 </div>
@@ -93,7 +93,8 @@
                     elCls: "center", //位置-left,right,center
                     width: 80, //宽度--%，px
                     data: "ptype_id", //对应属性
-                    sort: true //是否排序
+                    sort: true, //是否排序
+                    int: true
                 }, {
                     title: "数据", //头名
                     elCls: "left", //位置-left,right,center
@@ -105,6 +106,7 @@
                     width: 80, //宽度--%，px
                     data: "ptype_num", //对应属性
                     sort: true //是否排序
+
                 }, {
                     title: "名称", //头名
                     width: 400, //宽度--%，px
@@ -121,8 +123,12 @@
                 skin: "", //表格皮肤
                 columns: clo, //表头
                 //data: tablejson, //数据
+                click: function(e) {
+                    console.log(e);
+                    alert(e.ptype_name);
+                },
                 check: true, //选择
-                multi: true, //多选
+                multi: false, //多选
                 pagingBar: true,
                 handle: [{
                     text: "编辑",
@@ -152,8 +158,22 @@
                 idField: "" //主属性--唯一属性
             })
             $("#tinit").click(function() {
+                table.apply();
+            })
+            $("#tclose").click(function() {
+                table.hide();
+            })
+            $("#trest").click(function() {
                 table.show();
             })
+            $("#treplace").click(function() {
+                console.log(table.get());
+            })
+            $("#treplaceasyn").click(function() {
+                table.destroy();
+            })
+            
+            
         });
     </script>
     <!-- script end -->

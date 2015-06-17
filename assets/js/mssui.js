@@ -207,6 +207,7 @@ define(function(require, exports, module) {
                         $(list[i]).attr("checked", false);
                     }
                 }
+                return false;
             })
         } catch (ex) {
             console.log("表格多选初始化错误");

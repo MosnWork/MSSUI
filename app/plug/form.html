@@ -61,16 +61,15 @@
             <div class="column10">
                 <div class="column-actual">
                     <!--form可以替换为div-->
-                    <form class="mss-form" name="" method="post" action="#" id="">
-                        <!--                        <fieldset>-->
+                    <form class="mss-form" name="" method="post" action="#">
+                        <!--<fieldset>-->
                         <div class="mss-form-item">
                             <div class="mss-form-leftname">文本项:</div>
                             <div class="mss-form-container">
                                 <div class="mss-form-container-box">
                                     <div class="mss-form-text">
-                                        一个个文字文字<a class="mss-form-link">验证</a>
+                                        一个个文字文字
                                     </div>
-                                    <p class="mss-form-tip fn-cl-Red"><i class="icon-remove"></i>文本验证失败，请勿非法修改</p>
                                 </div>
                             </div>
                         </div>
@@ -79,9 +78,8 @@
                             <div class="mss-form-container">
                                 <div class="mss-form-container-box">
                                     <div class="mss-form-box">
-                                        <input type="text" class="mss-form-input-txt">
+                                        <input type="text" name="demo1" class="mss-form-input-txt" id="inputdemo" />
                                     </div>
-                                    <p class="mss-form-tip fn-cl-Green"><i class="icon-warning-sign"></i>异步验证成功</p>
                                 </div>
                             </div>
                         </div>
@@ -91,16 +89,14 @@
                                 <div class="mss-form-container-box">
                                     <div class="mss-form-box">
                                         <div class="mss-form-input-lefticon"><i class="mss-form-icon icon-table"></i>
-                                            <input type="text" class="mss-form-input-txt mss-calendar">
+                                            <input type="text" name="demo2" class="mss-form-input-txt mss-calendar">
                                         </div>
                                         <div class="mss-form-split"><em>-</em>
                                         </div>
                                         <div class="mss-form-input-righticon">
-                                            <input type="text" class="mss-form-input-txt"><i class="mss-form-icon icon-table"></i>
+                                            <input type="text" name="demo3" class="mss-form-input-txt"><i class="mss-form-icon icon-table"></i>
                                         </div>
-                                        <a class="mss-form-link">验证</a>
                                     </div>
-                                    <p class="mss-form-tip fn-cl-Orange"><i class="icon-ok"></i>选择时间过长，需要等待响应</p>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +108,7 @@
                                         <div class="mss-form-input-lefticon">
                                             <input type="text" class="mss-form-input-txt" style="width:30px;">
                                             <i class="mss-form-icon mss-form-boicon">@</i>
-                                            <input type="text" class="mss-form-input-txt" style="width:90px;">
+                                            <input type="text" name="demo4" class="mss-form-input-txt" style="width:90px;">
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +121,7 @@
                                     <div class="mss-form-box">
                                         <div class="mss-form-input-lefticon">
                                             <i class="mss-form-icon">$</i>
-                                            <input type="text" class="mss-form-input-txt">
+                                            <input type="text" name="demo5" class="mss-form-input-txt">
                                             <i class="mss-form-icon mss-form-ricon">.00</i>
                                         </div>
                                     </div>
@@ -137,13 +133,13 @@
                             <div class="mss-form-container">
                                 <div class="mss-form-container-box">
                                     <div class="mss-form-box">
-                                        <select name="" class="mss-form-input-select">
+                                        <select name="demo6" class="mss-form-input-select" >
                                             <option>平台类型</option>
                                             <option>平台类型</option>
                                             <option>平台类型</option>
                                             <option>平台类型</option>
                                         </select>
-                                        <input type="text" class="mss-form-input-txt">
+                                        <input type="text" name="demo7" class="mss-form-input-txt">
                                     </div>
                                 </div>
                             </div>
@@ -156,11 +152,11 @@
                                         <div class="mss-dropdown">
                                             <div class="mss-dropdown-text">
                                                 <input class="mss-dropdown-input" type="text" value="设置代扣" onfocus="this.blur()" readonly/>
-                                                <input class="mss-dropdown-val" type="hidden" value="1" />
+                                                <input class="mss-dropdown-val" name="demo8" type="hidden" value="1" />
                                                 <i class="icon-angle-down" title="点击选择"></i>
                                             </div>
-                                            <ul class="mss-dropdown-list fn-show">
-                                                <li class="mss-dropdown-list-item fn-text-overflow" mss-value="2">
+                                            <ul class="mss-dropdown-list">
+                                                <li class="mss-dropdown-list-item fn-text-overflow" mss-value="1">
                                                     <span>标为已缴</span>
                                                 </li>
                                                 <li class="mss-dropdown-list-item fn-text-overflow" mss-value="2">
@@ -177,7 +173,7 @@
                             <div class="mss-form-container">
                                 <div class="mss-form-container-box">
                                     <div class="mss-form-box">
-                                        <select name="" class="mss-form-input-select">
+                                        <select name="sad" class="mss-form-input-select" id="selectdemo">
                                             <option>平台类型</option>
                                             <option>平台类型</option>
                                             <option>平台类型</option>
@@ -193,16 +189,16 @@
                                 <div class="mss-form-container-box">
                                     <div class="mss-form-check">
                                         <label for="heckbox1">
-                                            <input type="radio" name="heckbox3" id="heckbox1">无数据
+                                            <input type="radio" value="1" name="heckbox3" id="heckbox1">无数据
                                         </label>
                                         <label for="heckbox2">
-                                            <input type="radio" name="heckbox3" id="heckbox2">无数据
+                                            <input type="radio" value="2" name="heckbox3" id="heckbox2">无数据
                                         </label>
                                         <label for="heckbox3">
-                                            <input type="radio" name="heckbox3" id="heckbox3">无数据
+                                            <input type="radio" value="3" name="heckbox3" id="heckbox3">无数据
                                         </label>
                                         <label for="heckbox4">
-                                            <input type="radio" name="heckbox3" id="heckbox4">无数据
+                                            <input type="radio" value="4" name="heckbox3" id="heckbox4">无数据
                                         </label>
                                     </div>
                                 </div>
@@ -214,16 +210,16 @@
                                 <div class="mss-form-container-box">
                                     <div class="mss-form-check">
                                         <label for="checkbox1">
-                                            <input type="checkbox" name="" id="checkbox1">无数据
+                                            <input type="checkbox" value="1" name="checkboxhh" id="checkbox1">无数据
                                         </label>
                                         <label for="checkbox2">
-                                            <input type="checkbox" name="" id="checkbox2">无数据
+                                            <input type="checkbox" value="2" name="checkboxhh" id="checkbox2">无数据
                                         </label>
                                         <label for="checkbox3">
-                                            <input type="checkbox" name="" id="checkbox3">无数据
+                                            <input type="checkbox" value="3" name="checkboxhh" id="checkbox3">无数据
                                         </label>
                                         <label for="checkbox4">
-                                            <input type="checkbox" name="" id="checkbox4">无数据
+                                            <input type="checkbox" value="4" name="checkboxhh" id="checkbox4">无数据
                                         </label>
                                     </div>
                                 </div>
@@ -234,7 +230,7 @@
                             <div class="mss-form-container">
                                 <div class="mss-form-container-box">
                                     <div class="mss-form-box">
-                                        <textarea class="mss-form-input-textarea">一二三四五六七八九十</textarea>
+                                        <textarea class="mss-form-input-textarea" name="xcv" id="textareademo">一二三四五六七八九十</textarea>
                                     </div>
                                 </div>
                             </div>
@@ -245,7 +241,7 @@
                                 <div class="mss-form-container-box">
                                     <div class="mss-form-check">
                                         <label for="checkbox11">
-                                            <input type="checkbox" name="" id="checkbox11">我已阅读并接受自主缴费服务协议
+                                            <input type="checkbox" name="b" id="checkbox11">我已阅读并接受自主缴费服务协议
                                         </label>
                                     </div>
                                 </div>
@@ -256,7 +252,7 @@
                             <div class="mss-form-container">
                                 <div class="mss-form-container-box">
                                     <div class="mss-form-box">
-                                        <input type="text" class="mss-form-input-txt">
+                                        <input type="text" class="mss-form-input-txt" name="hh">
                                         <img class="mss-form-imgcode" align="absMiddle" alt="请输入您看到的内容" src="https://omeo.alipay.com/service/checkcode?sessionID=82012ab6b1f4ed9e675fb9092a25cb3b&amp;r=0.9321065918075809" title="点击刷新图片校验码" />
                                         <a class="mss-form-link">看不清楚</a>
                                     </div>
@@ -267,12 +263,12 @@
                             <div class="mss-form-leftname"></div>
                             <div class="mss-form-container">
                                 <div class="mss-form-container-box">
-                                    <button class="mss-button fn-mr10 fn-bg-Blue">确认</button>
+                                    <button type="submit" class="mss-button fn-mr10 fn-bg-Blue" id="beginstn">确认</button>
                                     <button class="mss-button fn-mr10 ">取消</button>
                                 </div>
                             </div>
                         </div>
-                        <!--                        </fieldset>-->
+                        <!--</fieldset>-->
                     </form>
                 </div>
             </div>
@@ -280,6 +276,66 @@
     </div>
     <!-- script start -->
     <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
+    <script>
+        //页面初始化
+        require(['jquery', 'validate'], function($, V) {
+            var rule = new V.init({
+                node: [{
+                    el: "#inputdemo", //验证元素
+                    location: function() {
+                        return this.parent().parent();
+                    }, //信息位置
+                    required: true, //必须验证
+                    trigger: true, //触发方式，如果为空就为blur
+                    remote: "../../../json/validate.json"
+                }, {
+                    el: "#selectdemo", //验证元素
+                    location: function() {
+                        return this.parent().parent();
+                    }, //信息位置
+                    required: true, //必须验证
+                    trigger: true //触发方式，如果为空就为blur
+                    //错误回调
+                }, {
+                    el: "#textareademo", //验证元素
+                    location: function() {
+                        return this.parent().parent();
+                    }, //信息位置
+                    required: true, //必须验证
+                    trigger: true //触发方式，如果为空就为blur
+                    //错误回调
+                }, {
+                    el: "input[name='heckbox3']", //验证元素
+                    required: true, //必须验证
+                    trigger: true, //触发方式，如果为空就为blur
+                    location: function() {
+                        //console.log(this);
+                        return this.parent().parent().parent();
+                    } //信息位置
+                    //错误回调
+                }, {
+                    el: "input[name='checkboxhh']", //验证元素
+                    location: function() {
+                        //console.log(this);
+                        return this.parent().parent().parent();
+                    }, //信息位置
+                    required: true, //必须验证
+                    trigger: true //触发方式，如果为空就为blur
+                    //错误回调
+                }],
+                submit: {
+                    btn: "#beginstn",
+                    asyn: true,
+                    callback: function(data) {
+                        alert(data)
+                    }
+                } //提交元素
+            });
+            rule.validate();
+
+
+        });
+    </script>
     <!-- script end -->
 </body>
 

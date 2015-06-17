@@ -4,56 +4,56 @@ var tablejson={
     "pagesSize": true,
     "page": 1,
     "data": [{
-        "ptype_id": "3396",
+        "ptype_id": "1",
         "ptype_val": "14100309",
         "ptype_name": "\u53cc\u9c7c\u793c\u5305",
         "ptype_num": "1",
         "price": "100",
         "description": ""
     }, {
-        "ptype_id": "3395",
+        "ptype_id": "2",
         "ptype_val": "14100308",
         "ptype_name": "\u6c34\u74f6\u793c\u5305",
         "ptype_num": "1",
         "price": "100",
         "description": ""
     }, {
-        "ptype_id": "3394",
+        "ptype_id": "3",
         "ptype_val": "14100307",
         "ptype_name": "\u6469\u7faf\u793c\u5305",
         "ptype_num": "1",
         "price": "100",
         "description": ""
     }, {
-        "ptype_id": "3393",
+        "ptype_id": "11",
         "ptype_val": "14100306",
         "ptype_name": "\u5c04\u624b\u793c\u5305",
         "ptype_num": "1",
         "price": "100",
         "description": ""
     }, {
-        "ptype_id": "3392",
+        "ptype_id": "15",
         "ptype_val": "14100305",
         "ptype_name": "\u5929\u874e\u793c\u5305",
         "ptype_num": "1",
         "price": "100",
         "description": ""
     }, {
-        "ptype_id": "3391",
+        "ptype_id": "30",
         "ptype_val": "14100304",
         "ptype_name": "\u5929\u79e4\u793c\u5305",
         "ptype_num": "1",
         "price": "100",
         "description": ""
     }, {
-        "ptype_id": "3390",
+        "ptype_id": "20",
         "ptype_val": "14100303",
         "ptype_name": "\u5904\u5973\u793c\u5305",
         "ptype_num": "1",
         "price": "100",
         "description": ""
     }, {
-        "ptype_id": "3389",
+        "ptype_id": "21",
         "ptype_val": "14100302",
         "ptype_name": "\u72ee\u5b50\u793c\u5305",
         "ptype_num": "1",

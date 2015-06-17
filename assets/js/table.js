@@ -1,6 +1,7 @@
 define(function(require, exports, module) {
     return {
         init: function(_config) {
+            "use strict";
             //增加原型-indexOf
             if (!Array.indexOf) {
                 Array.prototype.indexOf = function(obj) {
@@ -13,9 +14,13 @@ define(function(require, exports, module) {
                 }
             }
 
+            var Identification = "mss-input-" + new Date().getTime();
+            var tableid = "mss-table-" + new Date().getTime();
+
             var _op = {
                 target: "", //渲染主体
                 width: "100%", //表格宽度
+                forceFit: true, // 列宽按百分比自适应
                 skin: "", //表格皮肤
                 columns: [], //表头
                 data: {}, //数据
@@ -44,9 +49,12 @@ define(function(require, exports, module) {
             var _class = {
                 //基础
                 table: "mss-table", //
+                check: "mss-table-checkbox",
+                checks: "mss-table-checkboxs",
                 sort: "mss-table-sort", //
                 sortup: "icon-sort-up",
                 sortdown: "icon-sort-down",
+                btn: "mss-table-abtn",
                 paging: "mss-paging",
                 prev: "mss-paging-prev",
                 previcon: "icon-caret-right",
@@ -88,20 +96,25 @@ define(function(require, exports, module) {
                 if (_op.store != "") {
                     _op.data = {};
                     _op.pagingBar = true;
+                } else {
+                    _op.data.pagesSize = _op.data.data.length;
+                    _op.data.page = 1;
+                    _op.data.total = _op.data.data.length;
                 }
-
             }
 
+
+
             //---------------------
-            // show 显示
+            // apply 显示
             //---------------------
-            var show = function() {
+            var apply = function() {
                 if (_inlay.state == false) {
                     alert("表格未初始化或已销毁");
                     return false;
                 }
                 //开始渲染主结构框架
-                _inlay.dom = $("<table class=\"" + _class.table + " " + _op.skin + "\"></table>").appendTo(_inlay.box);
+                _inlay.dom = $("<table id=\"" + tableid + "\" class=\"" + _class.table + " " + _op.skin + "\"></table>").appendTo(_inlay.box);
                 _inlay.thead = $(_getThead()).appendTo(_inlay.dom);
                 _inlay.tbody = $("<tbody></tbody>").appendTo(_inlay.dom);
                 _inlay.tfoot = $("<tfoot></tfoot>").appendTo(_inlay.dom);
@@ -132,29 +145,31 @@ define(function(require, exports, module) {
                 if (_op.check == true) {
                     html += "<th width=\"13px\">";
                     if (_op.multi == true) {
-                        html += "<input class=\"mss-table-checkboxs\" type=\"checkbox\" name=\"mss-table-checkboxs\" />";
+                        html += "<input class=\"" + _class.checks + "\" type=\"checkbox\" name=\"" + Identification + "\" />";
                     }
                     html += "</th>";
                 }
                 for (var i = 0; i < _op.columns.length; i++) {
                     var width = "";
                     if (_op.columns[i].width) {
-                        if (typeof(_op.columns[i].width) == "number") {
-                            width = "width=" + _op.columns[i].width + "px";
-                        } else {
-                            width = "width=" + _op.columns[i].width;
+                        if (_op.forceFit != true) {
+                            if (typeof(_op.columns[i].width) == "number") {
+                                width = "width=" + _op.columns[i].width + "px";
+                            } else {
+                                width = "width=" + _op.columns[i].width;
+                            }
                         }
                     }
                     var cl = "";
                     if (_op.columns[i].sort) {
                         if (_op.columns[i].sort == true) {
-                            cl += "class='mss-table-sort'";
+                            cl += "class='" + _class.sort + "'";
                         }
                     }
                     if (_op.columns[i].elcls) {
                         html += "<th " + cl + " " + width + " align=\"" + _op.columns[i].elcls + "\">";
                     } else {
-                        html += "<th>";
+                        html += "<th " + cl + " " + width + ">";
                     }
                     html += _op.columns[i].title;
 
@@ -187,7 +202,6 @@ define(function(require, exports, module) {
             var _getShow = function() {
                 try {
                     var html = "";
-
                     if (_op.data.result == true || _op.data.result == "true") {
                         if (_op.data.data.length > 0) {
                             //console.log(_op.data.data);
@@ -199,9 +213,9 @@ define(function(require, exports, module) {
                                 if (_op.check == true) {
                                     html += "<td width=\"13px\">";
                                     if (_op.multi == true) {
-                                        html += "<input class=\"mss-table-checkbox\" type=\"checkbox\" name=\"mss-table-checkbox\" />";
+                                        html += "<input value=\"" + i + "\" class=\"" + _class.check + "\" type=\"checkbox\" name=\"" + Identification + "\" />";
                                     } else {
-                                        html += "<input class=\"mss-table-checkbox\" type=\"radio\" name=\"mss-table-checkbox\" />";
+                                        html += "<input value=\"" + i + "\" class=\"" + _class.check + "\" type=\"radio\" name=\"" + Identification + "\" />";
                                     }
                                     html += "</td>";
                                 }
@@ -227,7 +241,7 @@ define(function(require, exports, module) {
                                     html += "<td>";
                                     for (var h = 0; h < _op.handle.length; h++) {
                                         if (_op.handle[h].text) {
-                                            html += "<a class=\"mss-table-abtn " + _op.handle[h].elcl + "\">" + _op.handle[h].text + "</a>";
+                                            html += "<a class=\"" + _class.btn + " " + _op.handle[h].elcl + "\">" + _op.handle[h].text + "</a>";
                                         }
                                     }
                                     html += "</td>";
@@ -420,35 +434,226 @@ define(function(require, exports, module) {
                 _inlay.thead.on("click", "." + _class.sort, function() {
                     var index = $(this).index();
                     if (_op.check == true) {
+                        if (index == 0) {
+                            return false;
+                        }
                         index--;
                     }
-                    if ($(this).find("i").hasClass(_class.sortup)) {
-                        _jsonSort(index, "down");
-
-                    } else {
-                        _jsonSort(index, "up");
+                    if (_op.handle.length > 0) {
+                        if ($(this).index() == _inlay.thead.find("th").length - 1) {
+                            return false;
+                        }
+                    }
+                    //console.log(_op.columns[index].sort);
+                    if (_op.columns[index].sort) {
+                        if (_op.columns[index].sort == true) {
+                            var str = _op.columns[index].data;
+                            var type = "string";
+                            if (_op.columns[index].int) {
+                                if (_op.columns[index].int == true) {
+                                    type = "int";
+                                }
+                            }
+                            if ($(this).find("i").hasClass(_class.sortup)) {
+                                $(this).find("i").addClass(_class.sortdown).removeClass(_class.sortup);
+                                _jsonSort(str, type, "down");
+                            } else {
+                                $(this).find("i").addClass(_class.sortup).removeClass(_class.sortdown);
+                                _jsonSort(str, type, "up");
+                            }
+                            $(this).siblings().find("i").removeAttr("class");
+                        } else {
+                            return false;
+                        }
                     }
                 })
+                //点击回调事件，针对单行
+                if (typeof(_op.click) == "function") {
+                    _inlay.tbody.on("click", "tr", function(e) {
+                        var data = _op.data.data[$(this).index(0)];
+                        _op.click(data);
+                        _stopPropagation(e);
+                    });
+                }
+                //针对按钮做回调事件
+                if (_op.handle.length > 0) {
+                    _inlay.tbody.on("click", "." + _class.btn, function(e) {
+                        if (typeof(_op.handle[$(this).index()].callback) == "function") {
+                            var data = _op.data.data[$(this).parent().parent().index(0)];
+                            _op.handle[$(this).index()].callback(data);
+                        }
+                        _stopPropagation(e);
+                    });
+                }
+                //阻止input冒泡
 
-
-
-
+                _inlay.tbody.on("click", "input", function(e) {
+                    _stopPropagation(e);
+                });
             }
 
             //-----------------------
             // _jsonSort 数据排序
             //-----------------------
-            var _jsonSort = function(str, fn) {
-_op.data.data.sort();
-                ////做到这里中断一下....下周继续
+            var _jsonSort = function(str, type, fn) {
+                if (type == "int") {
+                    _op.data.data.sort(function compare(x, y) {
+                        if (fn == "down") {
+                            return (parseInt(x[str]) < parseInt(y[str])) ? 1 : -1
+                        } else {
+                            return (parseInt(x[str]) > parseInt(y[str])) ? 1 : -1
+                        }
+                    });
+                } else {
+                    _op.data.data.sort(function compare(x, y) {
+                        if (fn == "down") {
+                            return (x[str] < y[str]) ? 1 : -1
+                        } else {
+                            return (x[str] > y[str]) ? 1 : -1
+                        }
+                    });
+                }
+                _getShow();
             }
 
-            var jsonSortrank = function(type, str, x, y) {
-                if (type == "down") {
-                    return (x[str] < y[str]) ? 1 : -1
+            //-----------------------
+            // _stopPropagation 阻止冒泡
+            //-----------------------
+            var _stopPropagation = function(e) {
+                e = e || window.event;
+                if (e.stopPropagation) { //W3C阻止冒泡方法  
+                    e.stopPropagation();
                 } else {
-                    return (x[str] > y[str]) ? 1 : -1
+                    e.cancelBubble = true; //IE阻止冒泡方法  
                 }
+            }
+
+
+            //-----------------------
+            // getPage 获取页码
+            //-----------------------
+            var getPage = function() {
+                if (_inlay.state == true) {
+                    return _op.data.page;
+                } else {
+                    alert("表格未初始化或者已被销毁");
+                }
+            }
+
+
+            //-----------------------
+            // getCurrent 获取当前页面数量
+            //-----------------------
+            var getCurrent = function() {
+                if (_inlay.state == true) {
+                    return _op.data.data.length;
+                } else {
+                    alert("表格未初始化或者已被销毁");
+                }
+            }
+            //-----------------------
+            // getTotal 获取总数
+            //-----------------------
+            var getTotal = function() {
+                if (_inlay.state == true) {
+                    return _op.data.total;
+                } else {
+                    alert("表格未初始化或者已被销毁");
+                }
+            }
+            //-----------------------
+            // getPageSize 获取单页数
+            //-----------------------
+            var getPageSize = function() {
+                if (_inlay.state == true) {
+                    return _op.data.pageSize;
+                } else {
+                    alert("表格未初始化或者已被销毁");
+                }
+            }
+
+            //-----------------------
+            // getTable 获取表格
+            //-----------------------
+            var getTable = function() {
+                if (_inlay.state == true) {
+                    return $("#" + tableid);
+                } else {
+                    alert("表格未初始化或者已被销毁");
+                }
+            }
+
+
+            //-----------------------
+            // replace 替换数据-- 暂时不提供
+            //-----------------------
+            //            var replace = function(data, asyn) {
+            //
+            //            }
+
+
+            //-----------------------
+            // hide 关闭
+            //-----------------------
+            var hide = function() {
+                if (_inlay.state == true) {
+                    _inlay.dom.hide();
+                } else {
+                    alert("表格未初始化或者已被销毁");
+                }
+            }
+//-----------------------
+            // show 显示
+            //-----------------------
+            var show = function() {
+                if (_inlay.state == true) {
+                    _inlay.dom.show();
+                } else {
+                    alert("表格未初始化或者已被销毁");
+                }
+            }
+
+            //-----------------------
+            // get 回去选中数据
+            //-----------------------
+            var get = function() {
+                if (_inlay.state == true) {
+                    if (_op.check == true) {
+                        if (_op.multi == true) {
+                            var back = [];
+                            $("input:checkbox[name='" + Identification + "']:checked").each(function() {
+                                back.push(_op.data.data[parseInt($(this).val())]);
+                            })
+                            return back;
+                        }else {
+                            var checkedObj = $("input:radio[name='" + Identification + "']:checked").val();
+                            return _op.data.data[parseInt(checkedObj)];
+                        }
+                    } else {
+                        alert("未定义选择");
+                    }
+                } else {
+                    alert("表格未初始化或者已被销毁");
+                }
+            }
+            //-----------------------
+            // refresh 刷新
+            //-----------------------
+            var refresh = function() {
+                if (_inlay.state == true) {
+                    _getShow();
+                } else {
+                    alert("表格未初始化或者已被销毁");
+                }
+            }
+
+
+            //-----------------------
+            // destroy 销毁
+            //-----------------------
+            var destroy = function() {
+                _inlay.state = false;
+                _inlay.dom.remove();
             }
 
 
@@ -456,7 +661,18 @@ _op.data.data.sort();
             // 对外接口
             //-----------------------
             return {　　　　　　　
-                show: show //显示
+                apply: apply, //显示
+                getPage: getPage,
+                getCurrent: getCurrent,
+                getTotal: getTotal,
+                getPageSize: getPageSize,
+                getTable: getTable,
+                //replace: replace,
+                hide: hide,
+                show: show, //显示
+                get: get,
+                refresh: refresh,
+                destroy: destroy
             };
         }
     }

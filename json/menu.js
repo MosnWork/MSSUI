@@ -99,6 +99,12 @@ var menuData = [
                 "nodes":[]
             },
             {
+                "id":231,
+                "text":"横向表单",
+                "href":"app/style/cross.html",
+                "nodes":[]
+            },
+            {
                 "id":24,
                 "text":"按钮组件",
                 "href":"app/style/button.html",
@@ -259,6 +265,12 @@ var menuData = [
                 "id":37,
                 "text":"表单验证",
                 "href":"app/plug/form.html",
+                "nodes":[]
+            },
+            {
+                "id":38,
+                "text":"简单编辑器",
+                "href":"app/plug/edit.html",
                 "nodes":[]
             }
         ]

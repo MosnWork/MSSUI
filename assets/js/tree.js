@@ -41,7 +41,7 @@ define(function(require, exports, module) {
                             }
                             return this;
                         } catch (ex) {
-                            console.log("Traverse error");
+                            console.log("原型--json对应兼职查询失败");
                             return this;
                         }
                     }
@@ -80,6 +80,7 @@ define(function(require, exports, module) {
             //一些内置参数
             var _inlay = {
                 state: false, //状态
+                has:false,//接口状态
                 dom: "", //树结构层
                 curdom: "", //当前结构
                 padding: "padding-left:0px", //首节点偏移
@@ -96,7 +97,7 @@ define(function(require, exports, module) {
                 }
                 if (_op.target == "" || $(_op.target).length <= 0) {
                     _inlay.state = false;
-                    console.log("Not specified nodes or does not exist");
+                    console.log("树初始化错误");
                     return false;
                 } else {
                     _inlay.state = true;
@@ -124,7 +125,7 @@ define(function(require, exports, module) {
                     //绑定事件
                     _addEvent();
                 } catch (e) {
-                    console.log("Tree node data resolution fail");
+                    console.log("显示树结构失败");
                 }
             }
 
@@ -132,6 +133,7 @@ define(function(require, exports, module) {
             // _get 加载节点
             //---------------------
             var _get = function(index) {
+                _inlay.has=false;
                 var getid = "-1";
                 var curclass = "";
                 if (index.length <= 0) {
@@ -506,6 +508,7 @@ define(function(require, exports, module) {
                         "height": "auto"
                     })
                 })
+                _inlay.has=true;
             }
 
             //---------------------
@@ -583,7 +586,7 @@ define(function(require, exports, module) {
                 try {
                     var index = _con_to_index(str, _op.data, 0);
                     if (index.split(",").length - 1 == str.split(",").length) {
-                        console.log(index);
+                        //console.log(index);
                         //删除view
                         var getp = _inlay.dom.find("p");
                         for (var i = 0; i < getp.length; i++) {
@@ -619,19 +622,19 @@ define(function(require, exports, module) {
                                 dstr += "[" + sp2[s] + "].children";
                             }
                         }
-                        console.log(dstr);
+                        //console.log(dstr);
                         eval("_op.data" + dstr).deleted = true;
-                        console.log(dstr);
+                        //console.log(dstr);
                         //删除选中
                         //判断当前类型
                         if (_op.multi == false) {
                             _radiodel(index);
                         }
                     } else {
-                        console.log("Delete：" + str);
+                        console.log("删除：" + str);
                     }
                 } catch (ex) {
-                    console.log("Delete failed：" + str);
+                    console.log("删除失败：" + str);
                 }
             }
 
@@ -691,76 +694,74 @@ define(function(require, exports, module) {
             // refresh 刷新
             //-----------------------
             var refresh = function() {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
+                if (_inlay.state == true&&_inlay.has==true) {
+                    hide();
+                    show();
                 }
-                hide();
-                show();
             }
 
             //-----------------------
             // get 回去选中数据
             //-----------------------
             var get = function() {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
-                }
-                //判断参数个数
-                if (arguments.length > 0) {
-                    //判断是否开启异步
-                    if (_op.check == true) {
-                        if (_op.multi == true) {
-                            if (_op.line == true) {
-                                return _con_more(_inlay.check, arguments[0]);
-                            } else {
-                                var bf = _con_more(_inlay.check, arguments[0]);
-                                var bff = [];
-                                for (var i = 0; i < bf.length; i++) {
-                                    bff.push(bf[i].split("-")[bf[i].split("-").length - 2]);
+                if (_inlay.state == true&&_inlay.has==true) {
+                    //alert("s");
+                    //判断参数个数
+                    if (arguments.length > 0) {
+                        //判断是否开启异步
+                        if (_op.check == true) {
+                            if (_op.multi == true) {
+                                if (_op.line == true) {
+                                    return _con_more(_inlay.check, arguments[0]);
+                                } else {
+                                    var bf = _con_more(_inlay.check, arguments[0]);
+                                    var bff = [];
+                                    for (var i = 0; i < bf.length; i++) {
+                                        bff.push(bf[i].split("-")[bf[i].split("-").length - 2]);
+                                    }
+                                    return bff;
                                 }
-                                return bff;
+                            } else {
+                                if (_op.line == true) {
+                                    return _con_once(_inlay.radio, arguments[0]);
+                                } else {
+                                    var bf = _con_once(_inlay.radio, arguments[0]);
+                                    return bf.split("-")[bf.split("-").length - 2];
+                                }
                             }
                         } else {
-                            if (_op.line == true) {
-                                return _con_once(_inlay.radio, arguments[0]);
-                            } else {
-                                var bf = _con_once(_inlay.radio, arguments[0]);
-                                return bf.split("-")[bf.split("-").length - 2];
-                            }
+                            return "failure";
                         }
                     } else {
-                        return "failure";
-                    }
-                } else {
-                    //无参数默认获取ID
-                    //判断是否开启异步
-                    if (_op.check == true) {
-                        if (_op.multi == true) {
-                            if (_op.line == true) {
-                                console.log(_con_more(_inlay.check));
-                                return _con_more(_inlay.check);
-                            } else {
-                                var bf = _con_more(_inlay.check);
-                                var bff = [];
-                                for (var i = 0; i < bf.length; i++) {
-                                    bff.push(bf[i].split("-")[bf[i].split("-").length - 2]);
+                        //无参数默认获取ID
+                        //判断是否开启异步
+                        if (_op.check == true) {
+                            if (_op.multi == true) {
+                                if (_op.line == true) {
+                                    //console.log(_con_more(_inlay.check));
+                                    return _con_more(_inlay.check);
+                                } else {
+                                    var bf = _con_more(_inlay.check);
+                                    var bff = [];
+                                    for (var i = 0; i < bf.length; i++) {
+                                        bff.push(bf[i].split("-")[bf[i].split("-").length - 2]);
+                                    }
+                                    //console.log(typeof(_con_more(_inlay.check)));
+                                    return bff;
                                 }
-                                console.log(typeof(_con_more(_inlay.check)));
-                                return bff;
+                            } else {
+                                if (_op.line == true) {
+                                    return _con_once(_inlay.radio);
+                                } else {
+                                    var bf = _con_once(_inlay.radio);
+                                    return bf.split("-")[bf.split("-").length - 2];
+                                }
                             }
                         } else {
-                            if (_op.line == true) {
-                                return _con_once(_inlay.radio);
-                            } else {
-                                var bf = _con_once(_inlay.radio);
-                                return bf.split("-")[bf.split("-").length - 2];
-                            }
+                            return "failure";
                         }
-                    } else {
-                        return "failure";
                     }
+                    
                 }
             }
 
@@ -768,17 +769,15 @@ define(function(require, exports, module) {
             // del 删除数据-指定序号
             //-----------------------
             var del = function(str) {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
-                }
-                if (str instanceof Array) {
-                    for (var i = 0; i < str.length; i++) {
-                        _del(str[i]);
-                    }
+                if (_inlay.state == true&&_inlay.has==true) {
+                    if (str instanceof Array) {
+                        for (var i = 0; i < str.length; i++) {
+                            _del(str[i]);
+                        }
 
-                } else {
-                    _del(str);
+                    } else {
+                        _del(str);
+                    }
                 }
             }
 
@@ -786,37 +785,33 @@ define(function(require, exports, module) {
             // cancel 取消选择
             //-----------------------
             var cancel = function(str) {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
+                if (_inlay.state == true&&_inlay.has==true) {
+                    _inlay.check = [];
+                    _inlay.radio = "";
+                    _inlay.dom.find(".mss-tree-check").each(function() {
+                        if ($(this).hasClass("mic-check")) {
+                            $(this).removeClass("mic-check-all").removeClass("mic-check-part").addClass("mic-check-no");
+                        } else {
+                            $(this).removeClass("mic-radio-all").addClass("mic-radio-no");
+                        }
+                    })
                 }
-                _inlay.check = [];
-                _inlay.radio = "";
-                _inlay.dom.find(".mss-tree-check").each(function() {
-                    if ($(this).hasClass("mic-check")) {
-                        $(this).removeClass("mic-check-all").removeClass("mic-check-part").addClass("mic-check-no");
-                    } else {
-                        $(this).removeClass("mic-radio-all").addClass("mic-radio-no");
-                    }
-                })
             }
 
             //-----------------------
             // checkall 取消选择
             //-----------------------
             var checkall = function() {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
-                }
-                if (_op.check == true && _op.multi == true) {
-                    _inlay.dom.find(".mss-tree-check").each(function() {
-                        if ($(this).hasClass("mic-check")) {
-                            $(this).removeClass("mic-check-no").removeClass("mic-check-part").addClass("mic-check-all");
-                        }
-                    })
-                    _inlay.check = [];
-                    _pushcheck(_op.data, "");
+                if (_inlay.state == true&&_inlay.has==true) {
+                    if (_op.check == true && _op.multi == true) {
+                        _inlay.dom.find(".mss-tree-check").each(function() {
+                            if ($(this).hasClass("mic-check")) {
+                                $(this).removeClass("mic-check-no").removeClass("mic-check-part").addClass("mic-check-all");
+                            }
+                        })
+                        _inlay.check = [];
+                        _pushcheck(_op.data, "");
+                    }
                 }
             }
 
@@ -824,45 +819,47 @@ define(function(require, exports, module) {
             // getnumber 获取选中量
             //-----------------------
             var getnumber = function() {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
+                if (_inlay.state == true&&_inlay.has==true) {
+                    return _getnumber(_op.data, "");
                 }
-                return _getnumber(_op.data, "");
             }
 
             //-----------------------
             // replace 替换数据
             //-----------------------
             var replace = function(data, asyn) {
-                hide();
-                if (asyn == true) {
-                    _op.asyn = true;
-                    _op.data = [];
-                    _op.url = data;
-                } else {
-                    _op.asyn = false;
-                    _op.data = data;
+                if (_inlay.state == true&&_inlay.has==true) {
+                    hide();
+                    if (asyn == true) {
+                        _op.asyn = true;
+                        _op.data = [];
+                        _op.url = data;
+                    } else {
+                        _op.asyn = false;
+                        _op.data = data;
+                    }
+                    show();
                 }
-                show();
             }
 
             //-----------------------
             // reset 重置
             //-----------------------
             var reset = function(ops) {
-                destroy();
-                //合并参数
-                if (ops && typeof ops === 'object') {
-                    $.extend(_op, ops);
-                }
-                if (_op.target == "" || $(_op.target).length <= 0) {
-                    _inlay.state = false;
-                    console.log("重置失败");
-                    return false;
-                } else {
-                    _inlay.state = true;
-                    show();
+                if (_inlay.state == true&&_inlay.has==true) {
+                    destroy();
+                    //合并参数
+                    if (ops && typeof ops === 'object') {
+                        $.extend(_op, ops);
+                    }
+                    if (_op.target == "" || $(_op.target).length <= 0) {
+                        _inlay.state = false;
+                        console.log("重置失败");
+                        return false;
+                    } else {
+                        _inlay.state = true;
+                        show();
+                    }
                 }
             }
 
@@ -870,17 +867,17 @@ define(function(require, exports, module) {
             // hide 关闭
             //-----------------------
             var hide = function() {
-                if (_inlay.state == false) {
-                    alert("no tree");
-                    return false;
+                if (_inlay.state == true&&_inlay.has==true) {
+                    try {
+                        _inlay.dom.off("click", "p");
+                        _inlay.dom.off("click", ".mss-tree-check");
+                        _inlay.dom.empty();
+                        _inlay.dom.remove();
+                    } catch (ex) {}
+                    _inlay.curdom = ""; //当前结构
+                    _inlay.radio = ""; //单选状态当前选择点
+                    _inlay.check = []; //多选状态当前选择点
                 }
-                _inlay.dom.off("click", "p");
-                _inlay.dom.off("click", ".mss-tree-check");
-                _inlay.dom.empty();
-                _inlay.dom.remove();
-                _inlay.curdom = ""; //当前结构
-                _inlay.radio = ""; //单选状态当前选择点
-                _inlay.check = []; //多选状态当前选择点
             }
 
             //-----------------------
@@ -888,16 +885,18 @@ define(function(require, exports, module) {
             //-----------------------
             var destroy = function(data, index) {
                 if (_inlay.state == true) {
-
-                    _inlay.dom.off("click", "p");
-                    _inlay.dom.off("click", ".mss-tree-check");
-                    _inlay.dom.empty();
-                    _inlay.dom.remove();
+                    try {
+                        _inlay.dom.off("click", "p");
+                        _inlay.dom.off("click", ".mss-tree-check");
+                        _inlay.dom.empty();
+                        _inlay.dom.remove();
+                    } catch (ex) {}
                     _inlay.dom = "";
                     _inlay.curdom = ""; //当前结构
                     _inlay.radio = ""; //单选状态当前选择点
                     _inlay.check = []; //多选状态当前选择点
                     _inlay.state = false;
+                    _inlay.has = false;
                 }
             }
             //-----------------------

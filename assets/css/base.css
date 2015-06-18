@@ -156,52 +156,72 @@ body .fn-nop {
 /* 简单的渐变 */
 
 .fn-linear {
+    background: #f1f1f1;
     background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#f1f1f1));
     background: -moz-linear-gradient(top, #fcfcfc, #f1f1f1);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f1f1f1');
     background: -o-linear-gradient(top, #fcfcfc, #f1f1f1);
     background: -ms-linear-gradient(top, #fcfcfc, #f1f1f1);
     background: linear-gradient(to bottom, #fcfcfc, #f1f1f1);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f1f1f1');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = '#fcfcfc', 
+endColorstr='#f1f1f1')"; 
+
 }
 /* 浅色的渐变 */
 
 .fn-linear-light {
+    background: #f9f9f9;
     background: -webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#f9f9f9));
     background: -moz-linear-gradient(top, #fcfcfc, #f9f9f9);
-    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f9f9f9');
     background: -o-linear-gradient(top, #fcfcfc, #f9f9f9);
     background: -ms-linear-gradient(top, #fcfcfc, #f9f9f9);
     background: linear-gradient(to bottom, #fcfcfc, #f9f9f9);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f9f9f9');
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = '#fcfcfc', 
+endColorstr='#f9f9f9')"; 
+
 }
 /* 淡蓝的渐变 */
 
 .fn-linear-lightblue {
+    background: #f2f2f2;
     background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f2f2f2));
     background: -moz-linear-gradient(top, #f8f8f8, #f2f2f2);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f8f8f8', endColorstr='#f2f2f2');
     background: -o-linear-gradient(top, #f8f8f8, #f2f2f2);
     background: -ms-linear-gradient(top, #f8f8f8, #f2f2f2);
     background: linear-gradient(to bottom, #f8f8f8, #f2f2f2);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = '#f8f8f8', 
+endColorstr='#f2f2f2')"; 
+
 }
 /* 蓝色的渐变 */
 
 .fn-linear-blue {
+    background: #27a7cd;
     background: -webkit-gradient(linear, left top, left bottom, from(#79daf7), to(#27a7cd));
     background: -moz-linear-gradient(top, #79daf7, #27a7cd);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#79daf7', endColorstr='#27a7cd');
     background: -o-linear-gradient(top, #79daf7, #27a7cd);
     background: -ms-linear-gradient(top, #79daf7, #27a7cd);
     background: linear-gradient(to bottom, #79daf7, #27a7cd);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = '#79daf7', 
+endColorstr='#27a7cd')"; 
+
 }
 /* 橙色的渐变 */
 
 .fn-linear-orange {
+    background: #c37910;
     background: -webkit-gradient(linear, left top, left bottom, from(#f8b659), to(#c37910));
     background: -moz-linear-gradient(top, #f8b659, #c37910);
     filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#f8b659', endColorstr='#c37910');
     background: -o-linear-gradient(top, #f8b659, #c37910);
     background: -ms-linear-gradient(top, #f8b659, #c37910);
     background: linear-gradient(to bottom, #f8b659, #c37910);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient( GradientType = 0,startColorstr = '#f8b659', 
+endColorstr='#c37910')"; 
+
 }
 /**********************
  * 背景色 bg

@@ -83,8 +83,9 @@ define(function(require, exports, module) {
             //---------------------
             var _inlay = {
                 state: false,
-                dom: "",
-                submit: ""
+                succee: 0,
+                failure: 0,
+                submit: true
 
             }
 
@@ -111,8 +112,6 @@ define(function(require, exports, module) {
                     }
                 }
                 _inlay.state = true;
-                _inlay.dom = $(_op.target);
-                _inlay.submit = $(_op.submit);
             }
 
             //-----------------------
@@ -124,15 +123,11 @@ define(function(require, exports, module) {
                     _addEvent(_op.node[i]);
                 }
                 if (_op.submit.btn) {
-                    $(_op.submit.btn).click(function() {
-                        var results = true;
-                        if (results == true) {
-                            if (_op.submit.asyn == true) {
-                                //console.log($("form").serializeArray());//输出表单值
-                                _op.submit.callback($(this).closest("form").serializeArray());
-                            } else {
-                                $(this).closest("form").submit();
-                            }
+                    var el = _getel(_op.submit.btn);
+                    el.click(function() {
+                        if (_inlay.submit == true) {
+                            _inlay.submit = false;
+                            _global();
                         }
                         return false;
                     })
@@ -144,11 +139,9 @@ define(function(require, exports, module) {
             //-----------------------
             var _addEvent = function(op) {
                 //当前元素
-                var el = "";
-                if (op.el) {
-                    el = $(op.el).length > 0 ? $(op.el) : "";
-                }
+                var el = _getel(op.el);
                 //判断触发方式
+                //console.log(op); //debug--当前
                 //console.log(el[0].type); //debug--当前类型
                 var trigger = "change";
                 if (op.trigger == true) {
@@ -165,19 +158,7 @@ define(function(require, exports, module) {
                 //console.log(trigger); //debug--输出监控事件
                 el.on(trigger, function() {
                     //根据类型判断如何取值
-                    var $val = "";
-                    if (el[0].type == "text" || el[0].type == "textarea" || el[0].type == "select-one") {
-                        $val = el.val();
-                    } else if (el[0].type == "radio") {
-                        $val = $(op.el + ":checked").val();
-                    } else if (el[0].type == "checkbox") {
-                        $val = [];
-                        $(op.el + ":checked").each(function() {
-                            $val.push($(this).val());
-                        })
-                    } else {
-                        $val = el.val();
-                    }
+                    var $val = _getval(el);
                     if (op.join && op.join.length > 0) {
                         if (op.join[1] == true) {
                             $val = $(op.join[0]).val() + op.join[2] + $val;
@@ -185,14 +166,14 @@ define(function(require, exports, module) {
                             $val = $val + op.join[2] + $(op.join[0]).val();
                         }
                     }
-                    _rules(op, $val);
+                    _rules(op, $val, false);
                 })
             }
 
             //-----------------------
             // _rules 验证规则
             //-----------------------
-            var _rules = function(op, val) {
+            var _rules = function(op, val, back) {
                 var isTrue = true;
                 var erroringo = [];
                 if (op.required && op.required == true) {
@@ -339,22 +320,32 @@ define(function(require, exports, module) {
                         success: function(data) {
                             if (data == true || data == "true") {
                                 _callback(op, isTrue, erroringo);
+                                if (back == true) {
+                                    _syntony(Number(isTrue));
+                                }
                             } else {
                                 isTrue = false;
                                 erroringo.push(_messages["remote"]);
-
                                 _callback(op, isTrue, erroringo);
+                                if (back == true) {
+                                    _syntony(Number(isTrue));
+                                }
                             }
                         },
                         error: function() {
                             isTrue = false;
                             erroringo.push(_messages["remote"]);
-
                             _callback(op, isTrue, erroringo);
+                            if (back == true) {
+                                _syntony(Number(isTrue));
+                            }
                         }
                     });
                 } else {
                     _callback(op, isTrue, erroringo);
+                    if (back == true) {
+                        _syntony(Number(isTrue));
+                    }
                 }
 
             }
@@ -504,7 +495,6 @@ define(function(require, exports, module) {
                     default:
                         break;
                 }
-                return true;
             }
 
             //-----------------------
@@ -512,7 +502,14 @@ define(function(require, exports, module) {
             //-----------------------
             var _callback = function(op, fn, info) {
                 //根据location判定出信息安排位置
-                var $this = $(op.el);
+                var $this = op.el;
+                if (typeof(op.el) == "string") {
+                    $this = $(op.el);
+                } else {
+                    $this = op.el;
+                }
+                var $cur = $this;
+
                 if (op.location && typeof(op.location) == "function") {
                     $this = op.location.apply($this);
                     //console.log($this); //输出当前对象
@@ -536,18 +533,110 @@ define(function(require, exports, module) {
                     $this.append("<p class=\"mss-form-tip " + color + "\"><i class=\"" + ico + "\"></i>" + txt + "</p>");
                 }
 
-
-
-
                 //console.log(op);//输出对象
                 //console.log(fn);//输出判定
                 if (fn == true) {
                     if (typeof(op.success) == "function") {
-                        op.success($(op.el));
+                        op.success($cur);
                     }
                 } else {
                     if (typeof(op.error) == "function") {
-                        op.error($(op.el));
+                        op.error($cur);
+                    }
+                }
+                return fn;
+            }
+
+            //-----------------------
+            // _global 全局过滤
+            //-----------------------
+            var _global = function() {
+                for (var i = 0; i < _op.node.length; i++) {
+                    var el = _getel(_op.node[i].el);
+                    var $val = _getval(el);
+
+                    if (_op.node[i].join && _op.node[i].join.length > 0) {
+                        if (_op.node[i].join[1] == true) {
+                            $val = $(_op.node[i].join[0]).val() + _op.node[i].join[2] + $val;
+                        } else {
+                            $val = $val + _op.node[i].join[2] + $(_op.node[i].join[0]).val();
+                        }
+                    }
+
+                    //console.log(_op.node[i]);
+                    //console.log($val);
+                    var getresults = _rules(_op.node[i], $val, true);
+                }
+            }
+
+            //-----------------------
+            // _getel 获取对象
+            //-----------------------
+            var _getel = function(el) {
+                var $el = "";
+                if (typeof(el) == "string") {
+                    $el = $(el).length > 0 ? $(el) : "";
+                } else {
+                    $el = el;
+                }
+                return $el;
+            }
+
+            //-----------------------
+            // _getval 获取值
+            //----------------------- 
+            var _getval = function(el) {
+                var $val = "";
+                if (el[0].type == "text" || el[0].type == "textarea" || el[0].type == "select-one") {
+                    $val = el.val();
+                } else if (el[0].type == "radio") {
+                    el.each(function() {
+                        if ($(this).is(":checked")) {
+                            $val = $(this).val();
+                        }
+                    })
+                    //console.log($val);
+                } else if (el[0].type == "checkbox") {
+                    $val = [];
+                    el.each(function() {
+                        if ($(this).is(":checked")) {
+                            $val.push($(this).val());
+                        }
+                    })
+                    //console.log($val);
+                } else {
+                    $val = el.val();
+                }
+                return $val;
+            }
+
+            //-----------------------
+            // _syntony 全局回调
+            //-----------------------
+            var _syntony = function(i) {
+                _inlay.succee = _inlay.succee + i;
+                if (i == 0) {
+                    _inlay.failure++;
+                }
+                console.log(_inlay.succee);
+                console.log(_inlay.failure);
+                console.log(_op.node.length);
+                if (_inlay.succee + _inlay.failure == _op.node.length) {
+                    _inlay.submit = true;
+                    if (_inlay.failure > 0) {
+                        _inlay.succee = 0;
+                        _inlay.failure = 0;
+                        return false;
+                    } else {
+                        _inlay.succee = 0;
+                        _inlay.failure = 0;
+                        var el = _getel(_op.submit.btn);
+                        if (_op.submit.asyn == true) {
+                            //console.log($("form").serializeArray());//输出表单值
+                            _op.submit.callback(el.closest("form").serializeArray());
+                        } else {
+                            el.closest("form").submit();
+                        }
                     }
                 }
             }

@@ -36,6 +36,7 @@ define(function(require, exports, module) {
 
             var _inlay = {
                 state: false, //状态
+                has: false,
                 box: "", //容器
                 dom: "", //整体DOM结构层
                 thead: "", //头部
@@ -103,12 +104,14 @@ define(function(require, exports, module) {
                 }
             }
 
-
-
             //---------------------
             // apply 显示
             //---------------------
             var apply = function() {
+                if (_inlay.has == true) {
+                    alert("表格已经建立");
+                    return false;
+                }
                 if (_inlay.state == false) {
                     alert("表格未初始化或已销毁");
                     return false;
@@ -133,8 +136,8 @@ define(function(require, exports, module) {
                     _theadrest();
                     _getShow();
                 }
+                _inlay.has = true;
             }
-
 
             //---------------------
             // _getThead thead区
@@ -528,24 +531,22 @@ define(function(require, exports, module) {
                 }
             }
 
-
             //-----------------------
             // getPage 获取页码
             //-----------------------
             var getPage = function() {
-                if (_inlay.state == true) {
+                if (_inlay.state == true && _inlay.dom != "") {
                     return _op.data.page;
                 } else {
                     alert("表格未初始化或者已被销毁");
                 }
             }
 
-
             //-----------------------
             // getCurrent 获取当前页面数量
             //-----------------------
             var getCurrent = function() {
-                if (_inlay.state == true) {
+                if (_inlay.state == true && _inlay.dom != "") {
                     return _op.data.data.length;
                 } else {
                     alert("表格未初始化或者已被销毁");
@@ -555,7 +556,7 @@ define(function(require, exports, module) {
             // getTotal 获取总数
             //-----------------------
             var getTotal = function() {
-                if (_inlay.state == true) {
+                if (_inlay.state == true && _inlay.dom != "") {
                     return _op.data.total;
                 } else {
                     alert("表格未初始化或者已被销毁");
@@ -565,7 +566,7 @@ define(function(require, exports, module) {
             // getPageSize 获取单页数
             //-----------------------
             var getPageSize = function() {
-                if (_inlay.state == true) {
+                if (_inlay.state == true && _inlay.dom != "") {
                     return _op.data.pageSize;
                 } else {
                     alert("表格未初始化或者已被销毁");
@@ -576,7 +577,7 @@ define(function(require, exports, module) {
             // getTable 获取表格
             //-----------------------
             var getTable = function() {
-                if (_inlay.state == true) {
+                if (_inlay.state == true && _inlay.dom != "") {
                     return $("#" + tableid);
                 } else {
                     alert("表格未初始化或者已被销毁");
@@ -596,17 +597,17 @@ define(function(require, exports, module) {
             // hide 关闭
             //-----------------------
             var hide = function() {
-                if (_inlay.state == true) {
+                if (_inlay.state == true && _inlay.dom != "") {
                     _inlay.dom.hide();
                 } else {
                     alert("表格未初始化或者已被销毁");
                 }
             }
-//-----------------------
+            //-----------------------
             // show 显示
             //-----------------------
             var show = function() {
-                if (_inlay.state == true) {
+                if (_inlay.state == true && _inlay.dom != "") {
                     _inlay.dom.show();
                 } else {
                     alert("表格未初始化或者已被销毁");
@@ -617,7 +618,7 @@ define(function(require, exports, module) {
             // get 回去选中数据
             //-----------------------
             var get = function() {
-                if (_inlay.state == true) {
+                if (_inlay.state == true && _inlay.dom != "") {
                     if (_op.check == true) {
                         if (_op.multi == true) {
                             var back = [];
@@ -625,7 +626,7 @@ define(function(require, exports, module) {
                                 back.push(_op.data.data[parseInt($(this).val())]);
                             })
                             return back;
-                        }else {
+                        } else {
                             var checkedObj = $("input:radio[name='" + Identification + "']:checked").val();
                             return _op.data.data[parseInt(checkedObj)];
                         }
@@ -640,7 +641,7 @@ define(function(require, exports, module) {
             // refresh 刷新
             //-----------------------
             var refresh = function() {
-                if (_inlay.state == true) {
+                if (_inlay.state == true && _inlay.dom != "") {
                     _getShow();
                 } else {
                     alert("表格未初始化或者已被销毁");
@@ -652,8 +653,17 @@ define(function(require, exports, module) {
             // destroy 销毁
             //-----------------------
             var destroy = function() {
-                _inlay.state = false;
-                _inlay.dom.remove();
+                //_inlay.state = false;
+                if (_inlay.dom != "") {
+                    _inlay.dom.remove();
+                }
+                _inlay.has = false;
+                _inlay.dom = ""; //整体DOM结构层
+                _inlay.thead = ""; //头部
+                _inlay.tbody = ""; //数据区
+                _inlay.tfoot = ""; //尾部
+                _inlay.radio = ""; //单选状态当前选择点
+                _inlay.check = []; //多选状态当前选择点
             }
 
 

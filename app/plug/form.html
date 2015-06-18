@@ -287,7 +287,10 @@
                     }, //信息位置
                     required: true, //必须验证
                     trigger: true, //触发方式，如果为空就为blur
-                    remote: "../../../json/validate.json"
+                    remote: "../../../json/validate.json",
+                    success:function(a){
+                    //console.log(a)
+                    }
                 }, {
                     el: "#selectdemo", //验证元素
                     location: function() {
@@ -325,7 +328,7 @@
                 }],
                 submit: {
                     btn: "#beginstn",
-                    asyn: true,
+                    asyn: false,
                     callback: function(data) {
                         alert(data)
                     }

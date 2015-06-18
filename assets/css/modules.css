@@ -481,7 +481,7 @@ h6 small,
     background-color: #f6f6f6;
     border: 1px solid #ccc;
     padding: 0px 5px;
-    cursor:pointer;
+    cursor: pointer;
 }
 .mss-paging-prev:hover,
 .mss-paging-next:hover,
@@ -503,7 +503,7 @@ h6 small,
     padding: 0 9px;
     height: 22px;
     line-height: 22px;
-    cursor:pointer;
+    cursor: pointer;
 }
 .mss-paging a.mss-paging-item:hover {
     background-color: #cecece;
@@ -1606,6 +1606,29 @@ h6 small,
 .mss-form-container-box {
     margin-left: 85px;
 }
+/*横向*/
+
+.mss-form-cross {
+    width: auto;
+    height: auto;
+    float: left;
+    margin: 5px 0;
+}
+.mss-form-cross .mss-form-leftname {
+    float: left;
+    margin-right: 0;
+    position: relative;
+    text-align: left;
+    line-height: 22px;
+    height: 22px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mss-form-cross .mss-form-container-box {
+    margin-left: 0;
+}
 /*纯文本*/
 
 .mss-form-text {
@@ -2046,4 +2069,42 @@ h6 small,
     -webkit-border-radius: 3px;
     -o-border-radius: 3px;
     -ms-border-radius: 3px;
+}
+/**********************
+ * 编辑器  mss-edit
+ **********************/
+
+.mss-edit {
+    border: 1px solid #ccc;
+    position: relative;
+    overflow: hidden;
+}
+.mss-edit-toolbar {
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    -webkit-box-shadow: 0 0 3px #dadada;
+    -moz-box-shadow: 0 0 3px #dadada;
+    box-shadow: 0 0 3px #dadada;
+    *zoom: 1;
+}
+.mss-edit-toolbar:after {
+    display: block;
+    clear: both;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    content: ".";
+}
+.mss-edit-content {
+    padding: 5px;
+}
+.mss-edit-item {
+    width: auto;
+    height: 18px;
+    line-height: 18px;
+    margin: 5px;
+    border:none;
+    background:none;
+    cursor: pointer;
+    float: left
 }

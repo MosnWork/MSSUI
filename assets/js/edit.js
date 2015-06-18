@@ -141,9 +141,44 @@ define(function(require, exports, module) {
                     _inlay.range.moveEnd("character", 0 - _inlay.range.text.length);
                     _inlay.range.select();
                 } else {
-                    _inlay.range.setStart(_inlay.range.startContainer,_inlay.range.startOffset);
+                    _inlay.range.setStart(_inlay.range.startContainer, _inlay.range.startOffset);
                 }
             }
+
+
+
+
+
+
+            //存储之前光标位置信息的对象 
+            var ieSelectionBookMark = null;
+            //保存当前光标的位置 
+            function SaveCusorPos() {
+                //编辑器获取焦点 
+                var wobj = document.getElementById("myiframe").contentWindow;
+                wobj.focus();
+                if (document.selection) {
+                    //获取当前光标的位置
+                    var rangeObj = wobj.document.selection.createRange();
+                    ieSelectionBookMark = rangeObj.getBookmark();
+                }
+            }
+            //把光标还原到之前保存的位置
+            function SetCusorPos() {
+                //编辑器获取焦点
+                var wobj = document.getElementById("myiframe").contentWindow;
+                wobj.focus();
+                if (ieSelectionBookMark) {
+                    //还原光标的位置
+                    var rangeObj = wobj.document.selection.createRange();
+                    rangeObj.moveToBookmark(ieSelectionBookMark);
+                    rangeObj.select();
+                    ieSelectionBookMark = null;
+                }
+            }
+
+
+
 
 
             //-----------------------

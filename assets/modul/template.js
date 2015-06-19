@@ -1,4 +1,5 @@
 define(function(require, exports, module) {
+
     /**
      * 模板引擎
      * @name    template
@@ -12,10 +13,6 @@ define(function(require, exports, module) {
         }) : renderFile(filename, content);
     };
 
-
-    template.version = '3.0.0';
-
-
     /**
      * 设置全局配置
      * @name    template.config
@@ -26,8 +23,6 @@ define(function(require, exports, module) {
         defaults[name] = value;
     };
 
-
-
     var defaults = template.defaults = {
         openTag: '<%', // 逻辑语法开始标签
         closeTag: '%>', // 逻辑语法结束标签
@@ -37,9 +32,7 @@ define(function(require, exports, module) {
         parser: null // 自定义语法格式器 @see: template-syntax.js
     };
 
-
     var cacheStore = template.cache = {};
-
 
     /**
      * 渲染模板
@@ -51,7 +44,6 @@ define(function(require, exports, module) {
     template.render = function(source, options) {
         return compile(source, options);
     };
-
 
     /**
      * 渲染模板(根据模板名)
@@ -68,7 +60,6 @@ define(function(require, exports, module) {
         });
         return data ? fn(data) : fn;
     };
-
 
     /**
      * 获取编译缓存（可由外部重写此方法）
@@ -185,7 +176,7 @@ define(function(require, exports, module) {
 
 
     /**
-     * 模板错误事件（可由外部重写此方法）
+     * 模板错误事件
      * @name    template.onerror
      * @event
      */
@@ -690,6 +681,6 @@ define(function(require, exports, module) {
 
 
     return {
-        template: template
+        create: template
     }
 });

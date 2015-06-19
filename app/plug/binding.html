@@ -41,7 +41,7 @@
         <div class="fluid-row ">
             <div class="column16">
                 <div class="column-actual ">
-                    <h4>数据绑定<small>binding.js</small></h4>
+                    <h4>本功能暂时不做<small>binding.js</small></h4>
                 </div>
             </div>
         </div>
@@ -61,42 +61,83 @@
             <div class="column10">
                 <div class="column-actual">
                     <div class="fluid-row">
-                        <div class="column6">
+                        <div class="column16">
                             <div class="column-actual">
                                 <!--form可以替换为div-->
                                 <div class="mss-form" mss-mvc="demo">
                                     <div class="mss-form-item">
-                                        <div class="mss-form-leftname">数据1:</div>
+                                        <div class="mss-form-leftname">输入框:</div>
                                         <div class="mss-form-container">
                                             <div class="mss-form-container-box">
                                                 <div class="mss-form-box">
-                                                    <div class="mss-dropdown">
-                                            <div class="mss-dropdown-text">
-                                                <input class="mss-dropdown-input"  type="text" value="设置代扣" onfocus="this.blur()" readonly/>
-                                                <input class="mss-dropdown-val" mss-model="num" type="hidden" value="" id="asdas"/>
-                                                <i class="icon-angle-down" title="点击选择"></i>
-                                            </div>
-                                            <ul class="mss-dropdown-list">
-                                                <li class="mss-dropdown-list-item fn-text-overflow" mss-value="1">
-                                                    <span>标已缴</span>
-                                                </li>
-                                                <li class="mss-dropdown-list-item fn-text-overflow" mss-value="2">
-                                                    <span>标为已缴</span>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                                    <input mss-model="input" type="text" name="demo1" class="mss-form-input-txt" />
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mss-form-item">
-                                        <div class="mss-form-leftname">数据2:</div>
+                                        <div class="mss-form-leftname">组合:</div>
                                         <div class="mss-form-container">
                                             <div class="mss-form-container-box">
                                                 <div class="mss-form-box">
-                                                    <div class="mss-form-input-lefticon">
-                                                        <input type="text" value="" mss-model="num" class="mss-form-input-txt" />
-                                                    </div>
+                                                    <select name="sad" class="mss-form-input-select" mss-model="select">
+                                                        <option>平台类型</option>
+                                                        <option>平台类型</option>
+                                                        <option>平台类型</option>
+                                                        <option>平台类型</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mss-form-item">
+                                        <div class="mss-form-leftname">单选:</div>
+                                        <div class="mss-form-container">
+                                            <div class="mss-form-container-box">
+                                                <span class="mss-form-check" mss-model="radio">
+                                                    <label for="heckbox1">
+                                                        <input type="radio" value="1" name="heckbox3" id="heckbox1">无数据
+                                                    </label>
+                                                    <label for="heckbox2">
+                                                        <input type="radio" value="2" name="heckbox3" id="heckbox2">无数据
+                                                    </label>
+                                                    <label for="heckbox3">
+                                                        <input type="radio" value="3" name="heckbox3" id="heckbox3">无数据
+                                                    </label>
+                                                    <label for="heckbox4">
+                                                        <input type="radio" value="4" name="heckbox3" id="heckbox4">无数据
+                                                    </label>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mss-form-item">
+                                        <div class="mss-form-leftname">多选:</div>
+                                        <div class="mss-form-container">
+                                            <div class="mss-form-container-box">
+                                                <div class="mss-form-check" mss-model="checkbox">
+                                                    <label for="checkbox1">
+                                                        <input type="checkbox" value="1" name="checkboxhh" id="checkbox1">无数据
+                                                    </label>
+                                                    <label for="checkbox2">
+                                                        <input type="checkbox" value="2" name="checkboxhh" id="checkbox2">无数据
+                                                    </label>
+                                                    <label for="checkbox3">
+                                                        <input type="checkbox" value="3" name="checkboxhh" id="checkbox3">无数据
+                                                    </label>
+                                                    <label for="checkbox4">
+                                                        <input type="checkbox" value="4" name="checkboxhh" id="checkbox4">无数据
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mss-form-item">
+                                        <div class="mss-form-leftname">文本:</div>
+                                        <div class="mss-form-container">
+                                            <div class="mss-form-container-box">
+                                                <div class="mss-form-box">
+                                                    <textarea mss-model="textarea" class="mss-form-input-textarea" name="xcv">一二三四五六七八九十</textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -105,7 +146,7 @@
                                         <div class="mss-form-leftname">结果:</div>
                                         <div class="mss-form-container">
                                             <div class="mss-form-container-box">
-                                                <p class="mss-form-tip fn-cl-Green" mss-view="data*num">12</p>
+                                                <p class="mss-form-tip fn-cl-Green" mss-view="输入框：{{input}}；单选：{{radio}}">12</p>
                                             </div>
                                         </div>
                                     </div>
@@ -113,7 +154,7 @@
                                         <div class="mss-form-leftname">结果:</div>
                                         <div class="mss-form-container">
                                             <div class="mss-form-container-box">
-                                                <input type="button" value="sssss" id="asdasqwe" class="mss-form-input-txt" />
+                                                <button class="mss-button fn-mr10 fn-bg-Blue" id="asdasqwe">确认</button>
                                             </div>
                                         </div>
                                     </div>
@@ -126,21 +167,22 @@
         </div>
     </div>
     <!-- script start -->
-    <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
+    <script src="../../assets/js/require.js"></script>
+    <script src="../../assets/js/config.js"></script>
     <script>
         //页面初始化
         require(['jquery', 'binding'], function($, B) {
-            var model=new B.init("demo");
+            var model = new B.init({
+                name: "demo",
+                handle: function() {}
+            });
             model.create();
-            
-            
-            $("#asdasqwe").click(function(){
-            alert("sdasd");
-            alert($("#asdas").val());
+
+
+            $("#asdasqwe").click(function() {
+                alert($("#asdas").val());
             })
         });
-        
-        
     </script>
     <!-- script end -->
 </body>

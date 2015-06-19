@@ -22,29 +22,12 @@
     <p style="height:50px;"><a id='send'>发送一个信息</a>
     </p>
     <!-- script start -->
-    <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
+    <script src="../../assets/js/require.js" ></script>
+    <script src="../../assets/js/config.js"></script>
     <script type="text/javascript">
+
         require(['jquery'], function($) {
-            $("#open").click(function() {
-                //这里就是调用顶级父窗口打开页面的方法
-                top.iframe.openIframe({
-                    title: "打开一个新窗口",
-                    url: "app/Layout/D.html",
-                    key: "z12"
-                });
-            })
-            $("#close").click(function() {
-                //这里是关闭对应key的
-                top.iframe.closeIframe("z12");
-            })
-            $("#send").click(function() {
-                //这里是关闭对应key的
-                top.iframe.sendMsg({
-                    text: "我是发送的信息，我延迟关闭",
-                    location: "3",
-                    secs: 3
-                });
-            })
+
         });
     </script>
     <!-- script end -->

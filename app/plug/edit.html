@@ -80,12 +80,17 @@
         </div>
     </div>
     <!-- script start -->
-    <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
+    <script src="../../assets/js/require.js"></script>
+    <script src="../../assets/js/config.js"></script>
     <script>
         //页面初始化
         require(['jquery', 'edit'], function($, E) {
-            var edit=new E.init("#textareademo");
-            edit.create();
+            var eidt = E.init();
+            var um = eidt.bkLib.onDomLoaded(function() {
+                var myNicEditor = new eidt.nicEditor();
+                myNicEditor.panelInstance('textareademo');
+
+            });
         });
     </script>
     <!-- script end -->

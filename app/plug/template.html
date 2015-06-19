@@ -81,17 +81,18 @@
             {{/each}}
         </ul>
     </script>
-    <script src="../../assets/js/require.js" data-main="../../assets/js/config"></script>
+    <script src="../../assets/js/require.js" ></script>
+    <script src="../../assets/js/config.js"></script>
     <script>
         //页面初始化
-        require(['jquery', 'template'], function($, template) {
+        require(['jquery', 'template'], function($, T) {
             //替换数据-本地
             $("#tinit").click(function() {
                 var data = {
                     title: '标签',
                     list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
                 };
-                var html = template.template('test', data);
+                var html = T.create('test', data);
                 $('#gridtree').html(html);
             })
         });
